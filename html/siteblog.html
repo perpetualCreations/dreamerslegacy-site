@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1">
+        <meta name = "description" content = "News on latest projects and site maintainence.">
+        <meta name="keywords" content="perpetualCreations, dreamerslegacy, dreamer's legacy, dreamerslegacy.xyz">
+        <meta name = "author" content = "perpetualCreations">
+        <title>News</title>
+        <link rel = "preload" href = "/css/main.css" as="style">
+        <link rel = "preload" href = "/resources/background/20190824_091318_HDR_filtered.jpg" as="image">
+        <link rel = "preload" href = "/resources/thegridlogo.jpg" as="image">
+        <link rel = "preload" href = "/resources/github-calendar/github-calendar.min.js" as="script">
+        <link rel = "icon" href="/resources/homeIcon-favicon.ico">
+        <link rel = "stylesheet" type="text/css" href="/css/main.css">
+        <style>
+            * {
+ 				box-sizing: border-box;
+				}
+			.leftcolumn {   
+  				float: left;
+  				width: 60%;
+				}
+			.rightcolumn {
+  				float: right;
+  				width: 38%;
+  				padding-left: 5px;
+				}
+			@media screen and (max-width: 800px) {
+  			.leftcolumn, .rightcolumn {   
+    			width: 100%;
+    			padding: 0;
+  				}
+			}
+		</style>
+	</head>
+    <body>
+        <!-- 
+                                ░░░░░░░█▐▓▓░████▄▄▄█▀▄▓▓▓▌█░░
+                                ░░░░░▄█▌▀▄▓▓▄▄▄▄▀▀▀▄▓▓▓▓▓▌█░░ 
+                    wo          ░░░▄█▀▀▄▓█▓▓▓▓▓▓▓▓▓▓▓▓▀░▓▌█░░ 
+            much                ░░█▀▄▓▓▓███▓▓▓███▓▓▓▄░░▄▓▐█▌░ 
+                html            ░█▌▓▓▓▀▀▓▓▓▓███▓▓▓▓▓▓▓▄▀▓▓▐█░  
+                                ▐█▐██▐░▄▓▓▓▓▓▀▄░▀▓▓▓▓▓▓▓▓▓▌█▌ 
+                                █▌███▓▓▓▓▓▓▓▓▐░░▄▓▓███▓▓▓▄▀▐█ 
+        wth dis                 █▐█▓▀░░▀▓▓▓▓▓▓▓▓▓██████▓▓▓▓▐█ 
+                                ▌▓▄▌▀░▀░▐▀█▄▓▓██████████▓▓▓▌█▌
+                so style        ▌▓▓▓▄▄▀▀▓▓▓▀▓▓▓▓▓▓▓▓█▓█▓█▓▓▌█▌
+                                █▐▓▓▓▓▓▓▄▄▄▓▓▓▓▓▓█▓█▓█▓█▓▓▓▌█▌     
+        -->
+        <div class = "topnav">
+            <a href = "/index.html">Home</a>
+            <a class = "active" href = "/html/siteblog.html">Updates</a>
+            <a href = "/html/about.html">About</a>
+        </div>
+        <div class = "header">
+            <h1>Updates</h1>
+            <p><i>just keep on pressing reload.</i></p>
+        </div>
+        <div class = "row">
+            <div class = "rightcolumn">
+                <div class = "card">
+                    <h2>About</h2>
+                    <a target = "_self" href = "/html/about.html" class = "button">About</a>
+                </div>
+                <div class = "card">
+                    <h2>Activity</h2>
+                    <!-- I'm leaving all of the guide comments in here because I feel like I'll wonder what everything does. Don't delete them. -->
+                    <!-- Include the library. -->
+                    <script src="/resources/github-calendar/github-calendar.min.js"></script>
+                    <!-- Optionally, include the theme (if you don't want to struggle to write the CSS) -->
+                    <link rel="stylesheet" href="/resources/github-calendar/github-calendar-responsive.css">
+                    <!-- Prepare a container for your calendar. -->
+                    <div class="calendar">
+                        <!-- Loading stuff -->
+                        Loading... please wait warmly.
+                    </div>
+                    <script>
+                        GitHubCalendar(".calendar", "perpetualCreations", { responsive: true });
+                    </script>
+                </div>
+            </div>
+            <div class = "leftcolumn">
+                <div class = "card">
+                    <h2>Update 1.10a</h2>
+                    <p>Project Update + Site Update, December 3rd, 2020</p>
+                    <h3>Raspbot</h3>
+                    <p>Wiring is being redone, it seems the MOSFET drain/source pins were mixed. The board and relay have been uninstalled from the chassis interior.</p>
+                    <h3>Site Updates</h3>
+                    <p>Site meta tags across 20 pages have been changed. Documentation and other pages have been reviewed and revised, including a few typo fixes.</p>
+                    <p>The Github source repository is going public again soon, the original repository is now designated perpetualCreations/dreamerslegacy-site-sensitive. This brings an end to the several-year-old repository, surprisingly with only 60 or so commits. The new source repository no longer contains any sensitive commits.</p>
+                </div>
+                <div class = "card">
+                    <h2>Update 1.10</h2>
+                    <p>Project Update + Site Update, November 22nd, 2020</p>
+                    <h3>Raspbot</h3>
+                    <p>The voltage sensing software did not function correctly, and spewed random numbers.</p>
+                    <p>Motor control and power distribution control similarly failed, however these are likely due to poor solder joints.</p>
+                    <p>Tests for continuity and health of components will begin to resolve these issues.</p>
+                    <h3>SCHEMA</h3>
+                    <p>SCHEMA is now a dedicated project.</p>
+                    <p>Featuring Markdown-to-HTML conversion, with upcoming support for most syntax including:</p>
+                    <ul>
+                        <li>Headers (1-6, including those rendered from "===" and "---" trails.</li>
+                        <li>Paragraph Text (and linebreaks, including from 2 trailing whitespace)</li>
+                        <li>Images</li>
+                        <li>Links</li>
+                        <li>Block Quotes</li>
+                        <li>Code Quotes</li>
+                        <li>Lists</li>
+                        <li>Bold and Italicize</li>
+                        <li>Strikethrough</li>
+                    </ul>
+                    <p>...And additional parameters that can be specified for automatic formatting and other options.</p>
+                    <p>The SCHEMA stylesheet now supports block quotes, to uphold syntax conversion.</p>
+                    <h3>Site Updates</h3>
+                    <p>Inbetween Update 1.9 to Update 1.10, the SCHEMA project has been added to the projects list.</p>
+                    <p>The Content Security Policy has been fixed to work correctly.</p>
+                </div>
+                <div class = "card">
+                    <h2>Update 1.9</h2>
+                    <p>Project Update + Site Update, November 4th, 2020</p>
+                    <h3>Raspbot</h3>
+                    <p>The charger interface has been installed. The connectors have male-and-female ends, never male-and-male or female-and-female. This is to prevent operators from reversing the polarity, and killing the electronics.</p>
+                    <p>Currently, a mounting plate is being designed and printed for interfacing the Raspi with the mid mount. Work is also beginning on installing the navigation camera. Afterwards, another mount will be designed and printed for the Robotic Arm Kit (RAK), PWM pins have already been reserved for controlling the arm servos.</p>
+                    <h3>SWBS</h3>
+                    <p>Package testing complete, and the documentation written, with examples. The package is now live, and distributed on both Github and PyPI.</p>
+                    <p>This project was released on November 2nd. Since then an HTML version of the documentation has been made, which has been revised.</p>
+                    <h3>Site Updates</h3>
+                    <p>The Github contributions calendar works again, the issue according to more knowledgable maintainers was Github updating how colors are rendered, and also API parsing.</p>
+                    <p>Stylesheets have received updates, for supporting code quotes and badges. These features often used in project documentation, written in Markdown, and now can properly be transferred. Font changes have been introduced to SCHEMA.</p>
+                </div>        
+                <div class = "card">
+                    <h2>Update 1.8a</h2>
+                    <p>Project Update + Site Update, November 1st, 2020</p>
+                    <h3>Raspbot</h3>
+                    <p>Voltage sensor installed. Currently installing the external power supply. It supplies the Raspi with 5V2ADC when the battery is charging (no load can be given to the lithium-polymer battery while it is charging, this means the system requires another power source during charging). Testing will start in a few days.</p>
+                    <h3>SWBS</h3>
+                    <p>The package is in the testing phase, currently fixing some unexpected behavior with string to byte-string conversion. There has already been 10 or so issues caught during testing, well worth the time.</p>
+                    <h3>Site Updates</h3>
+                    <p>Semi-major rework. The main and SCHEMA (the minimal, monochrome style used for project docs) stylesheets now support project icons and badges globally. ABL and SWBS have received project icons, and ABL has its own documentation now. Raspbot received updates to its documentation and gallery, with more media coming.</p>
+                    <p>Old content has been disallowed from being indexed, and page content that was originally commented out, removed.</p>
+                </div>
+                <div class = "card">
+                    <h2>Update 1.8</h2>
+                    <p>Project Update + Site Update, October 29th, 2020</p>
+                    <h3>Raspbot</h3>
+                    <p>Wiring in progress for Raspbot, after sanding the top surface of the chassis and assembling mounting parts. The MOSFET IC toggling motor power has been soldered, along with the L7805 IC converting battery voltage to 5V.</p>
+                    <p>It will take the rest of the week to finish soldering all components, cable managing them, and writing control software for managing power.</p>
+                    <p>Thankfully, this process should be straightforward.</p>
+                    <h3>Depthseeker</h3>
+                    <p>Project has abrubtly ended. Unfortunately the amount of work to "fingerprint" malicious requests was insurmountably great. I could write a script to automatically harvest and process access log requests, however this seems not very feasible, nor worth it considering there are better open-source solutions, such as Fail2Ban.</p>
+                    <p>However, the modules written for the project can be reused in other work. Not all is wasted.</p>
+                    <h3>deargodpleaseno</h3>
+                    <p>Ever wanted to host a webpage or file for a few days or hours, before it is deleted and wiped off the internet?</p> 
+                    <p>deargodpleaseno is the manifestation of the obsessive will of the Python programmer to automate everything.</p>
+                    <p>Available as a Debian package, you can download and install deargodpleaseno on your Apache web server.</p>
+                    <p>Upon installation, a new folder will be created in the webroot, literally called "deargodpleaseno" however is configurable. Temporary files go here.</p>
+                    <p>Over CLI, you can request a list of temporary files, set the time and date of expiration, and see who has requested the resource.</p>
+                    <p>Additionally, deargodpleaseno disallows access of the temporary files through user-agent rules. Anything inside the directory (assuming the crawler follows user-agent rules), should not be indexed by search engines.</p>
+                    <h3>SWBS</h3>
+                    <p>Python package that serves as a socket wrapper, with Salsa20 encryption. Sends and receives byte strings.</p>
+                    <p>This is a module ripped out of Raspbot's codebase, with modifications to support a wider range of applications.</p>
+                    <p>More Raspbot modules will branch off into separate projects, once I've decided they've grown enough in features and robustness.</p>
+                    <h3>Site Updates</h3>
+                    <p>The widget used for showing my Github contribution statistics as detailed <a href = "https://github.com/Bloggify/github-calendar/issues/120" target = "_blank">here</a> is in need of a fix. For now, it will remain a grid of black boxes. It seems the front-end has some issues displaying colors, the back-end works just fine.</p>
+                    <p>Updtes also will now have a header title detailing each section, and paragraph text being the main content.</p>
+                </div>
+                <div class = "card">
+                    <h2>Update 1.7b</h2>
+                    <p>Project Update + Site Update, October 11th, 2020</p>
+                    <p>Raspbot components finished printing, currently being assembled, quadrants 1 and 4 have already been assembled to the base, with the Arduino Uno mounted.</p>
+                    <p>The project card for Depthseeker has its links re-enabled.</p>
+                    <p>The repo for this site has been made private, security through obscurity. The web server's host network is being reconfigured, with a new router.</p>
+                    <h3>Addendum 1:</h3>
+                    <p>Changes were made to site header configuration, these include Strict Transport Security (forces users onto HTTPS instead of HTTP) and various changes to prevent XSS attacks, along with a few other additions and changes.</p> 
+                    <p>In addition to header changes, the site's SSL configuration now supports forward secrecy. Overall, this should improve security.</p>
+                    <p>However some changes also broke webpages, fixes are in-progress.</p>
+                    <h3>Addendum 2:</h3>
+                    <p>Added exceptions to header rules, font and styling are no longer blocked. Site is rendering properly again.</p>
+                </div>
+            </div>
+            <div class = "leftcolumn">
+                <div class = "card">
+                    <h2>Update 1.7a</h2>
+                    <p>Project Update + Site Update, October 6th, 2020</p>
+                    <p>Repeated BLTouch failures, Raspbot chassis still in production.</p>
+                    <p>Site now has a new icon, it will also show up in various projects, in schematics and documentation.</p>
+                    <img src = "/resources/thegridlogo.jpg" alt = "yay new logo thingy here" style = "height: 10%; width: 10%;">
+                </div>
+            </div>
+            <div class = "leftcolumn">
+                <div class = "card">
+                    <h2>Update 1.7</h2>
+                    <p>Project Update + Site Update, October 4th, 2020</p>
+                    <p>Raspbot chassis quadrants 1 and 4 are being reprinted due to structural failure. Quadrant 1 has already finished printing.</p>
+                    <p>Raspbot documentation has been updated, with a new custom CSS theme, Schema. Graphics and transitions will be applied soon. Elsewhere, improvements to site CSS have been made as well, removing repeating statements, adding preloading and other optimizations, and condensing everything into the main stylesheet. This should improve the rate of upkeep and a slight performance boost.</p>
+                    <p>I think it's noteworthy that it's almost been a year since Raspbot has been started, yet it's still only 3/4ths of the way done. That says a lot about my ability to develop things, right? Let's hope the next project goes as fast as possible.</p>
+                </div>
+            </div>
+            <div class = "leftcolumn">
+                <div class = "card">
+                    <h2>Update 1.6c</h2>
+                    <p>Project Update + Site Update, September 28th, 2020</p>
+                    <p>All parts printed, and cleaned, for Raspbot. Assembly in progress!</p>
+                    <p>Depthseeker is past half-way done, and added AnalyticalBlackLight, a new, finished project has been added as well, that was worked on while I waited for new filament to arrive. Both projects are now visible on the project listings.</p>
+                </div>
+            </div>
+            <div class = "leftcolumn">
+                <div class = "card">
+                    <h2>Update 1.6b</h2>
+                    <p>Project Update + Site Update, September 10th, 2020</p>
+                    <p>Raspbot has 3 remaining components to print. Software development for Raspbot has been halted, until hardware assembly is complete.</p>
+                    <p>InternetOfS*** is waiting for sample data, to test its new modularized CSV handling.</p>
+                    <p>Two projects have been hidden, one renamed to Depthseeker, with any reference to the old name replaced.</p>
+                </div>
+            </div>
+            <div class = "leftcolumn">
+                <div class = "card">
+                    <h2>Update 1.6a</h2>
+                    <p>Project Update + Site Update, September 7th, 2020</p>
+                    <p>The last patchwork for the comms module marked the end of cleanup for Raspbot RCA, socket communications now work correctly as intended. With this, new modules are now being added, with the recent introduction of the camera feed using <a href = "https://github.com/jeffbase/imagezmq" target = '_blank'>ImageZMQ.</a></p>
+                    <p>Printing is finally going ahead, after a bowden tube failure that required replacement. 3 components have been printed, all out of the 4 main chassis pieces.</p>
+                    <p>InternetOfS*** and Depthseeker will enter development soon, InternetOfS*** has a commit in progress currently, and will receive another soon for modularization.</p>
+                    <p>Meanwhile, the site is receiving updates to project documentation, which will also roll out soon.</p>
+                </div>
+            </div>
+            <div class = "leftcolumn">
+                <div class = "card">
+                    <h2>Update 1.6</h2>
+                    <p>Project Update + Site Update, August 24th, 2020</p>
+                    <p>Raspbot RCA modularization has been complete, re-integrated, and bugfixes applied. </p>
+                    <p>BLTouch module arrived, it took two for the module to get here, and another week for the Pin 27 display adapter to arrive. It has been installed, and today should be the end of calibration, and soon it'll start printing components for Raspbot.</p>
+                    <p>Meanwhile, Raspbot RCA's GUI and camera view will be in-progress, and since I have been able to safely go outdoors, I'll be continuing the InternetOfS*** project.</p>
+                </div>
+            </div>
+            <div class = "leftcolumn">
+                <div class = "card">
+                    <h2>Update 1.5a</h2>
+                    <p>Project Update, August 2nd, 2020</p>
+                    <p>Update 1.4 was wrong, Raspbot RCA modularization (breaking up the main.py file into smaller modules) was never started, and was queued instead. Currently working on it.</p>
+                    <p>Meanwhile, waiting for BLTouch 3D printing bed level sensor to arrive, in time for the new chassis parts for Raspbot. CAD files going up, featuring more mounting surface, pre-specified mounting holes, larger top platform, and undercarriage mounts.</p>
+                    <p>Please note that parts have become rather complex, and the main chassis is now printed in 4 pieces (to fit in the print volume of the Ender 3X). The top pieces, quadrants 2 and 3, need to be printed vertically to even fit on the bed.</p>
+                    <p>Depthseeker is on queue.</p>
+                </div>
+            </div>
+            <div class = "leftcolumn">
+                <div class = "card">
+                    <h2>Update 1.5</h2>
+                    <p>Project Update + Site Update, July 28th, 2020</p>
+                    <p>OP3DT completed, added new project Depthseeker, a set of scripts for the analysis of Apache web server access logs, with the intention of determining activity that appear to be malicious or concerning in any way.</p>
+                </div>
+            </div>
+            <div class = "leftcolumn">
+                <div class = "card">
+                    <h2>Update 1.4a</h2>
+                    <h5>Project Update + Site Update, June 27th, 2020</h5>
+                    <p>InternetOfSh*t has received a project slot, along with OP3DT. Currently testing CSV analysis and producing sample data for InternetOfSh*t.</p>
+                    <p>Raspbot received a new case design, and is being rebuilt with a viable PDU system.</p>
+                </div>    
+            </div>    
+            <div class = "leftcolumn">
+                <div class = "card">
+                    <h2>Update 1.4</h2>
+                    <h5>Project Update + Site Update, May 31st, 2020</h5>
+                    <p>Site has been updated and clutter removed, organizing the main.css file and removing duplicate/unused statements. More work is needed to clear out the rest of the pages, however it's a good start.</p>
+                    <p>Due to the drastic changes to the site, I cleared out and reuploaded the site files to Skynet Server.</p>
+                    <p>On the side while I worked on finding parts for Raspbot (I found the new motors I'll be using already), I've been making one of those "data modeling" tools, except instead of some serious name, and instead of invading people's privacy, it's named InternetOfS*** and it measures WiFi latency in relation with the number of WiFi network broadcasts, using WiGLE wardriving data and a small Python application that pings a device on a WiFi hotspot. I'll get a small release ready soon.</p>
+                    <p>Raspbot's RCA is being reorganized, and dynamically configured. It's rather long to explain in a short update, there will be more details later. Watch the Github repository for future commits.</p>
+                </div>    
+            </div>     
+            <div class = "leftcolumn">
+                <div class = "card">
+                    <h2>Update 1.3</h2>
+                    <h5>Project Update + Site Update, May 10th, 2020</h5>
+                    <p>PIAI and Forester are suspended, and will not be worked on for a while. I have contacted academic instructors, and my assessment is that AquaSilva has no need to continue, and has officially concluded, hardware is currently being moved to long-term storage, and software work cleaned up. Future re-integration may follow, however with the current global situation and more important projects, it might come back further in the year, or possibly next year. Possibly never.</p>
+                    <p>There are some things being salvaged out of AquaSilva however, the Raspbot RAK is being worked on, currently a working prototype has been assembled, and the control software for it is in development. Raspbot is going forward, with cleanups to its messy documentation and control application, and a full re-design. Multiple planned upgrades are cancelled, in favor of re-creating the entire bot from the ground up. Upgrade #1 is officially merging with the new base design. However some 3D printed pieces will be migrated and kept in their original state (side mounts and camera mount).</p>
+                    <p>These will take time to come into effect, please standby.</p>
+                </div>    
+            </div>
+            <div class = "leftcolumn">
+                <div class = "card">
+                    <h2>Scramble Panic Disorientation, Everything is on Fire</h2>
+                    <h5>Project Update + Site Update, March 29th, 2020</h5>
+                    <p>Since the COVID-19 outbreak (huh it seems everyone is talking about it, gee wonder why) essentially every piece of organizing I did, every piece of scheduling, and every piece of planning I did with academics, were assimilated into nothingness by the outbreak. This makes me sad. Seriously though, that description isn't all that inaccurate, and I'm still in the process of figuring out what to do with myself with all of these sudden drastic changes.</p>
+                    <p>That being said, AquaSilva and Raspbot both cleared the academic assignment, and I was resubmitting them for a STEM project competition, until of course my dreams were crushed by the outbreak and since then both of the coordinators for the competition at my academic institution are silent now since the closure of the school district I attend, and presumably the whole event is shutdown now. Now I plan on finishing it on my own time. Currently I'm in the process of sourcing parts, mainly focusing on voltage regulator ICs need to lower 12V to 5V efficiently (buck converters turned out to be rather, DIFFICULT, to implement) and microSD card since the current one in the Raspberry Pi Zero W on AquaSilva is dead. Also with that is resolving issues with those projects that I never finished in time for the academic assignment, and so yes I turned in a half-baked project and still managed to get some recognition.</p>
+                    <p>Raspbot's Upgrade #1 and Robotic Arm Kit (RAK) are on the most part complete. Upgrade #1 is waiting for the 7805 Voltage Regulator ICs, replacing the dysfunctional buck converters that couldn't handle the load (they were also a nightmare to solder onto). Raspbot RCA is on hold until all of the hardware is ready, since continuing development without any validation usually does not end well (I learned this with the PIAI launcher). Documentation too will be on hold until absolutely everything is final, and for now will have a notice until then. The gallary however, will be updated with an image with the new RAK, and possibly other media.</p>
+                    <p>AquaSilva is being reviewed for optimizations, what worked and what didn't, for future improvements. Similarly to Raspbot, it also requires new parts, including ones needed for those improvements, including an eTape water sensor, replacing the old one that was prone to corrosion and failure. Unlike Raspbot however, the RMCA application will continue to be developed, since it mainly is up for repairs and revisions. Any revisions that require only additional printing of 3D elements are underway right now (structural element for potentiometer-servo and supporting elements for lighting).</p>
+                    <p>CAD releases are halted for both projects until they are semi-final.</p>
+                    <p>I'll end off this update by saying I have fixed a few typos and small issues (the last update was dated to January of 2019, oh how silly).</p>
+                </div>    
+            </div>
+            <div class = "leftcolumn">
+                <div class = "card">
+                    <h2>Post-start Depression has Cleared!</h2>
+                    <h5>Project Update + Site Update, January 8th, 2020</h5>
+                    <p>After several months the site has received many changes, however most notably the start of multiple new projects, that this time have presented some results! As you may know, I am referencing to Raspbot and AquaSilva, the former scheduled for public release very soon, and Raspbot currently being updated, as it is integrated into AquaSilva.</p>
+                    <p>Besides these updates there has been a shift to a new version control system. I've moved some things to GitHub, not just for easy rollbacks in case something gets messed up and I need to load a backup, or if I need to see an older version of a document, but also so there is an active record of development activity. This is especially helpful to show ongoing progress on projects, that can't have nightly builds every week (which is literally every project, no I'm not building an early-release every minor change).</p>
+                    <p>RemotePotentia has been suspended for the moment as AquaSilva and Raspbot holds a higher importance, being academic projects I need to get done fairly soon. Forester may see a come back post-January. In preperation of course, for being the host of academic work I've been updating tags so this site shows up better on search engines.</p>
+                </div>    
+            </div>
+            <div class="leftcolumn">
+                <div class="card">
+                    <h2>Back to Square One.</h2>
+                    <h5>Projet Update + Site Update, November 14th, 2019</h5>
+                    <p>Site is now under a proper domain name, the old subdomain redirects to the current new site. Projects and the homepage have been merged, and instead of adding filtering to posts, the new focus will be changing the visuals to be less of a 1900s internet reference. (TL;DR let's make this website look decently modern). The old site is available at <a href="/old-archive/index.html" target="_blank">dreamerslegacy.xyz/old-archive/index.html</a> with all the original files and content intact, although I see little reason to go back.</p>
+                    <p>I should also note, my second collaborator is now inactive, and they currently have no new releases in the planning either.</p>
+                    <p>Project-wise, PIAI is finally finishing up, now down to two to-dos, being changing from subprocess to another package that supports the same functions, and testing launcher updating. Webcomics have not received any updates. Two side-projects however are being released to the portfolio, RemotePotentia and Raspbot RCA-G, both actually being academic projects that were finished, and having no reason for me not to anyways. RemotePotentia is a pair of client/server applications written in of course, Python, for server management. It sends real-time system vitals data (via psutil and other tools) and forwards it to the user either via email or over a network to the client application. It also allows for remote user control over FTP, SSH/SFTP, and Telnet (however these are not built in, they merely are automatically installed when not present and at the user's request. Raspbot RCA-G is a GUI-based bot controller written in both Python and partially in Arduino C. It features a live camera feed, SenseHAT integration for LED display and sensor inputs, navigational input over serial to an Arduino Motor Shield Rev3, and finally more sensor inputs from Grove sensors*.</p>
+                    <p>These will be released hopefully soon. My reputation depends on it after all.</p>
+                    <p>*currently in-dev, not hardware verified yet.</p>
+                </div>
+            </div>    
+        </div>
+        <p class = "footer-text">dreamer's legacy, 2020-2021</p>
+        <div class = "background" style = "background-image: url('/resources/background/20190824_091318_HDR_filtered.jpg');"></div>
+    </body>
+</html>

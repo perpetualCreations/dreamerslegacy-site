@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Documentation for Raspbot Project.">
+        <meta name="keywords" content="perpetualCreations, dreamerslegacy, dreamer's legacy, dreamerslegacy.xyz, raspbot, raspbot rca, raspbot documentation, raspbot docs, raspbot rca docs">
+        <meta name="author" content="Taian Chen">
+        <title>Raspbot Documentation</title>
+        <link rel="preload" href="/css/main.css" as="style">
+        <link rel="preload" href="/css/schema.css" as="style">
+        <link rel="preload" href="/projects/raspbot/icon-upscaled.png" as="image">
+        <link rel="icon" href="/resources/homeIcon-favicon.ico">
+        <link rel="stylesheet" type="text/css" href="/css/main.css">
+        <link rel="stylesheet" type="text/css" href="/css/schema.css">
+        <style>
+			img {
+ 				 width: 100%;
+				}
+        </style>
+    </head>
+    <body> 
+        <!-- Maybe you should read the actual page instead of looking at HTML and wrongly expanding your ego. -->
+        <div class = "topnav">
+            <a href = "/index.html">Back To Portfolio</a>
+        </div>
+        <div class = "schema">
+            <img src="/projects/raspbot/icon-upscaled.png" class = "project-icons"><h1>Raspbot Documentation</h1>
+            <div id="content">
+                <div class="alert">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                    <strong>Notice:</strong> Currently under revision, information may not be fully accurate.
+                </div>
+                <h3>1.1: Introduction</h3>
+                <p>Raspbot is a small robotic vehicle, that is remotely operated via a local network, through a custom client application.</p>
+                <p>The onboard computer is powered by a Raspberry Pi 3 B+ running Raspbian. Additionally, it contains an Arduino microcontroller with a Grove Base Shield V2 (for Grove modules and sensors) and an Arduino Motor Shield Rev3 (for controlling the dual tank treads), eventually the project will ditch using Grove modules completely.</p>
+                <h3>1.2: Hardware Specs</h3>
+                <button class = "collapsible" style = "text-align: center;">Click to Expand Specifications</button>
+                <div class = "content">
+                    <h4>[Processing]</h4>
+                    <h4>Raspberry Pi 3 B+</h4>
+                    <p><i>Handles operating system and control application.</i></p>
+                    <p>Processor: Broadcom BCM2837B0, Cortex-A53 (ARMv8) 64-bit SoC @ 1.4GHz</p>
+                    <p>RAM: 1GB LPDDR2 SDRAM</p>
+                    <p>Storage: User-Configurable Using a MicroSD Card</p>
+                    <h4>Arduino Uno</h4>
+                    <p><i>Handles controlling motor, sensor, and power management components.</i></p>
+                    <p>Microcontroller: ATMega328P, 16 MHz Clock Speed</p>
+                    <p>RAM: 2KB SRAM, included in the ATMega328P</p>
+                    <p>Storage: 32 KB Flash Memory, included in the ATMega328P</p>
+                    <h4>Camera</h4>
+                    <p>Generic USB Camera</p>
+                    <h4>[Sensors]</h4>
+                    <h4>SenseHAT (if installed)</h4>
+                    <p>Acceleration Sensor</p>
+                    <p>Gyroscope</p>
+                    <p>Magnetometer</p>
+                    <p>Temperature Sensor</p>
+                    <p>Humidity Sensor</p>
+                    <p>Barometer</p>
+                    <h4>Over I2C</h4>
+                    <p>VL53L0X Time of Flight Sensor</p>
+                    <p>GP2Y1010AU0F Dust Sensor (if installed)</p>
+                    <h4>Over Grove Base Shield V2</h4>
+                    <p>Grove Base Shield V2 has been discontinued from use.</p>
+                    <h4>Power</h4>
+                    <p>12 Volt Circuit</p>
+                    <p>3000mAh Lithium-Polymer Battery</p>
+                    <h4>Motors</h4>
+                    <p>Driven by Arduino Motor Shield Rev. 3</p>
+                    <p>12V DC</p>
+                    <p>Unknown RPM Speed</p>
+                    <h4>Connectivity</h4>
+                    <p>IEEE 802.11.b/g/n/ac WLAN</p>
+                    <p>RJ45 Ethernet</p>
+                    <p>Bluetooth 4.2</p>
+                    <p>HDMI</p>
+                    <p>2 Unoccupied USB 2.0 Ports</p>
+                    <p>4-Pole Stereo or Composite Video Output Port</p>
+                </div>
+                <p></p>
+                <h3>1.3: Remote Control Application (RCA) </h3>
+                <p>As mentioned, the robotic vehicle is operated via a client and host application. The client is GUI-based, the previous client was based on a command-line interface, the next releases of the control application will possibly make a return to CLI, for low-resource or specific scenarios where CLI is preferred. The host Raspbot RCA runs on Debian or Debian-based systems (i.e Ubuntu, Raspbian). The client is not OS-dependent.</p>
+                <p>The application is written in Python, you may run it by installing Python 3 and the application's associated packages with PIP, please see requirements.txt files for package and version requirements. If using the SenseHAT as part of your hardware configuration, please install the PyPI package and also the Debian package. See hardware list for more details on SenseHAT and certain packages for particular hardware.</p>
+                <p>Client binaries will be made available, however they are unsigned.</p>
+                <p>It's recommended to use a designated user account on the Debian or Debian-based system, and to extract release contents to the user's home directory.</p>
+                <p>In Raspbot RCA v1.1, credits to Pyimagesearch for the live view, please see /tkinter-photo-booth/tkinter-photo-booth-citation.txt for more information. Please note v1.2 and above this dependency has been removed.</p>
+                <h3>2.1: Hardware List + Build Directions</h3>
+                <p>Below is a list of hardware used, containg links to buy each of the hardware components, and also directions to assemble.. Documentation and downloads can be found on each of the manufacturer's website.</p>
+                <p>The top case housing the electronics can be 3D printed, the CAD files are available in the project's download section.</p>
+                <button class = "collapsible">Dust Sensor Module (Created 10-3-2020, Updated 10-3-2020)</button>
+                <div class = "content">
+                    <p>[Finished]</p>
+                    <li>GP2Y1010AU0F Dust Sensor</li>
+                    <p>Please install dust sensor with 3D-printable mounting hardware, the CAD files are available for download.</p>
+                </div>
+                <button class = "collapsible">Robotic Arm Kit (Created 1-21-2019, Updated 10-3-2020)</button>
+                <div class = "content">
+                    <p>[Finished]</p>
+                    <li><a href = "https://www.adafruit.com/product/2307" target = "_blank">High Power/Torque Metal Gear Micro Servo, Adafruit</a></li>
+                    <p>Set of two.</p>
+                    <li>Raspberry Pi Camera Board</li>
+                    <p>For arm camera view.</p>
+                    <li>Raspberry Pi Camera Board Extended Ribbon Cable</li>
+                    <p>Check if the included ribbon cable is long enought, it's likely you'll need a longer cable due to the amount of slack required.</p>
+                </div>
+                <button class = "collapsible">Base Parts Set (Created 11-26-2019, Updated 10-3-2020)</button>
+                <div class = "content">
+                    <p>WIP, Compiling Receipts</p>
+                </div>
+                <h4>End</h4>
+                <p>This is the end of the documentation for the Raspbot control application.</p>
+                <p>If you any inquiries, please contact the project maintainer(s).</p>
+            </div>
+        </div>
+        <p class = "footer-text">dreamer's legacy, 2020-2021</p>
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+            for (i = 0; i < coll.length; i++) {
+              coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                document.getElementsByClassName("collapsible:after").content = "▲";
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight){
+                  content.style.maxHeight = null;
+                } else {
+                  content.style.maxHeight = content.scrollHeight + "px";
+                } 
+              });
+            }
+        </script>
+    </body>
+</html>

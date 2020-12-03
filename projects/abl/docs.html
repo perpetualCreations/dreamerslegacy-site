@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Documentation for ABL Project.">
+        <meta name="keywords" content="perpetualCreations, dreamerslegacy, dreamer's legacy, dreamerslegacy.xyz, analyticalblacklight, abl, analyticalblacklight, abl documentation, abl docs">
+        <meta name="author" content="Taian Chen">
+        <title>ABL Documentation</title>
+        <link rel="preload" href="/css/main.css" as="style">
+        <link rel="preload" href="/css/schema.css" as="style">
+        <link rel="preload" href="/projects/abl/icon-upscaled.png" as="image">
+        <link rel="icon" href="/resources/homeIcon-favicon.ico">
+        <link rel="stylesheet" type="text/css" href="/css/main.css">
+        <link rel="stylesheet" type="text/css" href="/css/schema.css">
+        <style>
+			img {
+ 				 width: 100%;
+				}
+        </style>
+    </head>
+    <body> 
+        <!-- Maybe you should read the actual page instead of looking at HTML and wrongly expanding your ego. -->
+        <div class = "topnav">
+            <a href = "/index.html">Back To Portfolio</a>
+        </div>
+        <div class = "schema">
+            <img src="/projects/abl/icon-upscaled.png" class = "project-icons"><h1>ABL Documentation</h1>
+            <p style = "margin-left: 5px;">Original available <a href = "https://github.com/perpetualCreations/AnalyticalBlackLight/blob/master/readme.md" target = "_blank">here</a>.</p>
+            <div class = "badges-container">
+                <div class = "badges">
+                    <a href = "https://forthebadge.com" target = "_blank"><img src = "https://forthebadge.com/images/badges/made-with-python.svg"></a>
+                </div>
+                <div class = "badges">
+                    <a href = "https://forthebadge.com" target = "_blank"><img src = "https://forthebadge.com/images/badges/you-didnt-ask-for-this.svg"></a>
+                </div>
+            </div>
+            <div id="content">
+  
+                <h5 style = "margin-top: 50px;">ABL uses pytrends to access Google search interest, and compile data into a CSV spreadsheet, or a graph of interest over time.</h5>
+
+                <h4>Why?</h4>
+                <p>
+                    Normally, you could just manually download CSV spreadsheets on search keywords from Google Trends.
+                </p>
+                <p>
+                    However with more and more keywords it becomes harder to manage. ABL streamlines this.
+                </p>
+                <p>
+                    ABL handles downloading all of this trend data through pytrends, a Python implementation of Google's Trends API. It is then able to merge data from each request into a single spreadsheet and graph the result.
+                </p>
+                <p>
+                    You can edit the keywords the list. Replace it with anything you want, so long the number of keywords is a multiple of five, some ideas including trending subjects, or the spread of major news.
+                </p>
+                <h4>How do I use this?</h4>
+                <button class = "collapsible" style = "text-align: center;">Click Here for Instructions</button>
+                <div class = "content">
+                    <h4>Download and Extract</h4>
+                    <p>
+                        Download the latest release on the repository page, and extract contents
+                    </p>
+                    <h4>Install Python Dependencies</h4>
+                    <p>
+                        Install Python and packages listed in requirements.txt through PIP.
+                    </p>
+                    <h4>Keywords</h4>
+                    <p>
+                        ABL is prepackaged with a list of keywords.
+                        These may or may not be relevant to you. Please go through them, and change as needed. 
+                    </p>
+                    <h4>Arguments</h4>
+                    <p>
+                        ABL can be used as a command-line tool. It takes in 5 positional parameters in time and space, 1 input parameter, and 3 output parameters.
+                    </p>
+                    <p>
+                        The three output parameters are <span class = "code-quote">--csv</span>, <span class = "code-quote">--showgraph</span>, and <span class = "code-quote">--graph</span> which you need to add a 0 or 1 after the parameter to toggle. 
+                        As their names suggest, they signal whether ABL should export a CSV file or a graph. Or both. <span class = "code-quote">--graph</span> exports the graph to a .PNG file, while <span class = "code-quote">--showgraph</span> uses the built-in viewer.
+                    </p>
+                    <p>
+                        If you wish to forgo writing positional parameters, you can toggle <span class = "code-quote">-c</span> with a 1 or 0 to read from targets.cfg instead.
+                    </p>
+                    <p>
+                        The two start and end dates, being <span class = "code-quote">-s</span> and <span class = "code-quote">-e</span> are the range which data is collected from. Please have a reasonable cutoff, I doubt you'll find activity for keywords such as "COVID-19" or "2020 election" in 2015 through 2016.
+                        If you think carefully, you might even be able to shave a few seconds out of processing time.
+                        Format these parameters as YYYY-MM-DD.
+                    </p>
+                    <p>
+                        The three remaining parameters are country, state, and county. In command-line, while not using targets.cfg, the parameters are <span class = "class-quote">-n -p -x</span>, in the same order.
+                        The county parameter, <span class = "code-quote">-x</span> is a bit of a... weird... parameter. Google has integer codes for counties, in Google Trends at least. For example, NYC is 501. Houston in Texas is 618. You'll need to do a bit of digging.
+                    </p>
+                    <h4>GUI</h4>
+                    <p>
+                        ABL additionally can be ran with a GUI, by running script gui.py, if you dislike CLI parameters.
+                    </p>
+                    <p>
+                        The GUI version has entry boxes and a dropdown menu for selecting parameters, that are all labelled. 
+                        After selecting your export type, and entering start and end date, country, state, and county, press process. A dialogue will show up, notifying you that the task has been issued.
+                        In Windows, ABL will show up as not responding for a few seconds. This will be longer or shorter depending on the number of keywords you are processing, and your export type.
+                    </p>
+                    <p>
+                        Another dialogue will appear to inform you that processing is complete. Check software directory for exported file if you ran CSV or graph export.
+                    </p>
+                    <h4>Analysis</h4>
+                    <p>You can use external software to analyze collected data, if you picked CSV as your export option.</p>
+                    <p>If you instead exported a graph, use an image editor to annotate any specific parts of the data that peak your interest. With the interactive graph, you can click and drag over the graph to zoom into specific sections.</p>
+                </div>
+                <h4>That's it?</h4>
+                <p>
+                    Yes. That's it.
+                </p>
+                <h4>This is a glorified CSV data manager, limited to collecting specific pieces of information.</h4>
+                <p>Mhm. No one said making specialized tools was a bad thing.</p>
+                <h4>End</h4>
+                <p>This is the end of the documentation for the ABL tool.</p>
+                <p>If you any inquiries, please contact the project maintainer(s).</p>
+            </div>
+        </div>
+        <p class = "footer-text">dreamer's legacy, 2020-2021</p>
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+            for (i = 0; i < coll.length; i++) {
+              coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                document.getElementsByClassName("collapsible:after").content = "▲";
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight){
+                  content.style.maxHeight = null;
+                } else {
+                  content.style.maxHeight = content.scrollHeight + "px";
+                } 
+              });
+            }
+        </script>
+    </body>
+</html>

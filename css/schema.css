@@ -1,0 +1,15 @@
+/*
+Schema CSS Document
+
+Dark themed stylesheet with  F U T U R I S T I C  design made for documentation.
+Link this stylesheet after the main stylesheet, as Schema will overwrite stylings.
+*/
+/* font imports */@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap')@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');@import url("/resources/fonts/JetBrainsMono-SemiLight.ttf");
+/* main */body {font-family: 'Anonymous Pro', monospace;background-color: rgb(42,42,42);}.schema {padding: 40px;margin-left: 60px;margin-right: 60px;margin-top: 20px;margin-bottom: 20px;background-color: rgb(52, 52, 52);}
+/* texts config */h1, h2, h3, h4, h5, h6 {font-family: 'Roboto Slab', monospace;color: white;}h1 {text-align: left;margin-left: 5px;}h3 {margin-top: 40px;}p, a, li {color: whitesmoke;}
+/* topnav */.topnav {margin-left: 60px;margin-right: 60px;background-color: rgb(52, 52, 52);}
+/* collapsibles */.collapsible {background-color: rgb(52,52,52);margin-top: 5px;font-family: 'Anonymous Pro', monospace;}.collapsible:after {content: '▼';color: white;}.active, .collapsible:hover {background-color: rgb(64,64,64);}.content {background-color: rgb(80,80,80);}
+/* badges */.badges {margin-right:5px;margin-top:30px;margin-bottom:30px;float: left;}.badges-container:after {content: "";clear: both;display: table;}
+/* code quotes */.code-quote {background-color:rgb(38,38,38);padding-bottom:1px;padding-left:5px;padding-right:5px;border-radius:4px;font-family: 'JetbrainsMono', monospace;color:rgb(220, 220, 220)}.code-block {background-color:rgb(35,35,35);padding-bottom:10px;padding-top:10px;padding-left:20px;padding-right:5px;border-radius:5px;font-family: 'JetBrainsMono', monospace;} .code-block p {margin:2px 0;}.command {color:rgb(210,210,255);}.statement{color:rgb(197,144,230);}.string {color:rgb(143,175,72);}.function {color:rgb(90,124,218);}.brace {color:rgb(107, 181, 206)}.number {color:orange;}.boolean {color:rgb(197,144,230);}.comment {color:rgb(140,140,140)}.comma {color:orange;}
+/* blockquotes */.block-quote {background-color:rgb(45,45,45);padding-bottom:5px;padding-top:5px;padding-left:20px;padding-right:5px;border-radius:5px;border-left:10px solid rgb(120,120,120);}
+/* footer mod */.footer {margin-left: 40px;margin-right: 40px;}.footer-text {margin-left: 40px;}

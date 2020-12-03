@@ -1,0 +1,6 @@
+Some files are not meant to be uploaded to the Apache server. These include:
+
+- This file
+- README.md
+
+Please take note when updating.

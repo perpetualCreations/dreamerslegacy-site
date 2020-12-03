@@ -1,0 +1,6 @@
+/*
+Gallery CSS Document
+
+Stylesheet for galleries, separated out of main.css to reduce unused line count, this is used by only a few documents. 
+*/
+/* gallery */div.gallery {margin: 5px;border: 1px solid #ccc;float: left;width: 180px;background-color: white;}div.gallery:hover {border: 1px solid #777;}div.gallery img {width: 100%;height: auto;}div.caption {padding: 15px;text-align: center;}

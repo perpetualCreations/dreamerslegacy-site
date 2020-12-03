@@ -1,0 +1,7 @@
+Website and host by Taian Chen.
+Former, now unused additional artwork and Soulbound banner by WonkyTonk.
+Page code and design based off of templates from: https://www.w3schools.com.
+Site font(s) ported from Google Fonts.
+
+Uses github-calendar, a embeddable that shows a GitHub user's commit calendar and activity.
+Repository at: https://github.com/Bloggify/github-calendar

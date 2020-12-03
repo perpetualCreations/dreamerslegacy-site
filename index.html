@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Portfolio for T.Chen.">
+        <meta name="keywords" content="perpetualCreations, dreamerslegacy, dreamer's legacy, dreamerslegacy.xyz, tchen">
+        <meta name="author" content="perpetualCreations">
+        <title>Home</title>
+        <link rel="preload" href="/css/main.css" as="style">
+        <link rel="preload" href="/resources/background/20190823_164234.jpg" as="image">
+        <link rel="preload" href="/projects/raspbot/icon-upscaled.png" as="image">
+        <link rel="preload" href="/projects/abl/icon-upscaled.png" as="image">
+        <link rel="preload" href="/projects/swbs/icon-upscaled.png" as="image">
+        <link rel="preload" href="/projects/op3dt/op3dt-icon.png" as="image">
+        <link rel="preload" href="/projects/internetofshit/internetofshit-icon.png" as="image">
+        <link rel="preload" href="/projects/aquasilva/as.png" as="image">
+        <link rel="icon" href="/resources/homeIcon-favicon.ico">
+        <link rel="stylesheet" type="text/css" href="/css/main.css">
+        <style>
+            .row {
+                margin: 10px -8px;
+                }
+            .row,
+            .row > .column {
+                padding: 8px;
+                }
+            .column {
+                float: left;
+                width: 32.22%;
+                align-content: center;
+                }
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
+                }
+            @media screen and (max-width: 900px) {
+                  .column {
+                    width: 50%;
+                  }
+                }
+        </style>
+    </head>
+    <body>
+        <!-- Dear children who found my portfolio, stop being the wannabe hacker that you are, looking at the page source to feel smart. -->
+        <div class = "topnav">
+            <a class = "active" href = "index.html">Home</a>
+            <a href = "/html/siteblog.html">Updates</a>
+            <a href = "/html/about.html">About</a>
+        </div>
+        <div style = "text-align: left;">
+            <div class = "header">
+                <h1>Dreamer's Legacy</h1>
+                <p><i>Project portfolio of T.Chen <span style = "font-size: 12px;">(perpetualCreations)</span>.</i></p>
+            </div>
+        </div>
+        <div class = "row">
+            <div class = "column">
+                <div class = "card">
+                    <img src = "/projects/raspbot/icon-upscaled.png" alt = "Raspbot Icon" class = "project-icons">
+                    <h3>Raspbot</h3>
+                    <p>Small robotic vehicle based on Raspberry Pi and Arduino, with carrying capacity for expansion and modification.</p>
+                    <p>Both hardware and software development are active, with production of Raspbot RCA and specialized hardware modules.</p>
+                    <p>Released CAD assets are outdated, revision 2 will be released later once fully tested.</p>
+                    <p>Project software is available on Github, please see documentation for further hardware specification and additional details. Access these pages below.</p>
+                    <a class = "button" href = "/projects/raspbot/raspbot-cad-parts.zip" download>CAD Assets</a>
+                    <a class = "button" href = "https://github.com/perpetualCreations/raspbot-rca" target = "_blank" style = "margin-top: 10px">Github</a>
+                    <a class = "button" href = "/projects/raspbot/docs.html" style = "margin-top:10px">Documentation</a>
+                    <a class = "button" href = "projects/raspbot/gallery.html" style = "margin-top:10px">Gallery</a>
+                </div>
+            </div>
+            <div class = "column">
+                <div class = "card">
+                    <img src = "/projects/abl/icon-upscaled.png" alt = "ABL Icon" class = "project-icons">
+                    <h3>ABL</h3>
+                    <h5 style = "color: slategray">Full Name: AnalyticalBlackLight</h5>
+                    <p>Collects Google search interest on defined keywords using pytrends, and exports either a CSV or graph image file.</p>
+                    <p>Originally made humourously to try to track students looking up test answers during virtual testing, with questionable results.</p>
+                    <p>Run using command line or through the GUI wrapper. Project software is available on Github, please see documentation for more details on usage.</p>
+                    <a class = "button" href = "https://github.com/perpetualCreations/AnalyticalBlackLight/" target = "_blank" style = "margin-top: 10px">Github</a>
+                    <a class = "button" href = "/projects/abl/docs.html" style = "margin-top:10px">Documentation</a>
+                    <a class = "button" href = "https://github.com/perpetualCreations/AnalyticalBlackLight/releases/tag/1.0" target = "_blank" style = "margin-top: 10px">Software Download</a>
+                </div>
+            </div>
+            <div class = "column">
+                <div class = "card">
+                    <img src = "/projects/swbs/icon-upscaled.png" alt = "SWBS Icon" class = "project-icons">
+                    <h3>SWBS</h3>
+                    <h5 style = "color: slategray">Full Name: Socket Wrapper for Byte Strings</h5>
+                    <p>Python3 package serving as a wrapper for the socket library.</p>
+                    <p>Built to simplify projects that use sockets for sending strings and relatively small amounts of data. Reduces logic and prerequisites to a few straightforward functions.</p>
+                    <p>Derived from the Raspbot RCA's comms module, with modifcations.</p>
+                    <p>Project software is available on Github or PyPI, please see documentation for more details on usage. Access these pages below.</p>
+                    <a class = "button" href = "https://github.com/perpetualCreations/SWBS/" target = "_blank" style = "margin-top: 10px">Github</a>
+                    <a class = "button" href = "https://pypi.org/project/swbs/" target = "_blank" style = "margin-top: 10px">PyPI</a>
+                    <a class = "button" href = "/projects/swbs/docs.html" style = "margin-top: 10px;">Documentation</a>
+                </div>
+            </div>
+        </div>
+        <div class = "row">   
+           <div class = "column">
+                <div class = "card">
+                    <img src = "/projects/op3dt/op3dt-icon.png" alt = "OP3DT Icon" class = "project-icons">
+                    <h3>OP3DT</h3>
+                    <h5 style = "color: slategray">Full Name: Offline Python 3 Documentation Tool</h5>
+                    <p>Automatically downloads and updates offline documentation for Python 3 via Requests.</p>
+                    <p style = "color: darkgray;"><b>[Note]</b></p>
+                    <p style = "color: darkgray;">I started writing this in the 2 hours I had nothing to do before an online conference. I have no plans to support this project, and I have no idea why anyone would use it.</p>
+                    <p style = "color: darkgray;">That said, feel free to mess around with it anyways.</p>
+                    <a class = "button" href = "https://github.com/perpetualCreations/OP3DT" target = "_blank" style = "margin-top:10px">Github</a>
+                    <a class = "button" href = "https://github.com/perpetualCreations/OP3DT/releases/tag/v1.0" target = "_blank" style = "margin-top:10px">Software Download</a>
+                </div>
+            </div>
+           <div class = "column">
+                <div class = "card">
+                    <h3>SCHEMA</h3>
+                    <p>Tool for automated conversion of Markdown documentation into minimalist HTML making use of the SCHEMA stylesheet.</p>
+                    <p>Code quotes available, with color-coding for Python and terminal commands. Additionally comes with (extremely loose) support for ForTheBadge and Shield.io badges. See documentation for additional options.</p>
+                    <p>Run using command line or through the GUI wrapper. Project software is available on GIthub, please see documentation for more details on usage.</p>
+                    <a class = "button" href = "https://github.com/perpetualCreations/SCHEMA" target = "_blank" style = "margin-top:10px">Github</a>
+                </div>
+            </div>
+           <div class = "column">
+                <div class = "card">
+                    <h3>deargodpleaseno</h3>
+                    <p>Tool for hosting, managing, and seeing access of, temporary files on an Apache server.</p>
+                    <p>Install through a Debian package, the installation will create a directory in your webroot for temporary files.</p>
+                    <p><i>Remote repository hasn't been created yet, page unavailable.</i></p>
+                    <a class = "button disabled" href = "https://github.com/perpetualCreations/deargodpleaseno" target = "_blank" style = "margin-top:10px">Github</a>
+                </div>
+            </div>
+        </div>
+        <!-- Hey tired, depressed web dev! (future me), if you're looking for a bunch of commented out markup, it was removed. Look through Git VCS before commit dce8be5. Best of luck! -->
+        <p class= "footer-text">dreamer's legacy, 2020-2021, 3 abandoned projects hidden</p>
+        <div class = "background" style = "background-image: url('/resources/background/20190823_164234.jpg');"></div>
+    </body>
+</html>
