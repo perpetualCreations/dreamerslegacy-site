@@ -9,6 +9,8 @@
         <title>About</title>
         <link rel="preload" href="/css/main.css" as="style">
         <link rel="preload" href="/resources/background/20190823_162616_HDR.jpg" as="image">
+        <link rel="preload" href="/resources/avatars/pc.png" as="image">
+        <link rel="preload" href="/resources/avatars/pc-alternate.png" as="image">
         <link rel="icon" href="/resources/homeIcon-favicon.ico">
         <link rel="stylesheet" type="text/css" href="/css/main.css">
         <style>
@@ -20,6 +22,10 @@
                 float: right;
                 width: 50%;
                 padding-left: 5px;
+                }
+            .column {
+                float: left;
+                align-content: center;
                 }
         </style>
     </head>
@@ -52,15 +58,31 @@
             </div>
             <div class="rightcolumn">
                 <div class="card">
+                    <div class = "row">
+                        <div class = "column"><img src = "/resources/avatars/pc.png" class = "avatar" style = "margin: 0em -0.2em"></div>
+                        <div class = "column"><img src = "/resources/avatars/pc-alternate.png" class = "avatar" style = "margin-left: 10px;"></div>
+                    </div>
                     <h3>perpetualCreations</h3>
-                    <h3>Contacts:</h3>
+                    <p style = "font-size: 10px; color: black; margin: -1em 0em 3.5em;"><i>I despise physical activity and sleep is for the weak.</i></p>
+                    <p>I maintain and contribute to this site.</p>
+                    <p>My real name is T. Chen, and I draw sketches and make things. Sometimes I'll take pictures on errands, they make nice backgrounds.</p>
+                    <p id = "opinion">Some sort of silly opinion here, flame me through my email. Cheers.</p>
+                    <h4>Contacts:</h4>
                     <p>Email 1: tchen0584@gmail.com</p>
                     <p>Email 2: skynetserver.god@protonmail.com</p>
-                    <a href = "https://github.com/perpetualCreations" target = "_blank">Github: perpetualCreations</a>
+                    <p>Github: <a href = "https://github.com/perpetualCreations" target = "_blank">perpetualCreations</a></p>
                 </div>
             </div>
         </div>
         <p class= "footer-text">dreamer's legacy, 2020-2021</p>
         <div class = "background" style = "background-image: url('/resources/background/20190823_162616_HDR.jpg');"></div>
+        <script>
+            var field = document.getElementById("opinion");
+            var opinions = ["I use tabs instead of spaces, flame me through my email. Cheers.", "I frankly don't mind pineapple on pizza, flame me through my email. Cheers.", "Neither Coke or Pepsi is better, Sprite reigns supreme, flame me through my email. Cheers.", "Windows < Manjaro, flame me through my email. Cheers.", "I've used camel casing for variable names, flame me through my email. Cheers.", "I rarely run unit tests on my projects, flame me through my email. Cheers.", "I store ketchup in the fridge, flame me through my email. Cheers.", "A hotdog is not a sandwich, flame me through my email. Cheers.", "It's pronounced GIF, flame me through my email. Cheers.", "I put the milk in after the cereal, flame me through my email. Cheers.", "No, cereal is not a soup, flame me through my email. Cheers.", "I use 4 instead of 2 spaces for indentations, flame me through my email. Cheers.", "Comic sans looks awful, flame me through my email. Cheers.", "Netflix is for millennials, flame me through my email. Cheers.", "I say GUI, not gooey, flame me through my email. Cheers.", "Non-monospaced serif fonts aren't modern and belong in hipster blogs and hipster blogs only, flame me through my email. Cheers.", "Modern wireless mice have no latency disadvantage compared to wired ones, flame me through my email. Cheers.", "0 to 120 mph acceleration in cars is overrated, flame me through my email. Cheers.", "Showers are better than baths, flame me through my email. Cheers.", "I sleep face-first and on my side, flame me through my email. Cheers.", "A glass of cold water is better than warm water, flame me through my email. Cheers.", "Adobe is overrated, flame me through my email. Cheers.", "The Hyperloop is impractical, flame me through my email. Cheers."];
+            var opinions_display = opinions[Math.floor(Math.random() * opinions.length)];
+            onload = function() {
+                field.textContent = opinions_display;
+            };
+        </script>
     </body>
 </html>
