@@ -1,0 +1,3 @@
+[submodule "ppa"]
+	path = ppa
+	url = https://github.com/perpetualCreations/ppa.git
