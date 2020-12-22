@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Documentation for Raspbot Project.">
+        <meta name="keywords" content="perpetualCreations, dreamerslegacy, dreamer's legacy, dreamerslegacy.xyz, deargodpleaseno, dgpn, ubuntu tempfile, deargodpleaseno docs, dgpn docs, dgpn documentation">
+        <meta name="author" content="perpetualCreations">
+        <title>DGPN Documentation</title>
+        <link rel="preload" href="/css/main.css" as="style">
+        <link rel="preload" href="/css/schema.css" as="style">
+        <link rel="preload" href="/projects/swbs/icon-upscaled.png" as="image">
+        <link rel="icon" href="/resources/homeIcon-favicon.ico">
+        <link rel="stylesheet" type="text/css" href="/css/main.css">
+        <link rel="stylesheet" type="text/css" href="/css/schema.css">
+        <style>
+			img {
+ 				 width: 100%;
+				}
+        </style>
+    </head>
+    <body> 
+        <!-- Hey kid. Wanna learn HTML instead of just looking at it and feeling smart? -->
+        <div class = "topnav">
+            <a href = "/index.html">Back To Portfolio</a>
+        </div>
+        <div class = "schema">
+            <img src="/projects/dgpn/dgpn-upscaled.png" class = "project-icons"><h1>deargodpleaseno (dgpn) Documentation</h1>
+            <p style = "margin-left: 5px;">Original available <a href = "https://github.com/perpetualCreations/deargodpleaseno/blob/master/README.md" target = "_blank">here</a>.</p>
+            <div id="content">
+                <h4>Command-line tool for automatically deleting files, webpages, and directories.</h4>
+                <h4>Intended for Apache web server owners who want to host a temporary page or file that will deleted after a specified amount of time.</h4>
+                <h3>Install and Uninstall</h3>
+                <p>deargodpleaseno is for Ubuntu systems, running Apache.</p>
+                <p>Debian and other Debian-based systems will likely be supported later, you can try manually downloading the Debian package from the dist directory, and upon installing ignoring dependencies, installing them afterwards.</p>
+                <p>Add the PPA hosting the Debian package. As you may have noticed, this is different from <span class = "code-quote">apt-add-repository</span>.</p>
+                <div class = "code-block">
+                    <p>sudo <span class = "command">curl</span> -s --compressed "https://dreamerslegacy.xyz/ppa/ubuntu/KEY.gpg" | sudo <span class = "command">apt-key add</span> -</p>
+                    <p>sudo <span class = "command">curl</span> -s --compressed -o /etc/apt/sources.list.d/dreamerslegacy_ppa.list "https://dreamerslegacy.xyz/ppa/ubuntu/dreamerslegacy_ppa.list"</p>
+                    <p>sudo <span class = "command">apt update</span></p>
+                </div>
+                <p>These three commands retrieve the GPG key used for package release signing (and add the key to <span class = "code-quote">apt</span>), add the PPA to apt sources, and then update package lists to include new packages.</p>
+                <p>Install package from PPA. <span class = "code-quote">apt update</span> is required to retrieve package ists from the PPA, unless if you have already done so previously after adding the PPA.</p>
+                <p class = "code-block">sudo<span class = "command"> apt update </span> &amp;&amp; sudo <span class = "command">apt install</span>  deargodpleaseno</p>
+                <p>To uninstall,</p>
+                <p class = "code-block">sudo <span class = "command">dgpn</span> --uninstall</p>
+                <p>Caerful, this will remove the generated directory under the webroot, including any files and directories under the generated directory. See below for more details.</p>
+                <p>Then fully remove the pckage.</p>
+                <p class = "code-block">sudo <span class = "command">apt remove</span> deargodpleaseno</p>
+                <p>If there are no additional packages from the PPA you need or are installed, you can remove it.</p>
+                <div class = "code-block">
+                    <p>sudo <span class = "command">apt-key del</span> 9BBEC5D61BBD56C2CCC437D2A4891A46DC4C3713</p>
+                    <p>sudo <span class = "command">rm</span> /etc/apt/sources.list.d/dreamerslegacy_ppa.list</p>
+                    <p>sudo <span class = "command">apt update</span></p>
+                </div>
+                <p>This removes the GPG key we added to <span class = "code-quote">apt</span>, removes the PPA from <span class = "code-quote">apt</span> sources, and updates package lists to no longer include the PPA packages.</p>
+                <h3>How to Use</h3>
+                <p>Move a file or directory under the deargodpleaseno directory in the webroot.</p>
+                <p>Open up your terminal, and run the command <span class = "code-quote">dgpn --help</span>. You'll be greeted with a list of valid parameters.</p>
+                <p>This document will outline those parameters further, with given examples.</p>
+                <h3><span class = "code-quote">--add</span></h3>
+                <p>Specify a path after this parameter, for a directory or file that you wish to be added to the expiry queue.</p>
+                <p>Use <span class = "code-quote">--bestbefore</span> in conjunction to specify an expiry time in hours. Without this parameter, the default expiry time will be assumed. The default time can be edited under <span class = "code-quote">/etc/deargodpleaseno/settings.cfg</span>, preconfigured to be 168 hours or a week.</p>
+                <p>This example below will add <span class = "code-quote">/var/www/html/deargodpleaseno/temp.html</span> to the deletion queue with an expiry time of 24 hours.</p>
+                <p class = "code-block">sudo <span class = "command">dgpn</span> --add /var/www/html/deargodpleaseno/temp.html --bestbefore 24</p>
+                <h3><span class = "code-quote">--edit</span></h3>
+                <p>Specify a path after this parameter, for a directory or file whose expiry time you wish to be edited. The file or directory must be added first.</p>
+                <p>Requires <span class = "code-quote">--bestbefore</span> in conjunction to specify a new expiry time in hours. Without this parameter, the command will be invalid.</p>
+                <p>This example below will change the expiry time of <span class = "code-quote">/var/www/html/deargodpleaseno/secret.zip</span> to 1 hour.</p>
+                <p class = "code-block">sudo <span class = "command">dgpn</span> --edit /var/www/html/deargodpleaseno/secret.zip --bestbefore 1</p>
+                <h3><span class = "code-quote">--remove</span></h3>
+                <p>Specify a path after this parameter, for a directory or file that you wish to be removed from the deletion queue.</p>
+                <p>Does not require any additional parameters. The item removed from queue will not be deleted.</p>
+                <p>This example below will remove <span class = "code-quote">/var/www/html/deargodpleaseno/spice.png</span> from deletion queue.</p>
+                <p class = "code-block">sudo <span class = "command">dgpn</span> --remove /var/www/html/deargodpleaseno/spice.png</p>
+                <h3><span class = "code-quote">--uninstall</span></h3>
+                <p>Specify this parameter to uninstall deargodpleaseno. Remove deargodpleaseno fully with your package manager.</p>
+                <p>This will remove all entries from queue, and delete deargodpleaseno from the webroot. Be sure to preserve any items under the directory before running <span class = "code-quote">--uninstall</span>.</p>
+                <p>An example is shown below.</p>
+                <p class = "code-block">sudo <span class = "command">dgpn</span> --uninstall</p>
+                <h3>Back-End</h3>
+                <p>deargodpleaseno uses Linux's <span class = "code-quote">at</span>.</p>
+                <p>It can be used to schedule commands in the future. The example below starts a package update in an hour.</p>
+                <div class = "code-block">
+                    <p>sudo at now + 1 hour</p>
+                    <p>at> sudo <span class = "command">apt update</span> &amp;&amp; sudo <span class = "command">apt upgrade -y</span></p>
+                    <p>at> &lt;EOT></p>
+                </div>
+                <p>deargodpleaseno can and probably will clog up your <span class = "code-quote">atq</span>. Exert caution when removing atjobs.</p>
+                <p>To remember which atjobs are responsible for removing which items, an <span class = "code-quote">entries</span> files exists under <span class = "code-quote">/etc/deargodpleaseno/entries</span> which records items and their atjob number.</p>
+                <p>They are formatted as <span class = "code-quote">0|||/var/www/html/deargodpleaseno/itemtobedeleted.html</span>, 0 before the 3 pipes being the atjob ID number, and path afterwards the item in question.</p>
+                <p>If the entries and queue desync, reinstalling and clearing <span class = "code-quote">atq</span> with <span class = "code-quote">atrm</span> is the most efficient way of fixing it. Other options such as overwriting <span class = "code-quote">entries</span> are possible, but aren't foolproof.</p>
+                <p>deargodpleaseno upon install will create its directory under the specified webroot. It will then append:</p>
+                <div class = "code-block">
+                    <p>User-agent: *</p>
+                    <p>Disallow: /deargodpleaseno/</p>
+                </div>
+                <p>...To your <span class = "code-quote">robots.txt</span> file. This will prevent webcrawlers that obey user-agent rules from indexing the newly created directory.</p>
+                <p>This of course isn't perfect, any webcrawlers that disregard user-agent rules or take several days or weeks to process new user-agent rules (looking at you SemRush bot) will render this ineffective.</p>
+                <p>It will create this rule even if the file does not exist, you are recommended to review your user-agent rules post-installation. The same goes for post-uninstallation.</p>
+                <h3>Conclusion</h3>
+                <p>This concludes our walkthrough of using the DGPN command and Debian package.</p>
+                <h3>Future</h3>
+                <p>Future features such as .htaccess control will be coming in following releases.</p>
+                <p>More major changes are planned to no longer use <span class = "code-quote">at</span>, instead running an hourly <span class = "code-quote">crontab</span> to check for expired items on a list of entries. This would free up <span class = "code-quote">atq</span> for the user.</p>
+                <h3>Misc.</h3>
+                <li>The project icon is from a clip of Michael Gray Scott from the office, uttering the all-too-famous words, "No god please no!"</li>
+                <li>The project name were the words that exited my mouth after an instructor gave a research project, where the end product could be a webpage.</li>
+                <li>Not wanting to manually remove the page after the assignment was graded, this project was made.</li>
+                <li>This was the first ever project to use Debian packaging as the distribution end-point.</li>
+                <h3>End</h3>
+                <p>This is the end of the documentation for the DGPN command and package.</p>
+                <p>If you any inquiries, please contact the project maintainer(s).</p>
+            </div>
+        </div>
+        <p class = "footer-text">dreamer's legacy, 2020-2021</p>
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+            for (i = 0; i < coll.length; i++) {
+              coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                document.getElementsByClassName("collapsible:after").content = "▲";
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight){
+                  content.style.maxHeight = null;
+                } else {
+                  content.style.maxHeight = content.scrollHeight + "px";
+                } 
+              });
+            }
+        </script>
+    </body>
+</html>

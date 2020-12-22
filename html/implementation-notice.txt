@@ -1,0 +1,23 @@
+Here's a ranked list of error pages, highest being most critical, lowest being least critical. Pages trailed with a * indicate implementation.
+
+5:
+404*
+408
+
+4:
+5xx*
+403*
+429
+
+3:
+400
+405
+411
+413
+451
+
+2:
+414
+
+1:
+418
