@@ -161,21 +161,5 @@
             </div>
         </div>
         <p class = "footer-text">dreamer's legacy, 2020-2021</p>
-        <script>
-            var coll = document.getElementsByClassName("collapsible");
-            var i;
-            for (i = 0; i < coll.length; i++) {
-              coll[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                document.getElementsByClassName("collapsible:after").content = "▲";
-                var content = this.nextElementSibling;
-                if (content.style.maxHeight){
-                  content.style.maxHeight = null;
-                } else {
-                  content.style.maxHeight = content.scrollHeight + "px";
-                } 
-              });
-            }
-        </script>
     </body>
 </html>
