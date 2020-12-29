@@ -1,10 +1,4 @@
 User-agent: *
-Disallow: /deargodpleaseno/
-
-User-agent: *
-Disallow: /projects/aquasilva/
-
-User-agent: *
 Disallow: /projects/forester/
 
 User-agent: SemrushBot

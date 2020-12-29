@@ -82,6 +82,17 @@
             </div>
             <div class = "leftcolumn">
                 <div class = "card">
+                    <h2>Update 1.11b</h2>
+                    <p>Project Update + Site Update, December 29th, 2020</p>
+                    <h3>Raspbot</h3>
+                    <p>Tested voltage regulator successfully with lab bench power supply, no abnormalities. Discovered common ground terminal did not have continuity, currently checking where the wire breakage is.</p>
+                    <h3>Lexicon Cognito</h3>
+                    <p>Writing SQLite database management module.</p>
+                    <h3>Site Updates</h3>
+                    <p>Wrote JavaScript to automatically change years for footer text, integrated into most HTML pages.</p>
+                    <p>Removed preloads for unused resources that no longer exist (yikes, forgot about that).</p>
+                </div>
+                <div class = "card">
                     <h2>Update 1.11a</h2>
                     <p>Project Update + Site Update, December 28th, 2020</p>
                     <h3>Raspbot</h3>
@@ -353,7 +364,8 @@
                 </div>
             </div>    
         </div>
-        <p class = "footer-text">dreamer's legacy, 2020-2021</p>
+        <p class = "footer-text" id = "year-footer-text"></p>
+        <script src = "/js/auto-fill-year.min.js"></script>
         <div class = "background" style = "background-image: url('/resources/background/20190824_091318_HDR_filtered.jpg');"></div>
     </body>
 </html>
