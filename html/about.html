@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,9 +8,9 @@
         <meta name="author" content="perpetualCreations">
         <title>About</title>
         <link rel="preload" href="/css/main.css" as="style">
-        <link rel="preload" href="/resources/background/20190823_162616_HDR.jpg" as="image">
+        <link rel="preload" href="/resources/background/20190823_162616_HDR.webp" as="image">
         <link rel="preload" href="/resources/avatars/pc.png" as="image">
-        <link rel="preload" href="/resources/avatars/pc-alternate.png" as="image">
+        <!-- <link rel="preload" href="/resources/avatars/pc-alternate.png" as="image"> -->
         <link rel="icon" href="/resources/homeIcon-favicon.ico">
         <link rel="stylesheet" type="text/css" href="/css/main.css">
         <style>
@@ -29,7 +29,9 @@
                 }
         </style>
     </head>
-    <body> 
+    <script src = "/js/about-random.min.js"></script>
+    <script src = "/js/auto-fill-year-func.min.js"></script>
+    <body onload = "aboutRandom();autoFillYear();"> 
         <!-- Looking at HTML/CSS and not knowing what it means doesn't make you cool. Learning it does. Be less useless today, for the low price of your worthless time. -->
         <div class="topnav">
             <a href="/index.html">Home</a>
@@ -60,13 +62,13 @@
                 <div class="card">
                     <div class = "row">
                         <div class = "column"><img src = "/resources/avatars/pc.png" class = "avatar" style = "margin: 0em -0.2em"></div>
-                        <div class = "column"><img src = "/resources/avatars/pc-alternate.png" class = "avatar" style = "margin-left: 10px;"></div>
+                        <!-- <div class = "column"><img src = "/resources/avatars/pc-alternate.png" class = "avatar" style = "margin-left: 10px;"></div> -->
                     </div>
                     <h3>perpetualCreations</h3>
                     <p style = "font-size: 10px; color: black; margin: -1em 0em 3.5em;"><i>I despise physical activity and sleep is for the weak.</i></p>
                     <p>I maintain and contribute to this site.</p>
                     <p>My real name is T. Chen, and I draw sketches and make things. Sometimes I'll take pictures on errands, they make nice backgrounds.</p>
-                    <p id = "opinion"></p> <!-- Leave this empty! When new text is loaded, it flashes, which is an issue for people with photosensitivity! -->
+                    <p id = "opinion-text"></p>
                     <h4>Contacts:</h4>
                     <p>Email 1: tchen0584@gmail.com</p>
                     <p>Email 2: skynetserver.god@protonmail.com</p>
@@ -75,8 +77,6 @@
             </div>
         </div>
         <p class = "footer-text" id = "year-footer-text"></p>
-        <div class = "background" style = "background-image: url('/resources/background/20190823_162616_HDR.jpg');"></div>
-        <script src = "/js/about-random.min.js"></script>
-        <script src = "/js/auto-fill-year.min.js"></script>
+        <div class = "background" style = "background-image: url('/resources/background/20190823_162616_HDR.webp');"></div>
     </body>
 </html>

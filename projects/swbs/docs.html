@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -72,7 +72,7 @@
                 <div class = "code-block">
                     <p><span class = "statement">import</span> swbs</p>
                     <p>swbs.configure.<span class = "function">security</span><span class = "brace">(</span><span class = "string">"some encryption key"</span><span class = "comma">,</span> <span class = "string">"an hmac key"</span><span class = "comma">,</span> <span class = "string">"auth string"</span><span class = "brace">)</span></p>
-                    <p>swbs.configure.<span class = "function">role</span><span class = "brace">(</span><span class = "boolean">False</span><span class = "brace">)</span></p>
+                    <p>swbs.configure.<span class = "function">role</span><span class = "brace">(</span><span class = "boolean">True</span><span class = "brace">)</span></p>
                     <p>swbs.configure.<span class = "function">endpoint</span><span class = "brace">(</span><span class = "string">"localhost"</span><span class = "comma">,</span> <span class = "number">2234</span><span class = "brace">)</span> <span class = "comment"># localhost can be replaced with an IP such as 192.168.1.1, if you're using the default port, you may forgo the second parameter.</span></p>
                 </div>
                 <h4>Connect and Accept</h4>
@@ -96,7 +96,7 @@
                 <div class = "code-block">
                     <p><span class = "statement">import</span> swbs</p>
                     <p>swbs.configure.<span class = "function">security</span><span class = "brace">(</span><span class = "string">"some encryption key"</span><span class = "comma">,</span> <span class = "string">"an hmac key"</span><span class = "comma">,</span> <span class = "string">"auth string"</span><span class = "brace">)</span></p>
-                    <p>swbs.configure.<span class = "function">role</span><span class = "brace">(</span><span class = "boolean">False</span><span class = "brace">)</span></p>
+                    <p>swbs.configure.<span class = "function">role</span><span class = "brace">(</span><span class = "boolean">True</span><span class = "brace">)</span></p>
                     <p>swbs.configure.<span class = "function">endpoint</span><span class = "brace">(</span><span class = "string">"localhost"</span><span class = "comma">,</span> <span class = "number">2234</span><span class = "brace">)</span> <span class = "comment"># localhost can be replaced with an IP such as 192.168.1.1, if you're using the default port, you may forgo the second parameter.</span></p>
                     <p>swbs.interface.<span class = "function">accept</span><span class = "brace">()</span></p>
                 </div>
@@ -119,7 +119,7 @@
                 <div class = "code-block">
                     <p><span class = "statement">import</span> swbs</p>
                     <p>swbs.configure.<span class = "function">security</span><span class = "brace">(</span><span class = "string">"some encryption key"</span><span class = "comma">,</span> <span class = "string">"an hmac key"</span><span class = "comma">,</span> <span class = "string">"auth string"</span><span class = "brace">)</span></p>
-                    <p>swbs.configure.<span class = "function">role</span><span class = "brace">(</span><span class = "boolean">False</span><span class = "brace">)</span></p>
+                    <p>swbs.configure.<span class = "function">role</span><span class = "brace">(</span><span class = "boolean">True</span><span class = "brace">)</span></p>
                     <p>swbs.configure.<span class = "function">endpoint</span><span class = "brace">(</span><span class = "string">"localhost"</span><span class = "comma">,</span> <span class = "number">2234</span><span class = "brace">)</span> <span class = "comment"># localhost can be replaced with an IP such as 192.168.1.1, if you're using the default port, you may forgo the second parameter.</span></p>
                     <p>swbs.interface.<span class = "function">accept</span><span class = "brace">()</span></p>
                     <p><span class = "function">print</span><span class = "brace">(</span>swbs.interface.<span class = "function">receive</span><span class = "brace">(</span><span class = "boolean">True</span><span class = "brace">))</span></p>
@@ -142,7 +142,7 @@
                 <div class = "code-block">
                     <p><span class = "statement">import</span> swbs</p>
                     <p>swbs.configure.<span class = "function">security</span><span class = "brace">(</span><span class = "string">"some encryption key"</span><span class = "comma">,</span> <span class = "string">"an hmac key"</span><span class = "comma">,</span> <span class = "string">"auth string"</span><span class = "brace">)</span></p>
-                    <p>swbs.configure.<span class = "function">role</span><span class = "brace">(</span><span class = "boolean">False</span><span class = "brace">)</span></p>
+                    <p>swbs.configure.<span class = "function">role</span><span class = "brace">(</span><span class = "boolean">True</span><span class = "brace">)</span></p>
                     <p>swbs.configure.<span class = "function">endpoint</span><span class = "brace">(</span><span class = "string">"localhost"</span><span class = "comma">,</span> <span class = "number">2234</span><span class = "brace">)</span> <span class = "comment"># localhost can be replaced with an IP such as 192.168.1.1, if you're using the default port, you may forgo the second parameter.</span></p>
                     <p>swbs.interface.<span class = "function">accept</span><span class = "brace">()</span></p>
                     <p><span class = "function">print</span><span class = "brace">(</span>swbs.interface.<span class = "function">receive</span><span class = "brace">(</span><span class = "boolean">True</span><span class = "brace">))</span></p>
