@@ -10,7 +10,6 @@
         <link rel = "preload" href = "/css/main.css" as="style">
         <link rel = "preload" href = "/resources/background/20190824_091318_HDR_filtered.webp" as="image">
         <link rel = "preload" href = "/resources/thegridlogo.webp" as="image">
-        <link rel = "preload" href = "/resources/github-calendar/github-calendar.min.js" as="script">
         <link rel = "icon" href="/resources/homeIcon-favicon.ico">
         <link rel = "stylesheet" type="text/css" href="/css/main.css">
         <style>
@@ -67,22 +66,29 @@
                 </div>
                 <div class = "card">
                     <h2>Activity</h2>
-                    <!-- I'm leaving all of the guide comments in here because I feel like I'll wonder what everything does. Don't delete them. -->
-                    <!-- Include the library. -->
-                    <script src="/resources/github-calendar/github-calendar.min.js"></script>
-                    <!-- Optionally, include the theme (if you don't want to struggle to write the CSS) -->
-                    <link rel="stylesheet" href="/resources/github-calendar/github-calendar-responsive.css">
-                    <!-- Prepare a container for your calendar. -->
+                    <script src = "https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
+                    <link rel = "stylesheet" href = "https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css"/>
                     <div class="calendar">
-                        <!-- Loading stuff -->
-                        Loading... please wait warmly.
+                        <p>Loading... please wait warmly.</p>
                     </div>
                     <script>
                         GitHubCalendar(".calendar", "perpetualCreations", { responsive: true });
                     </script>
+                    <p style = "font-size: 14px;">Down? Github probably changed how the calendar is rendered, again. It'll be a bit until the scraper is updated to handle the new changes.</p>
                 </div>
             </div>
             <div class = "leftcolumn">
+                <div class = "card">
+                    <h2>Update 1.13</h2>
+                    <p>Project Update + Site Update, February 5th, 2021</p>
+                    <h3>Raspbot</h3>
+                    <p>Three TODOs remaining, for keyboard controls, updates to the Arduino script generator to accept multi-character inputs and the new ToF sensor, and slight amount of back-end cleanup.</p>
+                    <p>Camera view is to be integrated into the main client GUI, which was migrated to use PySide6. Currently fixing a weird socket error, telemetry stream refuses to connect despite being supplied the correct address and port, and the host listening for a connection.</p>
+                    <p>WIP commit containing latest changes include function type-hints, and the fragrance of regret.</p>
+                    <h3>Site Updates</h3>
+                    <p><a href = "https://github.com/Bloggify/github-calendar/issues/133" target = "_blank">Github Calendar is unable to load commit history</a> due to yet another UI update that broke a parser upstream. Sources for stylesheets and JS have been changed back to unpkg.com.</p>
+                    <p>Changed about page, updated documentation for accessibility, updated Raspbot gallery and cleaned up broken and unused preloads.</p>
+                </div>
                 <div class = "card">
                     <h2>Update 1.12</h2>
                     <p>Project Update + Site Update, January 21st, 2021</p>
@@ -308,7 +314,7 @@
                     <p>Project Update + Site Update, October 6th, 2020</p>
                     <p>Repeated BLTouch failures, Raspbot chassis still in production.</p>
                     <p>Site now has a new icon, it will also show up in various projects, in schematics and documentation.</p>
-                    <img src = "/resources/thegridlogo.webp" alt = "yay new logo thingy here" style = "height: 10%; width: 10%;">
+                    <img src = "/resources/thegridlogo.webp" alt = "Icon image for dreamerslegacy.xyz" style = "height: 10%; width: 10%;">
                 </div>
                 <div class = "card">
                     <h2>Update 1.7</h2>
