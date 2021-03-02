@@ -2,6 +2,9 @@
 Main CSS Document
 
 Use as a global or base stylesheet. 
+
+Superseded by newline.css, exists only for legacy pages that haven't been converted.
+Not to be updated past Update 1.13.
 */
 /* font imports */@import url('https://fonts.googleapis.com/css?family=Montserrat:400,400i&display=swap');
 /* main */body {font-family: 'Montserrat', sans-serif;background-color: rgb(64, 64, 64);}.background {-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;-ms-background-size: cover;background-size: cover;/*-webkit-filter: blur(0px);-moz-filter: blur(0px);-o-filter: blur(0px);-ms-filter: blur(0px);filter: blur(0px);*/position: fixed;width: 100%;height: 100%;top: 0;left: 0;z-index: -1;}

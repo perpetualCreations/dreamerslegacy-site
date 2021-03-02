@@ -3,28 +3,21 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Error: Method Not Allowed (405)</title>
-        <link rel="preload" href="/css/main.css" as="style">
-        <link rel="icon" href="/resources/homeIcon-favicon.ico">
-        <link rel="stylesheet" type="text/css" href="/css/main.css">
+        <title>Error: Client-Side Error (4XX)</title>
+        <link rel="preload" href="/css/error.min.css" as="style">
+        <link rel="preload" href="/js/auto-fill-year.min.js" as="script">
+        <link rel="icon" href="/resources/favicon.ico">
+        <link rel="stylesheet" type="text/css" href="/css/error.min.css">
         <style>
-            body {
-                background-color: white;
-                padding-left: 40px;
-                }
-            @media screen and (max-width: 900px) {
-                  .column {
-                    width: 50%;
-                  }
-                }
+            /* inherits from error.css */
         </style>
     </head>
     <body>
         <!-- Okay this isn't funny anymore, this is serious. -->
-        <h1 style = "text-align: left;">// Error 405</h1>
-        <h3><i>Client-Side Issue, Method Not Allowed</i></h3>
+        <h1>// Error 4XX</h1>
+        <h3><i>Client-Side Issue</i></h3>
         <hr>
-        <p>Request method was not supported for resource.</p>
+        <p>Client request failed.</p>
         <p>If needed, please open an issue at the Github repository (will require an account), or email skynetserver.god@protonmail.com.</p>
         <a class = "button" href = "/index.html">Return Home</a> <a class = "button" style = "color: orange;" href= "https://github.com/perpetualCreations/dreamerslegacy-site/issues/new" target="_blank">Open Issue</a>
         <p class = "footer-text" id = "year-footer-text" style = "color: black;padding-top: 50px;"></p>

@@ -1,0 +1,1 @@
+.button{background-color:#404040}.avatar{border-color:#fff;border-width:2px}.update-card{background-color:#303030}.bridge-card{margin-top:60%;position:sticky;top:0;margin-top:1.5%;display:flex}@media (max-width:100px){.bridge-card .button{width:50%}}@media (max-width:860px){.bridge-card{max-height:0;padding:0;overflow:hidden}}

@@ -1,0 +1,45 @@
+/*
+Error CSS Document
+
+Intended for styling error documents.
+*/
+/* font imports */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,400i&display=swap');
+/* main */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: white;
+    padding-left: 1.5%;
+}
+/* texts config */
+h1, h2, h3, h4, h5, h6 {
+    color: black;
+}
+h1 {
+    text-align: left;
+}
+p, a, li {
+    color: dimgray;
+}
+/* button */
+.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+.button {
+    background-color: slategray;
+    border: none;
+    color: white;
+    padding: 15px 36px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    width: auto;
+    height: auto;
+}
+/* footer + header */
+.footer-text {
+    font-size: 10px;
+    color: white;
+}
