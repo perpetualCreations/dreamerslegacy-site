@@ -1,6 +1,6 @@
-Website and host by Taian Chen.
+Website and host by perpetualCreations.
 Former, now unused additional artwork and Soulbound banner by WonkyTonk.
-Page code and design based off of templates from: https://www.w3schools.com.
+Collapsibles and other elements from: https://www.w3schools.com.
 Site font(s) ported from Google Fonts.
 
 Uses github-calendar, a embeddable that shows a GitHub user's commit calendar and activity.

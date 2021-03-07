@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="Documentation for Raspbot Project.">
         <meta name="keywords" content="perpetualCreations, dreamerslegacy, dreamer's legacy, dreamerslegacy.xyz, raspbot, raspbot rca, raspbot documentation, raspbot docs, raspbot rca docs">
-        <meta name="author" content="deargodpleaseno">
+        <meta name="author" content="pepretualCreations">
         <title>Raspbot Documentation</title>
         <link rel="preload" href="/css/newline.min.css" as="style">
         <link rel="preload" href="/css/schema.min.css" as="style">
@@ -27,14 +27,174 @@
         <div class = "schema">
             <img src="/projects/raspbot/icon-upscaled.png" class = "project-icons" alt = "Raspbot Project Icon"><h1>Raspbot Documentation</h1>
             <div id="content">
-                <div class="alert">
-                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-                    <strong>Notice:</strong> Currently under revision, information may not be fully accurate.
-                </div>
                 <h3>1.1: Introduction</h3>
                 <p>Raspbot is a small robotic vehicle, that is remotely operated via a local network, through a custom client application.</p>
-                <p>The onboard computer is powered by a Raspberry Pi 3 B+ running Raspbian. Additionally, it contains an Arduino microcontroller and an Arduino Motor Shield Rev3 (for controlling the dual tank treads).</p>
-                <h3>1.2: Hardware Specs</h3>
+                <p>The onboard computer is powered by a Raspberry Pi 3 B+ running Raspbian, and an Arduino microcontroller for interfacing with lower-level electronic components.</p>
+                <h3>1.2: Remote Control Application (RCA) </h3>
+                <p>Raspbot is operated via a client and host application. The client is GUI-based, built with the PySide6 framework. The host Raspbot RCA runs on Debian or Debian-based systems (i.e Ubuntu, Raspbian), and works headless. The client is not OS-dependent.</p>
+                <p>The application is written in Python, you may run it by installing Python 3 and the required subsequent dependencies through PIP, please see requirements.txt files for package and version requirements. If using the SenseHAT as part of your hardware configuration, please install the PyPI package and also the Debian package.</p>
+                <p>Client binaries will be made available, however they are unsigned. Alternatively, native installers will also be made available, courtesy of <a href = "https://doc.qt.io/qtforpython/deployment.html" target = "_blank">Qt for Python's deployment options.</a></p>
+                <p>Please see section 1.2.1 for more information regarding installing the host and client application, 1.2.2 for developers seeking to modify source code for their own use, 1.2.3 for UI documentation, and 1.2.4 for navigation scripting.</p>
+                <h3>1.2.1: Software Installation</h3>
+                <button class = "collapsible" style = "text-align: center;">Click to Expand Instructions</button>
+                <div class = "content">
+                    <h4>Client Application</h4>
+                    <h4>Install</h4>
+                    <p>Unpack application contents. Continue with installing Python dependencies listed in <span class = "code-quote">requirements.txt</span>.</p>
+                    <h4>Configure</h4>
+                    <p>Review configuration files <span class = "code-quote">main.cfg</span>, <span class = "code-quote">hardware.cfg</span>, <span class = "code-quote">comms/comms.cfg</span>. Specify your hardware configuration under <span class = "code-quote">hardware.cfg</span> by marking fields as <span class = "code-quote">True</span> or <span class = "code-quote">False</span>. Specify your network configuration and encryption/authentication keys under <span class = "code-quote">comms/comms.cfg</span>.</p>
+                    <p>Replace placeholders with intended values. Please note these configuration entries should be uniform with the host's when applicable.</p>
+                    <h4>Conclude</h4>
+                    <p>This is the end of the installation instructions. At this point, you should install the hose application if you haven't already done so.</p>
+                    <h4>Host Application</h4>
+                    <h4>Install</h4>
+                    <p>To install, copy contents into the user "pi"'s home directory.</p>
+                    <p>Next, to setup automatic host application start-up on boot, run <span class = "code-quote">sudo bash boot_run.sh</span> while in the host directory. You can remove the start-up script later upon uninstalling with <span class = "code-quote">sudo bash boot_remove</span>.</p>
+                    <p>Continue with installing Python dependencies listed in <span class = "code-quote">requirements.txt</span>.</p>
+                    <h4>Configure</h4>
+                    <p>Review configuration <span class = "code-quote">main.cfg</span>, <span class = "code-quote">hardware.cfg</span>, <span class = "code-quote">comms/comms.cfg</span>. Specify your hardware configuration under <span class = "code-quote">hardware.cfg</span> by marking fields as <span class = "code-quote">True</span> or <span class = "code-quote">False</span>. Specify your network port configuration, encryption and authentication keys, and camera feed compression under <span class = "code-quote">comms/comms.cfg</span>.</p>
+                    <p>Replace placeholders with intended values. Please note these configuration entries should be uniform with the client's when applicable</p>
+                    <p>The field for an authentication key in <span class = "code-quote">comms/comms.cfg</span> should not be manually filled. Use the <span class = "code-quote">auth_key_hasher.py</span> script to generate the hash required.</p>
+                    <h4>Arduino</h4>
+                    <p>Run the Arduino script generationt ool, labeled <span class = "code-quote">tool.py</span>. You will be asked to provide a path to your hardware configuration file (i.e. <span class = "code-quote">C://Users//X//Raspbot RCA//client//hardware.cfg</span> or <span class = "code-quote">/home/X/Raspbot RCA/client/hardware.cfg</span>).</p>
+                    <p>Please make sure you have edited your hardware configuration file prior, to match your installed hardware.</p>
+                    <p>A script will be generated for uploading. To upload, plug the USB Type A plug on the USB A to USB B cable usually plugged into the Raspberry Pi into your computer and make sure the USB Type B plug is seated nicely into the Arduino's port.</p>
+                    <p>Compile and upload the generated source file with your favorite editor. By default, the generated script file is for PlatformIO installations.</p>
+                    <p>After uploading the script file, you may disconnect the Type A plug and plug it into the Raspberry Pi.</p>
+                    <h4>SenseHAT</h4>
+                    <p>Disregard this section if your hardware configuration does not use a Raspberry Pi SenseHAT.</p>
+                    <p>Please install APT-package dependencies for the SenseHAT. More information available <a href = "https://www.raspberrypi.org/documentation/hardware/sense-hat/" target = "_blank">on the Raspberry Pi Foundation's documentation page for the SenseHAT.</a></p>
+                    <h4>Additional Notes</h4>
+                    <h4>Note about Static IPs</h4>
+                    <p>Usually, unless you have already pre-configured your Pi, it will work under an address provided by a DHCP server. These addresses may change as a device connects and disconnects to and from a network. For your convenience, consider setting a static address to maintain the same address.</p>
+                    <p>See documentation and tutorials online on how to do this.</p>
+                    <h4>Note about Port Forwarding</h4>
+                    <p>Although the host application was designed with security in mind, it is not recommended to setup port forwarding. The security measures in place are by no means perfect, nor are they particularly robust. They are not vetted by any qualified InfoSec professional.</p>
+                    <p>It should also be emphasized regardless how impervious the host application is, port forwarding will expose your device to the open internet. Proceed at your own risk.</p>
+                    <p>If for some reason, you do need remote access from outside your local network, try setting up an OpenVPN tunnel instead of port forwarding.</p>
+                    <p>If you decide to continue anyways despite these warnings, port forward the ports listed in the <span class = "code-quote">comms/comms.cfg</span> file, by default they are 64220, 64221, and 64222. Refer to your router manual to see if port forwarding is available, and how to perform it.</p>
+                    <h4>Conclude</h4>
+                    <p>This is the end of the installation instructions. At this point, you may restart your Pi. If you haven't already done so, install the client application.</p>
+                    <p>If you didn't set up the host application to automatically start, manually start it and test it with your client.</p>
+                </div>
+                <h3>1.2.2: Developers and Back-End</h3>
+                <h4>Modules</h4>
+                <p>The client and host application consist of Python modules, to fragment complexity instead of grouping everything into a single module. Shared between the host and client are the <span class = "code-quote">basics</span> and <span class = "code-quote">comms</span> modules, which are responsible for basic application functions (such as exiting, timestamp generation, multithreading) and socket communications including transmitting telemetry data (host-only) and transferring camera video frames through <a href = "https://github.com/jeffbass/imagezmq" target = "_blank">ImageZMQ</a>.</p>
+                <p>The host application has specialized unique modules, <span class = "code-quote">telemetry</span>, <span class = "code-quote">science</span>, <span class = "code-quote">led_graphics</span>, <span class = "code-quote">hardware_check</span>, and unique additions to the <span class = "code-quote">basics</span> and <span class = "code-quote">comms</span> modules for telemetry broadcast, serial, and additional application restart functions. Modules are responsible for collecting telemetry data, collecting evironmental data, displaying pixel images on the SenseHAT LED matrix, and collecting hardware data respectively.</p>
+                <p>For developers, these modules are of interest for modification.</p>
+                <h4>Configuration Files</h4>
+                <p><span class = "code-quote">comms/comms.cfg</span> has fields for three entires under the ENCRYPT section. The key value is used for encrypting messages with the <a href = "https://en.wikipedia.org/wiki/Salsa20" target = "_blank">Salsa20 protocol</a>, the HMAC key value is for validating and verifying messages through the <a href = "https://en.wikipedia.org/wiki/HMAC" target = "_blank">HMAC standard</a>.</p>
+                <p>These entires should be the same across both the client and host configuration.</p>
+                <p>The auth key is the passphrase used to autenticate the client. Under the client configuration, this is a text string. On the host, the entry should be a SHA3-512 hash of the text string. The hash can be generated by the <span class = "code-quote">auth_key_hasher.py</span> script.</p>
+                <p>The NET section details the three port numbers for main, camera, and telemetry communications. These should be identical on both client and host configuration files. The client will have an additional field for an IP address. This should be the host's address.</p>
+                <p>The host has a unique section for specifying the camera feed compression ratio. This field should be filled with an integer between 0 and 100. By increasing compression, you lose image quality but gain more image transmission throughput with smaller image sizes.</p>
+                <p><span class = "code-quote">hardware.cfg</span> has fields for seven entries under the HARDWARE section. They should be set as <span class = "code-quote">True</span> or <span class = "code-quote">False</span>. In order of appearance, the entires notate whether the camera, SenseHAT, time-of-flight distance sensor, dust sensor, charger, arm, and arm camera are installed. See section 2.1 on which of these are optional.</p>
+                <p>These entries should be uniform between the two configuration files for host and client.</p>
+                <h4>Licensing and Open Source</h4>
+                <p>The entirety of the Raspbot project is licenesed under the <a href = "https://opensource.org/licenses/MIT" target="_blank">MIT License</a> unless specified otherwise. You are free to use, modify, and re-distribute software and design assets specified to be under the MIT License.</p>
+                <h3>1.2.3: Client UI</h3>
+                <div class = "row">
+                    <div class = "column">
+                        <img src = "/projects/raspbot/gallery/client-dev-2-a.png" alt = "UI example">
+                        <div class = "row">
+                            <div class = "column">
+                                <img src = "/projects/raspbot/gallery/client-dev-2-b.png" alt = "UI example, config editor menu">
+                            </div>
+                            <div class = "column">
+                                <img src = "/projects/raspbot/gallery/client-dev-2-c.png" alt = "UI example, ping menu">
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "column">
+                        <p>The client user-interface consists of a menu bar, and sections for telemetry, camera-view, navigation, shutdown/reboot, report handling, and connect/disconnect.</p>
+                        <p>Functions that require a connection will be disabled while disconnected.</p>
+                        <p>Under the <span class = "code-quote">App</span> menu,</p>
+                        <ul>
+                            <li><span class = "code-quote">App -> Edit Configs -> Edit Network</span>, opens an editor GUI for the user to modify the <span class = "code-quote">comms/comms.cfg</span> file.</li>
+                            <li><span class = "code-quote">App -> Edit Configs -> Edit Hardware</span>, opens an editor GUI for the user to modify the <span class = "code-quote" >hardware.cfg</span> file.</li>
+                            <li><span class = "code-quote">App -> Edit Configs -> Edit Main</span>, opens an editor GUI for the user to modify the <span class = "code-quote">main.cfg</span> file.</li>
+                            <li><span class = "code-quote">Expand Camera</span>, opens and closes the camera feed in an expanded window.</li>
+                            <li><span class = "code-quote">Exit</span>, closes the application.</li>
+                        </ul>
+                        <p>Under the <span class = "code-quote">Tools</span> menu,</p>
+                        <ul>
+                            <li><span class = "code-quote">Tools -> Ping</span>, opens GUI for pinging host.</li>
+                        </ul>
+                        <p>Under the <span class = "code-quote">Add-Ons</span> menu,</p>
+                        <ul>
+                            <li><span class = "code-quote">Add-Ons -> SenseHAT LEDs</span>, opens GUI window with buttons for controlling SenseHAT LED matrix (if installed).</li>
+                            <li><span class = "code-quote">Add-Ons -> Arm Control</span>, not implemented.</li>
+                        </ul>
+                        <p>Under the <span class = "code-quote">Help</span> menu,</p>
+                        <ul>
+                            <li><span class = "code-quote">Help -> Visit Documentation</span>, opens this documentation webpage through your browser.</li>
+                            <li><span class = "code-quote">Help -> Visit Github Repo</span>, opens the <a class = "code-quote">Github repository for this project</a> through your browser.</li>
+                        </ul>
+                        <p>Under the <span class = "code-quote">Telemetry</span> section,</p>
+                        <ul>
+                            <li>Text widget displaying telemetry data from the host.</li>
+                        </ul>
+                        <p>Under the <span class = "code-quote">Camera</span> section,</p>
+                        <ul>
+                            <li>Frame widget displaying camera feed when connected.</li>
+                            <li>Label widget displaying current dock and connection status.</li>
+                            <li>Button widget for saving current camera frame to a file (find it in the client directory).</li>
+                        </ul>
+                        <p>Under the <span class = "code-quote">Navigation</span> section,</p>
+                        <ul>
+                            <li>Button widget for docking Raspbot.</li>
+                            <li>Button widget for undocking Raspbot.</li>
+                            <li>Button widget for opening inline help menu (because it isn't confusing enough without multiple streams of information).</li>
+                            <li>Button widget for toggling keyboard control (when connected, this disables a large portion of other buttons, you gain control over Raspbot's movements, see the inline help menu for keybind controls).</li>
+                            <li>Button widget for editing navigation scripts.</li>
+                            <li>Button widget for loading navigation scripts.</li>
+                            <li>Button widget for executing navigation scripts.</li>
+                            <li>Label widget displaying the path to the loaded navigation script, if one exists in memory.</li>
+                        </ul>
+                        <p>Under the <span class = "code-quote">Report</span> section,</p>
+                        <ul>
+                            <li>Button widget for collecting reports.</li>
+                            <li>Button widget for saving reports.</li>
+                            <li>Button widget for opening a GUI viewer to view last collected report.</li>
+                            <li>Dropdown widget for selecting report type. Requesting "None" will do nothing.</li>
+                        </ul>
+                        <p>Under the <span class = "code-quote">Misc.</span> section,</p>
+                        <ul>
+                            <li>Button widget for shutting down the host.</li>
+                            <li>Button widget for rebooting the host.</li>
+                            <li>Button widget for opening inline help menu.</li>
+                        </ul>
+                        <p>Under the <span class = "code-quote">Connect</span> section,</p>
+                        <ul>
+                            <li>Button widget for connecting to the host.</li>
+                            <li>Button widget for disconencting from the host.</li>
+                            <li>Button widget for updating the host's operating system (calls <span class = "code-quote">sudo apt update &amp;&amp; apt upgrade -y</span>).</li>
+                        </ul>
+                    </div>
+                </div>
+                <h3>1.2.4: Navigation Scripting</h3>
+                <p>Naivgation scripts are files that detail movement instructions for Raspbot. They should end with a <span class = "code-quote">.navscript</span> file extension, and encoded in plain-text.</p>
+                <p>Syntax is similar to <span class = "code-quote">GCODE</span>, each line is an individual instruction. An instruction should be a command (i.e. F, S, C), a space, and then an integer marking the number of seconds the navigation command should be ran until movement is stopped.</p>
+                <p>The valid navigation commands are,</p>
+                <ul>
+                    <li>F, forwards</li>
+                    <li>B, backwards</li>
+                    <li>W, Y, turn left and turn right, forwards turn</li>
+                    <li>X, Z, turn left and turn right, backwards turn</li>
+                    <li>S, clockwise rotation</li>
+                    <li>C, counterclockwise rotation</li>
+                </ul>
+                <p>Below is an example of a valid navigation script.</p>
+                <div class = "code-block">
+                    <p>F 60</p>
+                    <p>W 5</p>
+                    <p>F 60</p>
+                    <p>X 5</p>
+                    <p>B 5</p>
+                    <p>S 30</p>
+                    <p>F 60</p>
+                </div>
+                <h3>1.3: Hardware Specs</h3>
                 <button class = "collapsible" style = "text-align: center;">Click to Expand Specifications</button>
                 <div class = "content">
                     <h4>[Processing]</h4>
@@ -80,19 +240,20 @@
                     <p>2 Unoccupied USB 2.0 Ports</p>
                     <p>4-Pole Stereo or Composite Video Output Port</p>
                 </div>
-                <p></p>
-                <h3>1.3: Remote Control Application (RCA) </h3>
-                <p>As mentioned, the robotic vehicle is operated via a client and host application. The client is GUI-based, the previous client was based on a command-line interface, the next releases of the control application will possibly make a return to CLI, for low-resource or specific scenarios where CLI is preferred. The host Raspbot RCA runs on Debian or Debian-based systems (i.e Ubuntu, Raspbian). The client is not OS-dependent.</p>
-                <p>The application is written in Python, you may run it by installing Python 3 and the application's associated packages with PIP, please see requirements.txt files for package and version requirements. If using the SenseHAT as part of your hardware configuration, please install the PyPI package and also the Debian package. See hardware list for more details on SenseHAT and certain packages for particular hardware.</p>
-                <p>Client binaries will be made available, however they are unsigned.</p>
-                <p>It's recommended to use a designated user account on the Debian or Debian-based system, and to extract release contents to the user's home directory.</p>
-                <p>In Raspbot RCA v1.1, credits to Pyimagesearch for the live camera view, please see /tkinter-photo-booth/tkinter-photo-booth-citation.txt for more information. Please note v1.2 and above this dependency has been removed.</p>
+                <p>Please see section 1.3.1 for information regarding docking.</p>
+                <h3>1.3.1: Docking</h3>
+                <p>Docking is the mechanism in which Raspbot charges without shutting down the host. It is not implemented, charging hardware has not been developed.</p>
+                <p>Regardless, the underlying software exists to support it. When docking, the MOSFET controlling motor power is opened, stopping flow of current, and disabling the motors with it. Additionally, the relay controlling the Pi's power is switched from internal to external. When undocking, the MOSFET is closed again, and resumes current flow, restoring the motors. The relay switches back to internal.</p>
+                <p>Until hardware development has matured, manual shutdown and recharging is required instead of docking.</p>
                 <h3>1.4: Previous Revision</h3>
-                <p>The previous hardware revision used a single-use 9V battery for supplying motor power, and used a commercial-off-the-shelf battery bank to power the Raspberry Pi. The chassis has since been redesigned, with more mounting space and wire pass-throughs.</p>
-                <p>The control application client was updated from CLI to use Tkinter, and now the Qt GUI framework through PySide6. Since v1.1, the feature set and scope has gradually grown, and recently the Arduino code was updated for multi-character commands using a buffer.</p>
-                <h3>2.1: Hardware List + Build Directions</h3>
+                <p>The previous hardware revision used a single-use 9V battery for supplying motor power, and used a commercial-off-the-shelf battery bank to power the Raspberry Pi. The current revision replaces this with a proper power distribution system, using a single lithium-polymer battery, and featuring switching control and voltage sensing.</p>
+                <p>The chassis has since been redesigned, with more mounting space and wire pass-throughs.</p>
+                <p>The control application client was updated from CLI to use Tkinter, and now the Qt GUI framework through PySide6. Since v1.1, the feature set and scope has gradually grown, and  the Arduino code has been updated for multi-character commands using a buffer.</p>
+                <p>In Raspbot RCA v1.1, the live camera view was derived from an example by Pyimagesearch, a citation was made under <span class = "code-quote">/tkinter-photo-booth/tkinter-photo-booth-citation.txt</span> in the v1.1 release package. Since v1.2, the code example has been removed and deprecated.</p>
+                <h3>2.1: Hardware List + <del>Build Directions</del></h3>
                 <p>Below is a list of hardware used, containg links to buy each of the hardware components, and also directions to assemble. Documentation and downloads can be found on each of the manufacturer's website. Note hardware sets have been revised over the project's development.</p>
                 <p>The top case housing the electronics can be 3D printed, the CAD files are available in the project's download section.</p>
+                <p>Modules other than the Base Parts Set can be optional and disabled in the hardware configuration.</p>
                 <button class = "collapsible">Dust Sensor Module (Created 10-3-2020, Updated 10-3-2020)</button>
                 <div class = "content">
                     <p>[Finished]</p>
@@ -115,7 +276,31 @@
                 </div>
                 <button class = "collapsible">Base Parts Set (Created 11-26-2019, Updated 10-3-2020)</button>
                 <div class = "content">
-                    <p>WIP, Compiling Receipts</p>
+                    <p>[Incomplete]</p>
+                    <li><a href="https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/" target="_blank">Raspberry Pi 3 B+</a></li>
+                    <p>Requires Raspbian, flash the OS image onto an MicroSD card. The image can be downloaded from the <a href = "https://www.raspberrypi.org/software/" target = "_blank">Raspberry Pi Foundation's webpage</a>.</p>
+                    <li><a href="https://www.amazon.com/Anivia-Desktop-Computer-Flexible-Rotatable/dp/B07MVY1H9V/" target="_blank">Generic USB Webcam</a></li>
+                    <p>Must support USB interface. The camera mount was originally designed for webcams that "clamped" onto a surface (i.e. what would be your monitor, or vertical surface). Expect needing to modify the mount to suit your needs. The listing above is a similar design.</p>
+                    <li><a href="https://store.arduino.cc/usa/arduino-uno-rev3" target="_blank">Arduino Uno</a></li>
+                    <p>Please review section 1.2.1, host instructions, Arduino, for information regarding uploading microcontroller code.</p>
+                    <li><a href="https://store.arduino.cc/usa/arduino-motor-shield-rev3" target="_blank">Arduino Motor Shield Rev3</a></li>
+                    <p>Should be installed onto the Arduino Uno, slide the header pins onto the header slots of the Arduino Uno.</p>
+                    <p>Wire main VCC rails to VIN, and main GND to GND.</p>
+                    <li><a href="https://www.amazon.com/OTTFF-Robot-Chassis-Arduino-Raspberry/dp/B07C2Q63XG" target="_blank">Chassis and Tank Treads</a></li>
+                    <p>Requires soldering of wires onto the motor pins, positive and negative leads should then be inserted into the Arduino Motor Shield's screw sockets. Please pay attention to polarity of motor terminals.</p>
+                    <p>Upgrade includes parts to create a power distribution system and charging station to eliminate the need for multiple batteries. Also better webcam with a microphone.</p>
+                    <li><a href="https://www.amazon.com/HiLetgo-Channel-optocoupler-Support-Trigger/dp/B00LW15A4W/" target="_blank">Relays</a></li>
+                    <p>Only one is required for controlling the Raspberry Pi's power supply from internal to external.</p>
+                    <li>Li-Po Battery</li>
+                    <p>Should be 12-11.1V, charge with a balance charger. Do not charge unattended, lithium-polymer batteries can be volatile.</p>
+                    <li><a href="https://www.amazon.com/Tenergy-Balance-Charger-Airsoft-Connector/dp/B004FGWY54/" target="_blank">Li-Po Balance Charger</a></li>
+                    <p>Balance charger for lithium-polymer batteries. Any charger that supports your battery's connector works. If yours is configurable like in the example listing, be sure to set the battery chemistry to LiPo.</p>
+                    <li><a href="https://www.amazon.com/WINGONEER-Voltage-Detector-Terminal-Arduino/dp/B06XHKZCD4/" target="_blank">Voltage Sensor</a></li>
+                    <p>Steps down battery voltage with a series of resistors to a voltage that the Arduino can tolerate, for measuring through an analog pin.</p>
+                    <li>Black/Red Copper Cable</li>
+                    <p>Can be found online from a variety of vendors or salvaged from other hardware. Cable should be 12-18 guage, please use insulated wire only to prevent unintended conduction between wires and other surfaces.</p>
+                    <li>Zip Ties and Mounting Screws</li>
+                    <p>Expect to use zip ties frequently in managing wires and cables, additional support in mounting the Raspberry Pi, and securing other misc. components. Raspbot is constructed with a mix of M3.5 and M4.7 screws, hex nuts, and washers. The M4.7 hardware is needed for mounting the upper enclosure to the lower tread base.</p>
                 </div>
                 <h4>End</h4>
                 <p>This is the end of the documentation for the Raspbot control application.</p>
