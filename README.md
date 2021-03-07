@@ -23,4 +23,4 @@ sudo apt update
 
 As you may have noticed, this is a rather unconventional method for installing packages. Normally, you would use `apt-add-repository`. This method simply adds an entry to the APT source list.
 
-If typing out these commands is burdensome, see [this release](https://github.com/perpetualCreations/ppa/releases/tag/s1.0) for two shell scripts to automate this process (perphaps a bit pointless, considering the trouble you need to go through, compared to copy-and-pasting commands).
+If typing out these commands is burdensome, see [this release](https://github.com/perpetualCreations/ppa/releases/tag/s1.0) for two shell scripts to automate this process (perhaps a bit pointless, considering the trouble you need to go through, compared to copy-and-pasting commands).
