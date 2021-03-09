@@ -8,6 +8,8 @@ Portions of the site's stylesheets were based off of https://www.w3schools.com/.
 ## PPA
 Part of this portfolio site hosts the Personal Package Archive (PPA) for the distribution of my Debian packages. Add to APT to install its offerings.
 
+From testing, I can inform you this will likely work on most Debian and Debian-based operating systems, including Raspbian, however expect broken dependencies for certain packages. 
+
 To add the archive repository, run:
 ```commandline
 sudo curl -s --compressed "https://dreamerslegacy.xyz/ppa/ubuntu/KEY.gpg" | sudo apt-key add -

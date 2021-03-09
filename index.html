@@ -54,7 +54,6 @@
                     <div class="card lazy">
                         <div class = "row">
                             <div class = "column"><img src = "/resources/avatars/pc.webp" class = "avatar" style = "margin: 0em -0.2em" alt = "Avatar Image for perpetualCreations"></div>
-                            <!-- <div class = "column"><img src = "/resources/avatars/pc-alternate.png" class = "avatar" style = "margin-left: 10px;"></div> -->
                         </div>
                         <h3>T. Chen</h3>
                         <p style = "font-size: 10px; color: white; margin: -1em 0em 3.5em;"><i>I despise physical activity and sleep is for the weak.</i></p>
@@ -72,6 +71,26 @@
                         <p>It has now moved to my own local server, and previously registered to a FreeDNS subdomain (ateliertrefoil.undo.it).</p>
                         <p>I've since moved to a full-fledged domain (dreamerslegacy.xyz). Despite no longer relying on FreeDNS, I still recommend their service for any of your needs. You can visit them at <a rel="noreferrer" href = "https://freedns.afraid.org/" target = "_blank">freedns.afraid.org.</a></p>
                         <p>My SSL certificate is provided by LetsEncrypt.</p>
+                    </div>
+                    <div class = "card lazy">
+                        <a id = "##ppa" href="index.html###ppa"></a><!-- this is an anchor for jumping to and from headers, it doesn't actually link to another page. -->
+                        <h3>Personal Package Archive (PPA)</h3>
+                        <p>Part of this portfolio site hosts the Personal Package Archive (PPA) for the distribution of my Debian packages. You can add it to your APT sources list to install its offerings.</p>
+                        <p>From testing, I can inform you this will likely work on most Debian and Debian-based operating systems, including Raspbian, however expect broken dependencies for certain packages.</p>
+                        <p>To add the archive repository, run:</p>
+                        <div class = "code-block">
+                            <p><span class = "command">sudo</span> curl -s --compressed "https://dreamerslegacy.xyz/ppa/ubuntu/KEY.gpg" | sudo apt-key add -</p>
+                            <p><span class = "command">sudo</span> curl -s --compressed -o /etc/apt/sources.list.d/dreamerslegacy_ppa.list "https://dreamerslegacy.xyz/ppa/ubuntu/dreamerslegacy_ppa.list"</p>
+                            <p><span class = "command">sudo</span> apt update</p>
+                        </div>
+                        <p>To remove the archive repository, run:</p>
+                        <div class = "code-block command">
+                            <p>sudo apt-key del 9BBEC5D61BBD56C2CCC437D2A4891A46DC4C3713</p>
+                            <p>sudo rm /etc/apt/sources.list.d/dreamerslegacy_ppa.list</p>
+                            <p>sudo apt update</p>
+                        </div>
+                        <p>This method adds/removes a sources file under <span class = "code-quote">/etc/apt/sources.list.d/</span> and the repository public GPG key for package signing.</p>
+                        <p>If typing out these commands is burdensome, see <a href = "https://github.com/perpetualCreations/ppa/releases/tag/s1.0">this Github release for two shell scripts</a> that perform the above commands (perhaps a bit pointless, considering the trouble you need to go through, compared to copy-and-pasting commands).</p>
                     </div>
                     <div class = "card bridge-card">
                         <a class = "button" href = "#top" style = "margin-right:1%;">Jump to Top</a>
@@ -108,8 +127,18 @@
                     buy my roblox script injector at: admalona.tk
                     -->
                     <div class = "card update-card lazy">
+                        <h2>Update 1.14b</h2>
+                        <p>Project Update, March 8th, 2021</p>
+                        <h3>Raspbot</h3>
+                        <p>Fixed the bugs mentioned from before (involved issues with the host application being unable to restart upon client disconnect, etc.), added temperature calibration, refactored host application into Debian package, created workflow for creating Debian releases.</p>
+                        <p>Updated project documentation to reflect these recent changes.</p>
+                        <p>Working on client update patcher, fixing hardware lists (some options in the configuration need to be deprecated), and ToF sensor mount.</p>
+                        <h3>Site Updates</h3>
+                        <p>Added details regarding the site personal package archive (PPA).</p>
+                    </div>
+                    <div class = "card update-card lazy">
                         <h2>Update 1.14a</h2>
-                        <p>Project Update, March 1st, 2021</p>
+                        <p>Project Update, March 7th, 2021</p>
                         <h3>Raspbot</h3>
                         <p>Fixed keyboard and motor speed control. Working on resolving minor bugs, streamlining, packaging the first zipped-source pre-release, then resolving ToF sensor, temperature calibration, update patching, Arduino platform-indepedent uploading, then planning out charging and future features.</p>
                         <p>Updated project documentation with installation instructions, client UI navigation, navigation scripting, hardware lists, and additional revisions and additions.</p>

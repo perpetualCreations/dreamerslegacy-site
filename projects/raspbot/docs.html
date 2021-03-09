@@ -33,7 +33,7 @@
                 <h3>1.2: Remote Control Application (RCA) </h3>
                 <p>Raspbot is operated via a client and host application. The client is GUI-based, built with the PySide6 framework. The host Raspbot RCA runs on Debian or Debian-based systems (i.e Ubuntu, Raspbian), and works headless. The client is not OS-dependent.</p>
                 <p>The application is written in Python, you may run it by installing Python 3 and the required subsequent dependencies through PIP, please see requirements.txt files for package and version requirements. If using the SenseHAT as part of your hardware configuration, please install the PyPI package and also the Debian package.</p>
-                <p>Client binaries will be made available, however they are unsigned. Alternatively, native installers will also be made available, courtesy of <a href = "https://doc.qt.io/qtforpython/deployment.html" target = "_blank">Qt for Python's deployment options.</a></p>
+                <p>The host application is distributed as a Debian package, and the client a zipped source archive. Client binaries will be made available, however they are unsigned. Alternatively, native installers will also be made available, courtesy of <a href = "https://doc.qt.io/qtforpython/deployment.html" target = "_blank">Qt for Python's deployment options.</a></p>
                 <p>Please see section 1.2.1 for more information regarding installing the host and client application, 1.2.2 for developers seeking to modify source code for their own use, 1.2.3 for UI documentation, and 1.2.4 for navigation scripting.</p>
                 <h3>1.2.1: Software Installation</h3>
                 <button class = "collapsible" style = "text-align: center;">Click to Expand Instructions</button>
@@ -48,15 +48,25 @@
                     <p>This is the end of the installation instructions. At this point, you should install the hose application if you haven't already done so.</p>
                     <h4>Host Application</h4>
                     <h4>Install</h4>
-                    <p>To install, copy contents into the user "pi"'s home directory.</p>
-                    <p>Next, to setup automatic host application start-up on boot, run <span class = "code-quote">sudo bash boot_run.sh</span> while in the host directory. You can remove the start-up script later upon uninstalling with <span class = "code-quote">sudo bash boot_remove</span>.</p>
-                    <p>Continue with installing Python dependencies listed in <span class = "code-quote">requirements.txt</span>.</p>
+                    <p>Install the host application through APT, either from the dreamerslegacy.xyz PPA, or from a Debian package file if available under releases.</p>
+                    <p>Instructions for adding the package archive can be found <a href = "/index.html###ppa">on the main page.</a>For installing through the package archive, after adding it to your sources list, </p>
+                    <div class = "code-block">
+                        <p><span class = "command">sudo</span> apt update</p>
+                        <p><span class = "command">sudo</span> apt install raspbotrca-host</p>
+                    </div>
+                    <p>For installing from a Debian package file, </p>
+                    <div class = "code-block">
+                        <p><span class = "command">sudo</span> apt install /path/to/package/file/raspbotrca-host_x.x_all.deb</p>
+                    </div>
+                    <p>The host application package is dependent on Python 3 (3.7.3 and above is accepted), and Python dependencies which are automatically installed with the installation of the main package.</p>
                     <h4>Configure</h4>
-                    <p>Review configuration <span class = "code-quote">main.cfg</span>, <span class = "code-quote">hardware.cfg</span>, <span class = "code-quote">comms/comms.cfg</span>. Specify your hardware configuration under <span class = "code-quote">hardware.cfg</span> by marking fields as <span class = "code-quote">True</span> or <span class = "code-quote">False</span>. Specify your network port configuration, encryption and authentication keys, and camera feed compression under <span class = "code-quote">comms/comms.cfg</span>.</p>
+                    <p>The configuration files mentioned here can be found under the <span class = "code-quote">/etc/raspbotrca-host/</span> directory.</p>
+                    <p>Review configuration <span class = "code-quote">main.cfg</span>, <span class = "code-quote">hardware.cfg</span>, <span class = "code-quote">comms.cfg</span>. Specify your hardware configuration under <span class = "code-quote">hardware.cfg</span> by marking fields as <span class = "code-quote">True</span> or <span class = "code-quote">False</span>. Specify your network port configuration, encryption and authentication keys, and camera feed compression under <span class = "code-quote">comms.cfg</span>.</p>
                     <p>Replace placeholders with intended values. Please note these configuration entries should be uniform with the client's when applicable</p>
-                    <p>The field for an authentication key in <span class = "code-quote">comms/comms.cfg</span> should not be manually filled. Use the <span class = "code-quote">auth_key_hasher.py</span> script to generate the hash required.</p>
+                    <p>The field for an authentication key in <span class = "code-quote">comms.cfg</span> should not be manually filled. Use command <span class = "code-quote">raspbotrca-host-authhasher</span> to generate the hash required.</p>
                     <h4>Arduino</h4>
-                    <p>Run the Arduino script generationt ool, labeled <span class = "code-quote">tool.py</span>. You will be asked to provide a path to your hardware configuration file (i.e. <span class = "code-quote">C://Users//X//Raspbot RCA//client//hardware.cfg</span> or <span class = "code-quote">/home/X/Raspbot RCA/client/hardware.cfg</span>).</p>
+                    <p>This section requires the Arduino script generation tool. It can be found as a stand-alone Python script under releases, or under the "arduino" directory of the development repository.</p>
+                    <p>Run the Arduino script generation tool, labeled <span class = "code-quote">tool.py</span>. You will be asked to provide a path to your hardware configuration file (i.e. <span class = "code-quote">C://Users//X//Raspbot RCA//client//hardware.cfg</span> or <span class = "code-quote">/home/X/Raspbot RCA/client/hardware.cfg</span>).</p>
                     <p>Please make sure you have edited your hardware configuration file prior, to match your installed hardware.</p>
                     <p>A script will be generated for uploading. To upload, plug the USB Type A plug on the USB A to USB B cable usually plugged into the Raspberry Pi into your computer and make sure the USB Type B plug is seated nicely into the Arduino's port.</p>
                     <p>Compile and upload the generated source file with your favorite editor. By default, the generated script file is for PlatformIO installations.</p>
@@ -72,10 +82,10 @@
                     <p>Although the host application was designed with security in mind, it is not recommended to setup port forwarding. The security measures in place are by no means perfect, nor are they particularly robust. They are not vetted by any qualified InfoSec professional.</p>
                     <p>It should also be emphasized regardless how impervious the host application is, port forwarding will expose your device to the open internet. Proceed at your own risk.</p>
                     <p>If for some reason, you do need remote access from outside your local network, try setting up an OpenVPN tunnel instead of port forwarding.</p>
-                    <p>If you decide to continue anyways despite these warnings, port forward the ports listed in the <span class = "code-quote">comms/comms.cfg</span> file, by default they are 64220, 64221, and 64222. Refer to your router manual to see if port forwarding is available, and how to perform it.</p>
+                    <p>If you decide to continue anyways despite these warnings, port forward the ports listed in the <span class = "code-quote">comms.cfg</span> file, by default they are 64220, 64221, and 64222. Refer to your router manual to see if port forwarding is available, and how to perform it.</p>
                     <h4>Conclude</h4>
                     <p>This is the end of the installation instructions. At this point, you may restart your Pi. If you haven't already done so, install the client application.</p>
-                    <p>If you didn't set up the host application to automatically start, manually start it and test it with your client.</p>
+                    <p>To start the host application, run command <span class = "code-quote">sudo raspbotrca-host-manualstart</span>.</p>
                 </div>
                 <h3>1.2.2: Developers and Back-End</h3>
                 <h4>Modules</h4>
@@ -83,13 +93,17 @@
                 <p>The host application has specialized unique modules, <span class = "code-quote">telemetry</span>, <span class = "code-quote">science</span>, <span class = "code-quote">led_graphics</span>, <span class = "code-quote">hardware_check</span>, and unique additions to the <span class = "code-quote">basics</span> and <span class = "code-quote">comms</span> modules for telemetry broadcast, serial, and additional application restart functions. Modules are responsible for collecting telemetry data, collecting evironmental data, displaying pixel images on the SenseHAT LED matrix, and collecting hardware data respectively.</p>
                 <p>For developers, these modules are of interest for modification.</p>
                 <h4>Configuration Files</h4>
-                <p><span class = "code-quote">comms/comms.cfg</span> has fields for three entires under the ENCRYPT section. The key value is used for encrypting messages with the <a href = "https://en.wikipedia.org/wiki/Salsa20" target = "_blank">Salsa20 protocol</a>, the HMAC key value is for validating and verifying messages through the <a href = "https://en.wikipedia.org/wiki/HMAC" target = "_blank">HMAC standard</a>.</p>
+                <p><span class = "code-quote">comms/comms.cfg</span> (and <span class = "code-quote">/etc/raspbotrca-host/comms.cfg</span>) has fields for three entires under the ENCRYPT section. The key value is used for encrypting messages with the <a href = "https://en.wikipedia.org/wiki/Salsa20" target = "_blank">Salsa20 protocol</a>, the HMAC key value is for validating and verifying messages through the <a href = "https://en.wikipedia.org/wiki/HMAC" target = "_blank">HMAC standard</a>.</p>
                 <p>These entires should be the same across both the client and host configuration.</p>
                 <p>The auth key is the passphrase used to autenticate the client. Under the client configuration, this is a text string. On the host, the entry should be a SHA3-512 hash of the text string. The hash can be generated by the <span class = "code-quote">auth_key_hasher.py</span> script.</p>
                 <p>The NET section details the three port numbers for main, camera, and telemetry communications. These should be identical on both client and host configuration files. The client will have an additional field for an IP address. This should be the host's address.</p>
                 <p>The host has a unique section for specifying the camera feed compression ratio. This field should be filled with an integer between 0 and 100. By increasing compression, you lose image quality but gain more image transmission throughput with smaller image sizes.</p>
                 <p><span class = "code-quote">hardware.cfg</span> has fields for seven entries under the HARDWARE section. They should be set as <span class = "code-quote">True</span> or <span class = "code-quote">False</span>. In order of appearance, the entires notate whether the camera, SenseHAT, time-of-flight distance sensor, dust sensor, charger, arm, and arm camera are installed. See section 2.1 on which of these are optional.</p>
                 <p>These entries should be uniform between the two configuration files for host and client.</p>
+                <h4>Linux-Directory Fragmentation of Host</h4>
+                <p>Configuration files for the host application can be found under the <span class = "code-quote">/etc/raspbotrca-host/</span> directory.</p>
+                <p>Python scripts and modules are under <span>/usr/share/raspbotrca-host/</span> and commands <span class = "code-quote">/usr/bin/</span>.</p>
+                <p>Logs are dumped into directory <span class = "code-quote">/var/log/raspbotrca-host/logs/</span>.</p>
                 <h4>Licensing and Open Source</h4>
                 <p>The entirety of the Raspbot project is licenesed under the <a href = "https://opensource.org/licenses/MIT" target="_blank">MIT License</a> unless specified otherwise. You are free to use, modify, and re-distribute software and design assets specified to be under the MIT License.</p>
                 <h3>1.2.3: Client UI</h3>
