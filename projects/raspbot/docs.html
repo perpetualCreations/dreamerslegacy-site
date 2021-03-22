@@ -4,8 +4,6 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="Documentation for Raspbot Project.">
-        <meta name="keywords" content="perpetualCreations, dreamerslegacy, dreamer's legacy, dreamerslegacy.xyz, raspbot, raspbot rca, raspbot documentation, raspbot docs, raspbot rca docs">
-        <meta name="author" content="pepretualCreations">
         <title>Raspbot Documentation</title>
         <link rel="preload" href="/css/newline.min.css" as="style">
         <link rel="preload" href="/css/schema.min.css" as="style">
@@ -49,14 +47,13 @@
                     <h4>Host Application</h4>
                     <h4>Install</h4>
                     <p>Install the host application through APT, either from the dreamerslegacy.xyz PPA, or from a Debian package file if available under releases.</p>
-                    <p>Instructions for adding the package archive can be found <a href = "/index.html###ppa">on the main page.</a>For installing through the package archive, after adding it to your sources list, </p>
+                    <p>Instructions for adding the package archive can be found <a href = "/index.html###ppa">on the main page</a>. For installing through the package archive, after adding it to your sources list, </p>
                     <div class = "code-block">
-                        <p><span class = "command">sudo</span> apt update</p>
-                        <p><span class = "command">sudo</span> apt install raspbotrca-host</p>
+                        <p><span class = "command">sudo</span> apt update &amp;&amp; apt install raspbotrca-host</p>
                     </div>
                     <p>For installing from a Debian package file, </p>
                     <div class = "code-block">
-                        <p><span class = "command">sudo</span> apt install /path/to/package/file/raspbotrca-host_x.x_all.deb</p>
+                        <p><span class = "command">sudo</span> apt install /path/to/package/file/raspbotrca-host_VERSIONHERE_all.deb</p>
                     </div>
                     <p>The host application package is dependent on Python 3 (3.7.3 and above is accepted), and Python dependencies which are automatically installed with the installation of the main package.</p>
                     <h4>Configure</h4>

@@ -3,13 +3,12 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Documentation for Raspbot Project.">
-        <meta name="keywords" content="perpetualCreations, dreamerslegacy, dreamer's legacy, dreamerslegacy.xyz, deargodpleaseno, dgpn, ubuntu tempfile, deargodpleaseno docs, dgpn docs, dgpn documentation">
+        <meta name="description" content="Documentation for DGPN Project.">
         <meta name="author" content="perpetualCreations">
         <title>DGPN Documentation</title>
         <link rel="preload" href="/css/newline.min.css" as="style">
         <link rel="preload" href="/css/schema.min.css" as="style">
-        <link rel="preload" href="/projects/swbs/icon-upscaled.png" as="image">
+        <link rel="preload" href="/projects/dgpn/dgpn-upscaled.png" as="image">
         <link rel="icon" href="/resources/favicon.ico">
         <link rel="stylesheet" type="text/css" href="/css/newline.min.css">
         <link rel="stylesheet" type="text/css" href="/css/schema.min.css">
@@ -28,32 +27,23 @@
             <img src="/projects/dgpn/dgpn-upscaled.png" class = "project-icons" alt = "DGPN Project Icon"><h1>deargodpleaseno (dgpn) Documentation</h1>
             <p style = "margin-left: 5px;">Original <a href = "https://github.com/perpetualCreations/deargodpleaseno/blob/master/README.md" target = "_blank">documentation available here</a>.</p>
             <div id="content">
-                <h4>Command-line tool for automatically deleting files, webpages, and directories.</h4>
-                <h4>Intended for Apache web server owners who want to host a temporary page or file that will deleted after a specified amount of time.</h4>
-                <h3>Install and Uninstall</h3>
+                <p>Command-line tool for automatically deleting files, webpages, and directories.</p>
+                <p>Intended for Apache web server operators who want to host a temporary page or file that will deleted after a specified amount of time.</p>
+                <h3>Install</h3>
                 <p>deargodpleaseno is for Ubuntu systems, running Apache.</p>
-                <p>Debian and other Debian-based systems will likely be supported later, you can try manually downloading the Debian package from the dist directory, and upon installing ignoring dependencies, installing them afterwards.</p>
-                <p>Add the PPA hosting the Debian package. As you may have noticed, this is different from <span class = "code-quote">apt-add-repository</span>.</p>
+                <p>For other Debian and Debian-based operating systems, please ignore package requirements when installing, and install your distribution's latest version of Apache.</p>
+                <p>Install DGPN through APT, either from the dreamerslegacy.xyz PPA or from a Debian package if available under releases.</p>
+                <p>Instructions for adding the package archive can be found <a href = "/index.html###ppa">on the main page</a>. For installing through the package archive, after adding it to your sources list,</p>
+                <p class = "code-block">sudo<span class = "command"> apt update </span> &amp;&amp; sudo <span class = "command">apt install</span> deargodpleaseno</p>
+                <p>For installing from a Debian package file, </p>
                 <div class = "code-block">
-                    <p>sudo <span class = "command">curl</span> -s --compressed "https://dreamerslegacy.xyz/ppa/ubuntu/KEY.gpg" | sudo <span class = "command">apt-key add</span> -</p>
-                    <p>sudo <span class = "command">curl</span> -s --compressed -o /etc/apt/sources.list.d/dreamerslegacy_ppa.list "https://dreamerslegacy.xyz/ppa/ubuntu/dreamerslegacy_ppa.list"</p>
-                    <p>sudo <span class = "command">apt update</span></p>
+                    <p>sudo <span class = "command">apt install</span> /path/to/package/file/deargodpleaseno_1.0_all.deb</p>
                 </div>
-                <p>These three commands retrieve the GPG key used for package release signing (and add the key to <span class = "code-quote">apt</span>), add the PPA to apt sources, and then update package lists to include new packages.</p>
-                <p>Install package from PPA. <span class = "code-quote">apt update</span> is required to retrieve package ists from the PPA, unless if you have already done so previously after adding the PPA.</p>
-                <p class = "code-block">sudo<span class = "command"> apt update </span> &amp;&amp; sudo <span class = "command">apt install</span>  deargodpleaseno</p>
                 <p>To uninstall,</p>
                 <p class = "code-block">sudo <span class = "command">dgpn</span> --uninstall</p>
-                <p>Caerful, this will remove the generated directory under the webroot, including any files and directories under the generated directory. See below for more details.</p>
-                <p>Then fully remove the pckage.</p>
+                <p>Careful, this will remove the generated directory under the webroot, including any files and directories under the generated directory. See below this section for more details.</p>
+                <p>Then fully remove the package.</p>
                 <p class = "code-block">sudo <span class = "command">apt remove</span> deargodpleaseno</p>
-                <p>If there are no additional packages from the PPA you need or are installed, you can remove it.</p>
-                <div class = "code-block">
-                    <p>sudo <span class = "command">apt-key del</span> 9BBEC5D61BBD56C2CCC437D2A4891A46DC4C3713</p>
-                    <p>sudo <span class = "command">rm</span> /etc/apt/sources.list.d/dreamerslegacy_ppa.list</p>
-                    <p>sudo <span class = "command">apt update</span></p>
-                </div>
-                <p>This removes the GPG key we added to <span class = "code-quote">apt</span>, removes the PPA from <span class = "code-quote">apt</span> sources, and updates package lists to no longer include the PPA packages.</p>
                 <h3>How to Use</h3>
                 <p>Move a file or directory under the deargodpleaseno directory in the webroot.</p>
                 <p>Open up your terminal, and run the command <span class = "code-quote">dgpn --help</span>. You'll be greeted with a list of valid parameters.</p>
