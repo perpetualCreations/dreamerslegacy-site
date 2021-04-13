@@ -7,158 +7,165 @@
         <meta name="keywords" content="perpetualCreations, dreamerslegacy, dreamer's legacy, dreamerslegacy.xyz, raspbot, raspbot gallery, raspbot photos">
         <meta name="author" content="Taian Chen">
         <title>Raspbot Gallery</title>
-        <link rel="preload" href="/css/main.css" as="style">
-        <link rel="preload" href="/css/gallery.css" as="style">
-        <link rel="icon" href="favicon.ico">
-        <link rel="stylesheet" type="text/css" href="/css/main.css">
-        <link rel="stylesheet" type="text/css" href="/css/gallery.css">
+        <link rel="preload" href="/css/newline.min.css" as="style">
+        <link rel="preload" href="/css/schema.min.css" as="style">
+        <link rel="preload" href="/css/gallery.min.css" as="style">
+        <link rel="preload" href="/css/anime.min.css" as="style">
+        <link rel="icon" href="/resources/favicon.ico">
+        <link rel="stylesheet" type="text/css" href="/css/newline.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/schema.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/gallery.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/anime.min.css">
         <style>
-			img {
+			img loading="lazy" {
  				 width: 100%;
 				}
         </style>
     </head>
-    <body> 
+    <body class = "fade-in"> 
         <!-- Maybe you should read the actual page instead of looking at HTML code and wrongly expanding your ego. -->
         <div class="topnav">
             <a href="/index.html##projects">Back To Portfolio</a>
         </div>
-        <div id="title", class="header">
-            <h1>Gallery</h1>
-            <p>Photos and video demos of Raspbot.</p>
-        </div>
-        <hr>
-        <div class="gallery">
-            <video width = "180px;" controls><source src = "/projects/raspbot/gallery/2021-03-06_20-58-37.mkv" type = "video/mp4"></video>
-            <div class = "caption">GUI client piloting. (2021)</div>
-        </div>
-        <div class="gallery">
-            <video width = "180px;" controls><source src = "/projects/raspbot/gallery/2021-03-06_21-00-30.mkv" type = "video/mp4"></video>
-            <div class = "caption">Longer GUI client piloting. (2021)</div>
-        </div>
-        <div class="gallery">
-            <a target="_blank" href="/projects/raspbot/gallery/client-dev-2-b.png">
-                <img src="/projects/raspbot/gallery/client-dev-2-b.png" alt="client GUI">
-            </a>
-            <div class="caption">Config editor GUI. (2021)</div>
-        </div>
-        <div class="gallery">
-            <a target="_blank" href="/projects/raspbot/gallery/client-dev-2-c.png">
-                <img src="/projects/raspbot/gallery/client-dev-2-c.png" alt="client GUI">
-            </a>
-            <div class="caption">Revised ping GUI. (2021)</div>
-        </div>
-        <div class="gallery">
-            <a target="_blank" href="/projects/raspbot/gallery/client-dev-2-a.png">
-                <img src="/projects/raspbot/gallery/client-dev-2-a.png" alt="client GUI">
-            </a>
-            <div class="caption">New client GUI, built with the Qt framework. (2021)</div>
-        </div>
-        <div class="gallery">
-            <a target="_blank" href="/projects/raspbot/gallery/upgrade-1-wip.jpg">
-                <img src="/projects/raspbot/gallery/upgrade-1-wip.jpg" alt="WIP Picture of Upgrade #1 build">
-            </a>
-            <div class="caption">Raspbot midway during prototyping, for an onboard power system. (2020)</div>
-        </div>
-        <div class="gallery">
-            <a target="_blank" href="/projects/raspbot/gallery/upgrade-1-voltage-test.jpg">
-                <img src="/projects/raspbot/gallery/upgrade-1-voltage-test.jpg" alt="Voltage Sensor Testing">
-            </a>
-            <div class="caption">Voltage sensor being tested. (2020)</div>
-        </div>
-        <div class="gallery">
-            <a target="_blank" href="/projects/raspbot/gallery/last-photo-before-upgrade-1.jpg">
-                <img src="/projects/raspbot/gallery/last-photo-before-upgrade-1.jpg" alt="Last photo of Raspbot before being upgraded.">
-            </a>
-            <div class="caption">Last photo before an upgrade, by the 3D printer. (2019)</div>
-        </div>
-        <div class="gallery">
-            <a target="_blank" href="/projects/raspbot/gallery/academic-demo-day.jpg">
-                <img src="/projects/raspbot/gallery/academic-demo-day.jpg" alt="Raspbot and another bot at an academic presentation.">
-            </a>
-            <div class="caption">Raspbot and another bot at an academic presentation. (2019)</div>
-        </div>
-        <div class="gallery">
-            <a target="_blank" href="/projects/raspbot/gallery/early-proto-build.jpg">
-                <img src="/projects/raspbot/gallery/early-proto-build.jpg" alt="Early prototype build in progress.">
-            </a>
-            <div class="caption">First prototype of Raspbot, being built a month or so before the project was announced by class instructors. (2019)</div>
-        </div>
-        <div class="gallery">
-            <a target="_blank" href="/projects/raspbot/gallery/dropin.gif">
-                <img src="/projects/raspbot/gallery/dropin.gif">
-            </a>
-            <div class="caption">Animated render of CAD parts, for Raspbot v2. (2020)</div>
-        </div>
-        <div class="gallery">
-            <a target="_blank" href="/projects/raspbot/gallery/raspbotv2-internal-wip.jpg">
-                <img src="/projects/raspbot/gallery/raspbotv2-internal-wip.jpg">
-            </a>
-            <div class="caption">Internals of Raspbot v2, with a lot of wiring and cable management remaining. (2020)</div>
-        </div>
-        <div class="gallery">
-            <a target="_blank" href="/projects/raspbot/gallery/dev-2021-b.jpg">
-                <img src="/projects/raspbot/gallery/dev-2021-b.jpg">
-            </a>
-            <div class="caption">Internals before mounting, just after finishing rewiring and soldering. The blue tape is covering two unused auxiliary wires for VCC and GND, to insulate against bridging and short-circuits due to contact with each other and other exposed conductive points. (2021)</div>
-        </div>
-        <div class="gallery">
-            <a target="_blank" href="/projects/raspbot/gallery/dev-2021-c.jpg">
-                <img src="/projects/raspbot/gallery/dev-2021-c.jpg">
-            </a>
-            <div class="caption">Another view of the internals, just before completion. It only looks marginally tidy because there isn't a decently sized USB connector plugged into the Arduino. (2021)</div>
-        </div>
-        <div class="gallery">
-            <a target="_blank" href="/projects/raspbot/gallery/dev-2021-assembled-a.jpg">
-                <img src="/projects/raspbot/gallery/dev-2021-assembled-a.jpg">
-            </a>
-            <div class="caption">The structure and basic electronics assembled, featuring a view of the Raspberry Pi. A standoff broke off during assembly, in its place is a zip tie routed as tidy as possible. (2021)</div>
-        </div>
-        <div class="gallery">
-            <a target="_blank" href="/projects/raspbot/gallery/dev-2021-assembled-b.jpg">
-                <img src="/projects/raspbot/gallery/dev-2021-assembled-b.jpg">
-            </a>
-            <div class="caption">Top view of Raspbot mostly assembled, close to completion. The voltage sensor, vent grill peeking into the mess of wires inside, and cable passthrough holes are in view. (2021)</div>
-        </div>
-        <div class="gallery">
-            <a target="_blank" href="/projects/raspbot/gallery/dev-2021-assembled-c.jpg">
-                <img src="/projects/raspbot/gallery/dev-2021-assembled-c.jpg">
-            </a>
-            <div class="caption">Opposite view of Raspbot assembled, showing the deans battery connector, and power supply pins for use during charging sitting above the treads. (2021)</div>
-        </div>
-        <div class="gallery">
-            <a target="_blank" href="/projects/raspbot/gallery/dev-2021-active-a.jpg">
-                <img src="/projects/raspbot/gallery/dev-2021-active-a.jpg">
-            </a>
-            <div class="caption">Another top view of Raspbot, however with the battery in place and plugged in, the LED matrix shining brightly as ever, and the various status lights blinking from inside. (2021)</div>
-        </div>
-        <div class="gallery">
-            <a target="_blank" href="/projects/raspbot/gallery/dev-2021-active-b.jpg">
-                <img src="/projects/raspbot/gallery/dev-2021-active-b.jpg">
-            </a>
-            <div class="caption">Raspbot assembled, with the LED matrix less glaringly bright in the image, displaying the battery and zip-tied USB cable. (2021)</div>
-        </div>
-        <div class="gallery">
-            <a target="_blank" href="/projects/raspbot/gallery/dev-2021-active-c.jpg">
-                <img src="/projects/raspbot/gallery/dev-2021-active-c.jpg">
-            </a>
-            <div class="caption">Another instance, fully up and running, now with the camera mounted firmly. (2021)</div>
-        </div>
-        <div class="gallery">
-            <video width = "180px;" controls><source src = "/projects/raspbot/gallery/demo-2021-a.mp4" type = "video/mp4"></video>
-            <div class = "caption">Motor control test demo. (2021)</div>
-        </div>
-        <div class="gallery">
-            <a target="_blank" href="/projects/raspbot/gallery/client-dev-a.png">
-                <img src="/projects/raspbot/gallery/client-dev-a.png">
-            </a>
-            <div class="caption">In-dev client. (2021)</div>
-        </div>
-        <div class="gallery">
-            <a target="_blank" href="/projects/raspbot/gallery/client-dev-b.png">
-                <img src="/projects/raspbot/gallery/client-dev-b.png">
-            </a>
-            <div class="caption">In-dev client, ping menu. (2021)</div>
+        <div class = "schema">
+            <div>
+                <h1>Gallery</h1>
+                <p>Photos and video demos of Raspbot.</p>
+            </div>
+            <hr>
+            <div class="gallery">
+                <video width = "180px;" controls><source src = "/projects/raspbot/gallery/2021-03-06_20-58-37.mkv" type = "video/mp4"></video>
+                <div class = "caption">GUI client piloting. (2021)</div>
+            </div>
+            <div class="gallery">
+                <video width = "180px;" controls><source src = "/projects/raspbot/gallery/2021-03-06_21-00-30.mkv" type = "video/mp4"></video>
+                <div class = "caption">Longer GUI client piloting. (2021)</div>
+            </div>
+            <div class="gallery">
+                <a target="_blank" href="/projects/raspbot/gallery/client-dev-2-b.png">
+                    <img loading="lazy" src="/projects/raspbot/gallery/client-dev-2-b.png" alt="client GUI">
+                </a>
+                <div class="caption">Config editor GUI. (2021)</div>
+            </div>
+            <div class="gallery">
+                <a target="_blank" href="/projects/raspbot/gallery/client-dev-2-c.png">
+                    <img loading="lazy" src="/projects/raspbot/gallery/client-dev-2-c.png" alt="client GUI">
+                </a>
+                <div class="caption">Revised ping GUI. (2021)</div>
+            </div>
+            <div class="gallery">
+                <a target="_blank" href="/projects/raspbot/gallery/client-dev-2-a.png">
+                    <img loading="lazy" src="/projects/raspbot/gallery/client-dev-2-a.png" alt="client GUI">
+                </a>
+                <div class="caption">New client GUI, built with the Qt framework. (2021)</div>
+            </div>
+            <div class="gallery">
+                <a target="_blank" href="/projects/raspbot/gallery/upgrade-1-wip.jpg">
+                    <img loading="lazy" src="/projects/raspbot/gallery/upgrade-1-wip.jpg" alt="WIP Picture of Upgrade #1 build">
+                </a>
+                <div class="caption">Raspbot midway during prototyping, for an onboard power system. (2020)</div>
+            </div>
+            <div class="gallery">
+                <a target="_blank" href="/projects/raspbot/gallery/upgrade-1-voltage-test.jpg">
+                    <img loading="lazy" src="/projects/raspbot/gallery/upgrade-1-voltage-test.jpg" alt="Voltage Sensor Testing">
+                </a>
+                <div class="caption">Voltage sensor being tested. (2020)</div>
+            </div>
+            <div class="gallery">
+                <a target="_blank" href="/projects/raspbot/gallery/last-photo-before-upgrade-1.jpg">
+                    <img loading="lazy" src="/projects/raspbot/gallery/last-photo-before-upgrade-1.jpg" alt="Last photo of Raspbot before being upgraded.">
+                </a>
+                <div class="caption">Last photo before an upgrade, by the 3D printer. (2019)</div>
+            </div>
+            <div class="gallery">
+                <a target="_blank" href="/projects/raspbot/gallery/academic-demo-day.jpg">
+                    <img loading="lazy" src="/projects/raspbot/gallery/academic-demo-day.jpg" alt="Raspbot and another bot at an academic presentation.">
+                </a>
+                <div class="caption">Raspbot and another bot at an academic presentation. (2019)</div>
+            </div>
+            <div class="gallery">
+                <a target="_blank" href="/projects/raspbot/gallery/early-proto-build.jpg">
+                    <img loading="lazy" src="/projects/raspbot/gallery/early-proto-build.jpg" alt="Early prototype build in progress.">
+                </a>
+                <div class="caption">First prototype of Raspbot, being built a month or so before the project was announced by class instructors. (2019)</div>
+            </div>
+            <div class="gallery">
+                <a target="_blank" href="/projects/raspbot/gallery/dropin.gif">
+                    <img loading="lazy" src="/projects/raspbot/gallery/dropin.gif" alt = "GIF animation of CAD parts sliding into position">
+                </a>
+                <div class="caption">Animated render of CAD parts, for Raspbot v2. (2020)</div>
+            </div>
+            <div class="gallery">
+                <a target="_blank" href="/projects/raspbot/gallery/raspbotv2-internal-wip.jpg">
+                    <img loading="lazy" src="/projects/raspbot/gallery/raspbotv2-internal-wip.jpg" alt = "WIP hardware in development">
+                </a>
+                <div class="caption">Internals of Raspbot v2, with a lot of wiring and cable management remaining. (2020)</div>
+            </div>
+            <div class="gallery">
+                <a target="_blank" href="/projects/raspbot/gallery/dev-2021-b.jpg">
+                    <img loading="lazy" src="/projects/raspbot/gallery/dev-2021-b.jpg" alt = "WIP hardware in development">
+                </a>
+                <div class="caption">Internals before mounting, just after finishing rewiring and soldering. The blue tape is covering two unused auxiliary wires for VCC and GND, to insulate against bridging and short-circuits due to contact with each other and other exposed conductive points. (2021)</div>
+            </div>
+            <div class="gallery">
+                <a target="_blank" href="/projects/raspbot/gallery/dev-2021-c.jpg">
+                    <img loading="lazy" src="/projects/raspbot/gallery/dev-2021-c.jpg" alt = "WIP hardware in development">
+                </a>
+                <div class="caption">Another view of the internals, just before completion. It only looks marginally tidy because there isn't a decently sized USB connector plugged into the Arduino. (2021)</div>
+            </div>
+            <div class="gallery">
+                <a target="_blank" href="/projects/raspbot/gallery/dev-2021-assembled-a.jpg">
+                    <img loading="lazy" src="/projects/raspbot/gallery/dev-2021-assembled-a.jpg" alt = "WIP hardware in development">
+                </a>
+                <div class="caption">The structure and basic electronics assembled, featuring a view of the Raspberry Pi. A standoff broke off during assembly, in its place is a zip tie routed as tidy as possible. (2021)</div>
+            </div>
+            <div class="gallery">
+                <a target="_blank" href="/projects/raspbot/gallery/dev-2021-assembled-b.jpg">
+                    <img loading="lazy" src="/projects/raspbot/gallery/dev-2021-assembled-b.jpg" alt = "WIP hardware in development">
+                </a>
+                <div class="caption">Top view of Raspbot mostly assembled, close to completion. The voltage sensor, vent grill peeking into the mess of wires inside, and cable passthrough holes are in view. (2021)</div>
+            </div>
+            <div class="gallery">
+                <a target="_blank" href="/projects/raspbot/gallery/dev-2021-assembled-c.jpg">
+                    <img loading="lazy" src="/projects/raspbot/gallery/dev-2021-assembled-c.jpg" alt = "WIP hardware in development">
+                </a>
+                <div class="caption">Opposite view of Raspbot assembled, showing the deans battery connector, and power supply pins for use during charging sitting above the treads. (2021)</div>
+            </div>
+            <div class="gallery">
+                <a target="_blank" href="/projects/raspbot/gallery/dev-2021-active-a.jpg">
+                    <img loading="lazy" src="/projects/raspbot/gallery/dev-2021-active-a.jpg" alt = "WIP hardware in development">
+                </a>
+                <div class="caption">Another top view of Raspbot, however with the battery in place and plugged in, the LED matrix shining brightly as ever, and the various status lights blinking from inside. (2021)</div>
+            </div>
+            <div class="gallery">
+                <a target="_blank" href="/projects/raspbot/gallery/dev-2021-active-b.jpg">
+                    <img loading="lazy" src="/projects/raspbot/gallery/dev-2021-active-b.jpg" alt = "WIP hardware in development">
+                </a>
+                <div class="caption">Raspbot assembled, with the LED matrix less glaringly bright in the image, displaying the battery and zip-tied USB cable. (2021)</div>
+            </div>
+            <div class="gallery">
+                <a target="_blank" href="/projects/raspbot/gallery/dev-2021-active-c.jpg">
+                    <img loading="lazy" src="/projects/raspbot/gallery/dev-2021-active-c.jpg" alt = "WIP hardware in development">
+                </a>
+                <div class="caption">Another instance, fully up and running, now with the camera mounted firmly. (2021)</div>
+            </div>
+            <div class="gallery">
+                <video width = "180px;" controls><source src = "/projects/raspbot/gallery/demo-2021-a.mp4" type = "video/mp4"></video>
+                <div class = "caption">Motor control test demo. (2021)</div>
+            </div>
+            <div class="gallery">
+                <a target="_blank" href="/projects/raspbot/gallery/client-dev-a.png">
+                    <img loading="lazy" src="/projects/raspbot/gallery/client-dev-a.png" alt = "client GUI">
+                </a>
+                <div class="caption">In-dev client. (2021)</div>
+            </div>
+            <div class="gallery">
+                <a target="_blank" href="/projects/raspbot/gallery/client-dev-b.png">
+                    <img loading="lazy" src="/projects/raspbot/gallery/client-dev-b.png" alt = "client GUI">
+                </a>
+                <div class="caption">In-dev client, ping menu. (2021)</div>
+            </div>
+            <div style = "padding-bottom: 400%;"></div>
         </div>
     </body>
 </html>
