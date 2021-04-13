@@ -6,9 +6,12 @@ Use as a global or base stylesheet.
 /* font imports */
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,400i&display=swap');
 /* main */
+:root { /* dear future webdev who has more time than me: please move common values into variables, thanks */
+    --newline-background-color: rgb(64, 64, 64);
+}
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: rgb(64, 64, 64);
+    background-color: var(--newline-background-color);
 }
 .background {
     -webkit-background-size: cover;
