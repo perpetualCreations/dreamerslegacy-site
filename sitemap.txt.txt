@@ -1,3 +1,7 @@
 https://dreamerslegacy.xyz/index.html
-https://dreamerslegacy.xyz/html/about.html
-https://dreamerslegacy.xyz/html/siteblog.html
+https://dreamerslegacy.xyz/projects/swbs/docs/index.html
+https://dreamerslegacy.xyz/projects/kinetic/docs/index.html
+https://dreamerslegacy.xyz/projects/bandage/docs/index.html
+https://dreamerslegacy.xyz/projects/raspbot/docs.html
+https://dreamerslegacy.xyz/projects/abl/docs.html
+https://dreamerslegacy.xyz/projects/dgpn/docs.html

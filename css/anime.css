@@ -7,6 +7,8 @@ Contains transitions and standard animations.
 Animations have vendor prefixes for -ms-, -webkit-, -moz-, and -o-.
 
 README: .ease-up breaks element positioning due to movement, use only on body (probably)
+
+TODO: implement fade out with link calls
 */
 
 .fade-in {
