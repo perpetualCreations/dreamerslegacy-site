@@ -9,9 +9,13 @@ Use as a global or base stylesheet.
 :root { /* dear future webdev who has more time than me: please move common values into variables, thanks */
     --newline-background-color: rgb(64, 64, 64);
 }
+html {
+    scroll-behavior: smooth !important;
+}
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: var(--newline-background-color);
+    overflow-y: scroll;
 }
 .background {
     -webkit-background-size: cover;
