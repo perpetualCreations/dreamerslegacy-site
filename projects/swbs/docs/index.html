@@ -18,7 +18,7 @@
   <script type="text/javascript">
     var DOCUMENTATION_OPTIONS = {
         URL_ROOT:'',
-        VERSION:'1.2.3',
+        VERSION:'1.2.4',
         LANGUAGE:'None',
         COLLAPSE_INDEX:false,
         FILE_SUFFIX:'.html',
@@ -59,7 +59,7 @@
   <div class="section" id="socket-wrapper-for-python-3">
 <h1>Socket Wrapper for Python 3<a class="headerlink" href="#socket-wrapper-for-python-3" title="Permalink to this headline">¶</a></h1>
 <dl class="field-list simple">
-<dt class="field-odd">Latest Version - 1.2.3</dt>
+<dt class="field-odd">Latest Version - 1.2.4</dt>
 <dd class="field-odd"><p></p></dd>
 </dl>
 <div class="toctree-wrapper compound">
@@ -79,8 +79,8 @@
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install swbs
 </pre></div>
 </div>
-<pre class="literal-block">wget <a class="reference external" href="https://github.com/perpetualCreations/swbs/releases/download/">https://github.com/perpetualCreations/swbs/releases/download/</a>1.2.3/swbs-1.2.3-py3-none-any.whl
-pip install /path/to/wheel/file/swbs-1.2.3-py3-none-any.whl</pre>
+<pre class="literal-block">wget <a class="reference external" href="https://github.com/perpetualCreations/swbs/releases/download/">https://github.com/perpetualCreations/swbs/releases/download/</a>1.2.4/swbs-1.2.4-py3-none-any.whl
+pip install /path/to/wheel/file/swbs-1.2.4-py3-none-any.whl</pre>
 <p>As listed in the requirements MANIFEST, it depends on pycryptodomex. If this dependency has not already been installed, use PIP again.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install pycryptodomex
 </pre></div>
@@ -235,13 +235,16 @@ Has no stop function, either stop program or close socket and delete instance.</
 <code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">port:</span> <span class="pre">int,</span> <span class="pre">key:</span> <span class="pre">Optional[Union[str,</span> <span class="pre">bytes]],</span> <span class="pre">connection_handler:</span> <span class="pre">object</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">ServerClientManagers.client_manager&gt;,</span> <span class="pre">host:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'localhost',</span> <span class="pre">key_is_path:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">no_listen_on_init:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#swbs.Server.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize instance. See documentation for Instance.</p>
 <p>Client connections can be accessed through self.clients class object. The dictionary is organized as:
-{0:{“address”:”client.address.here”, “port”:0, “socket”:socket_connection_object, “thread”:client_management_thread}
-…For each connection, where the key is the value of self.clients_handled at time of connection, creating a sequential integer ID.</p>
+{0:{“address”:”client.address.here”, “port”:0, “socket”:socket_connection_object,
+“thread”:client_management_thread}
+…For each connection, where the key is the value of self.clients_handled at time of connection, creating a
+sequential integer ID.</p>
 <p>Begins listening for client connections immediately upon initializing, unless specified in parameters.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>connection_handler</strong> – function, executed as a thread with every connection, see documentation for Server.listen for more information, default is Server.client_manager</p></li>
+<li><p><strong>connection_handler</strong> – function, executed as a thread with every connection, see documentation for
+Server.listen for more information, default is Server.client_manager</p></li>
 <li><p><strong>no_listen_on_init</strong> – bool, if True, listen is not started on initialization, default False</p></li>
 </ul>
 </dd>
@@ -266,10 +269,13 @@ Start thread again with Server.start_thread.</p>
 <dd><p>Listens for connections. Will block permanently until stopped.
 Thread object is automatically made for this function, and initializes with class.</p>
 <p>For each client connection, a thread will be started for it.
-The default thread function called is Server.client_manager, which simply checks if the connection is dead by sending nothing, and destroys the record in self.clients if so.</p>
-<p>User-customized functions can specified upon initialization. They must accept the same parameters as the default function, instance, connection_socket, and client_id, in those positions.
+The default thread function called is Server.client_manager, which simply checks if the connection is dead by
+sending nothing, and destroys the record in self.clients if so.</p>
+<p>User-customized functions can specified upon initialization. They must accept the same parameters as the default
+function, instance, connection_socket, and client_id, in those positions.
 The positional requirement is due to a limitation with assigning arguments in threads.
-instance references the current Server instance, connection_socket is the current client connection socket, and client_id is an int for looking up the instance in self.clients.</p>
+instance references the current Server instance, connection_socket is the current client connection socket, and
+client_id is an int for looking up the instance in self.clients.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>None</p>
@@ -295,7 +301,8 @@ Called on class initialization.</p>
 <dt id="swbs.Host">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">swbs.</span></code><code class="sig-name descname"><span class="pre">Host</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'localhost'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_is_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#swbs.Host" title="Permalink to this definition">¶</a></dt>
 <dd><p>Host socket wrapper, derived from Instance. Factory method.
-The Host class is different from Server as it supports only one client, being simpler and more lightweight with no usage of threading.</p>
+The Host class is different from Server as it supports only one client, being simpler and more lightweight with no
+usage of threading.</p>
 <dl class="py method">
 <dt id="swbs.Host.__init__">
 <code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'localhost'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_is_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#swbs.Host.__init__" title="Permalink to this definition">¶</a></dt>
@@ -380,7 +387,7 @@ The Host class is different from Server as it supports only one client, being si
 Intended for testing, and end-user modification, can be piped into connection_handler parameter for Server class.</p>
 <dl class="py class">
 <dt id="swbs.ServerClientManagers.ClientManager">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">ClientManager</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection_socket</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_id</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#swbs.ServerClientManagers.ClientManager" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">ClientManager</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection_socket</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">socket.socket</span><span class="p"><span class="pre">,</span> </span><span class="pre">object</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_id</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#swbs.ServerClientManagers.ClientManager" title="Permalink to this definition">¶</a></dt>
 <dd><p>Client manager class template. Factory method.
 For users to derive from for their own client managers.</p>
 <p>To use with Server class instances, use syntax as if this class were a function.</p>
@@ -400,13 +407,13 @@ Loops, blocking execution.</p>
 
 <dl class="py method">
 <dt id="swbs.ServerClientManagers.client_manager">
-<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">client_manager</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection_socket</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_id</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#swbs.ServerClientManagers.client_manager" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">client_manager</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection_socket</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">socket.socket</span><span class="p"><span class="pre">,</span> </span><span class="pre">object</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_id</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#swbs.ServerClientManagers.client_manager" title="Permalink to this definition">¶</a></dt>
 <dd><p>Default thread function called for every client connection.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>instance</strong> – class instance</p></li>
-<li><p><strong>connection_socket</strong> – object, socket object from connection</p></li>
+<li><p><strong>connection_socket</strong> – Union[socket.socket, object], socket object from connection</p></li>
 <li><p><strong>client_id</strong> – int, client identification</p></li>
 </ul>
 </dd>
@@ -418,14 +425,15 @@ Loops, blocking execution.</p>
 
 <dl class="py method">
 <dt id="swbs.ServerClientManagers.echo">
-<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">echo</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection_socket</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_id</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#swbs.ServerClientManagers.echo" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">echo</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection_socket</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">socket.socket</span><span class="p"><span class="pre">,</span> </span><span class="pre">object</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_id</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#swbs.ServerClientManagers.echo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sends received bytes back to client, hence, producing an ECHO.
-Has similar behavior with ServerClientManagers.client_manager in which it will close the connection instance alongside client disconnect.</p>
+Has similar behavior with ServerClientManagers.client_manager in which it will close the connection instance
+alongside client disconnect.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>instance</strong> – class instance</p></li>
-<li><p><strong>connection_socket</strong> – object, socket object from connection</p></li>
+<li><p><strong>connection_socket</strong> – Union[socket.socket, object], socket object from connection</p></li>
 <li><p><strong>client_id</strong> – int, client identification</p></li>
 </ul>
 </dd>
@@ -440,8 +448,8 @@ Has similar behavior with ServerClientManagers.client_manager in which it will c
 <dl class="py class">
 <dt id="swbs.Instance">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">swbs.</span></code><code class="sig-name descname"><span class="pre">Instance</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_is_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#swbs.Instance" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plain socket wrapper factory with basic functions and class variables, however no specialization, derived for Host, Server, and Client.
-Can be utilized by the end-user for creating more derived socket classes.</p>
+<dd><p>Plain socket wrapper factory with basic functions and class variables, however no specialization, derived for Host,
+Server, and Client. Can be utilized by the end-user for creating more derived socket classes.</p>
 <dl class="py method">
 <dt id="swbs.Instance.__init__">
 <code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_is_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#swbs.Instance.__init__" title="Permalink to this definition">¶</a></dt>
@@ -571,7 +579,8 @@ Non-blocking operation will cause SocketError No. 10035.</p>
 <li><p><strong>message</strong> – bytes, message for decryption</p></li>
 <li><p><strong>tag</strong> – bytes, encryption tag</p></li>
 <li><p><strong>nonce</strong> – bytes, encryption nonce</p></li>
-<li><p><strong>return_bytes</strong> – bool, if True decrypted string is returned as bytes, otherwise returned as string, default False</p></li>
+<li><p><strong>return_bytes</strong> – bool, if True decrypted string is returned as bytes, otherwise returned as string,
+default False</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -600,12 +609,13 @@ Non-blocking operation will cause SocketError No. 10035.</p>
 <dl class="py method">
 <dt id="swbs.Security.generate_key">
 <em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">generate_key</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dump_to_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_max</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1024</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_min</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">16</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#swbs.Security.generate_key" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generates a random 16-byte AES key bytestring, by creating a random string of characters, length between random_max and random_min, and hashing the string.
-Generated key can be returned or written to a file.</p>
+<dd><p>Generates a random 16-byte AES key bytestring, by creating a random string of characters, length between
+random_max and random_min, and hashing the string. Generated key can be returned or written to a file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>dump_to_path</strong> – Union[str, None], if provided string, parameter is interpreted as path to a file for key to be written to, otherwise key is returned, default None</p></li>
+<li><p><strong>dump_to_path</strong> – Union[str, None], if provided string, parameter is interpreted as path to a file for key
+to be written to, otherwise key is returned, default None</p></li>
 <li><p><strong>random_max</strong> – int, maximum random character length for key generation through hashing, default 1024</p></li>
 <li><p><strong>random_min</strong> – int, minimum random character length for key generation through hashing, default 16</p></li>
 </ul>
@@ -623,7 +633,8 @@ Generated key can be returned or written to a file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>key</strong> – Union[str, bytes, None], if key_is_path is False, key string, otherwise path to key file, if None return None</p></li>
+<li><p><strong>key</strong> – Union[str, bytes, None], if key_is_path is False, key string, otherwise path to key file, if None
+return None</p></li>
 <li><p><strong>key_is_path</strong> – bool, if True, key parameter is treated as path to key file for reading from, default False</p></li>
 </ul>
 </dd>
@@ -642,15 +653,16 @@ Generated key can be returned or written to a file.</p>
 Use a Server or Client class instance to access these functions.</p>
 <dl class="py method">
 <dt id="swbs.Interface.receive">
-<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">receive</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">socket_instance</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffer_size</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">4096</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_bytes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#swbs.Interface.receive" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">receive</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">socket_instance</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">socket.socket</span><span class="p"><span class="pre">,</span> </span><span class="pre">object</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffer_size</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">4096</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_bytes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#swbs.Interface.receive" title="Permalink to this definition">¶</a></dt>
 <dd><p>If key provided, uses Security class to decrypt a received message, returns message.
 If decrypting and message components (encrypted bytes, nonce, tag) are out of index, returns raw message.</p>
 <p>Return type is configurable to be bytes or string, default is string.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>socket_instance</strong> – object, socket object</p></li>
-<li><p><strong>key</strong> – Union[bytes, None], AES encryption key to be passed off to Security.decrypt, if None decryption does not run</p></li>
+<li><p><strong>socket_instance</strong> – Union[socket.socket, object], socket object</p></li>
+<li><p><strong>key</strong> – Union[bytes, None], AES encryption key to be passed off to Security.decrypt, if None decryption
+does not run</p></li>
 <li><p><strong>buffer_size</strong> – int, size of receiving buffer, default 4096</p></li>
 <li><p><strong>return_bytes</strong> – bool, if True message is returned as bytes, otherwise returned as string, default False</p></li>
 </ul>
@@ -663,13 +675,14 @@ If decrypting and message components (encrypted bytes, nonce, tag) are out of in
 
 <dl class="py method">
 <dt id="swbs.Interface.send">
-<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">send</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">socket_instance</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#swbs.Interface.send" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">send</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">socket_instance</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">socket.socket</span><span class="p"><span class="pre">,</span> </span><span class="pre">object</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#swbs.Interface.send" title="Permalink to this definition">¶</a></dt>
 <dd><p>Uses Security class to encrypt a message, sends encrypted message with provided socket object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>socket_instance</strong> – object, socket object</p></li>
-<li><p><strong>key</strong> – Union[bytes, None], AES encryption key to be passed off to Security.encrypt, if None encryption does not run</p></li>
+<li><p><strong>socket_instance</strong> – Union[socket.socket, object], socket object</p></li>
+<li><p><strong>key</strong> – Union[bytes, None], AES encryption key to be passed off to Security.encrypt, if None encryption
+does not run</p></li>
 <li><p><strong>message</strong> – Union[str, bytes], message to be sent</p></li>
 </ul>
 </dd>
