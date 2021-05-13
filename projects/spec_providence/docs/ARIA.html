@@ -95,7 +95,8 @@ If the server is servicable however, the connection is preserved and the client 
 <p>ARIA has an extended protocol for certain use cases and requirements for additional provisions.</p>
 <p>When applicable, servers may also dispatch a “REQUEST UUID” command after “REQUEST TYPE” is exchanged.
 This is intended for servers identifying BRIAH applications with a UUID, usually resources,
-such as nodes linked to KINETIC agents, or fabrication equipment (namely 3D printers and other CNC machines).</p>
+such as nodes linked to KINETIC agents, or fabrication equipment (namely 3D printers and other CNC machines).
+Not all clients will respond to “REQUEST UUID” and some will fail completely.</p>
 <p>Servers may dispatch a HELP command after “REQUEST TYPE” and “REQUEST UUID” to index valid commands ahead of time.
 Commands before being sent may be reviewed, to see if they exist within the list of valid commands.</p>
 </div>
@@ -118,7 +119,8 @@ REQUEST (CHILD ARGUMENT)</p>
 </div>
 <div class="section" id="os">
 <h3>OS<a class="headerlink" href="#os" title="Permalink to this headline">¶</a></h3>
-<p>Has children,</p>
+<p>Optional, not supported by all clients.
+Has children,</p>
 <ul class="simple">
 <li><p>STOP (Stops client application)</p></li>
 <li><p>SHUTDOWN (Shuts down client operating system)</p></li>
@@ -172,6 +174,7 @@ second TX containing length, and start a for loop lasting the length of command 
     <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">ARIA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ARIA_FORESIGHT.html">ARIA - FORESIGHT MOD.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="NAVSCRIPT.html">NAVSCRIPT</a></li>
 </ul>
 

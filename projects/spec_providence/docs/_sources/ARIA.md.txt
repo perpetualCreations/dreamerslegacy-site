@@ -37,6 +37,7 @@ ARIA has an extended protocol for certain use cases and requirements for additio
 When applicable, servers may also dispatch a "REQUEST UUID" command after "REQUEST TYPE" is exchanged.
 This is intended for servers identifying BRIAH applications with a UUID, usually resources, 
 such as nodes linked to KINETIC agents, or fabrication equipment (namely 3D printers and other CNC machines).
+Not all clients will respond to "REQUEST UUID" and some will fail completely.
 
 Servers may dispatch a HELP command after "REQUEST TYPE" and "REQUEST UUID" to index valid commands ahead of time.
 Commands before being sent may be reviewed, to see if they exist within the list of valid commands.
@@ -57,6 +58,7 @@ Has children,
 Use in format,
 REQUEST (CHILD ARGUMENT)
 ### OS
+Optional, not supported by all clients.
 Has children,
 - STOP (Stops client application)
 - SHUTDOWN (Shuts down client operating system)

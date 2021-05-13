@@ -1,0 +1,37 @@
+# ARIA - FORESIGHT MOD.
+## Revision 1.0, May 3rd, 2021
+Modifications to ARIA protocol for FORESIGHT implementation.
+
+[Back to Index](index.rst)
+
+## 1.0, Motivation
+FORESIGHT has a reversed, client-to-server dynamic. This by principle, violates ARIA's flow model.
+With special considerations required, the standard could be consolidated into a separate modified variation.
+
+## 1.1, Abstract
+ARIA FORESIGHT changes the server/client communication dynamic, and includes a non-standard API.
+
+## 2.0, Protocol
+Standard protocol is preserved, however post-"REQUEST TYPE" exchange, the server listens for API requests from the client.
+
+ARIA FORESIGHT has no exit protocol. The client may disconnect at any time for any reason.
+
+## 2.1, Extended Protocol
+Extended protocol is disabled.
+
+## 2.2, API Reference
+ARIA FORESIGHT has no standard API requests outside "REQUEST TYPE".
+
+The FORESIGHT client will dispatch user-defined commands under the `interfaces.json` file.
+The server must support these user-defined commands to function.
+
+There are two types of accepted user-defined requests, SIGNAL and PAYLOAD.
+SIGNAL simply sends a command string to the server with no need for acknowledgement.
+PAYLOAD sends a command string to the server, like SIGNAL, but will then expect an acknowledgement ("OK"), afterwards sending the string payload.
+
+### REQUEST
+Has children,
+- TYPE (Returns name of client application)
+
+Use in format,
+REQUEST (CHILD ARGUMENT)

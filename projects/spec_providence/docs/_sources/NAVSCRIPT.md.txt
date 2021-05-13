@@ -14,6 +14,9 @@ This standard describes the syntax and commands available, that will be interpre
 Scripts are executed remotely, where an ARBITER server parses through a script, and then when 
 applicable, forwards commands to the KINETIC agent through socket communications.
 
+NAVSCRIPT does not handle receiving data from the agent. Please use an application directive 
+instead of a script to handle bi-directional communication for sensors, and other components.
+
 ## 2.0, Structure
 The original Raspbot RCA and current implementation of NAVSCRIPT is similar to GCODE, 
 where each line is an instruction, and had a parameter spaced after the initial command if
