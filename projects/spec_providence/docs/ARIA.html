@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2D2D2D" />
+  
+  <title>SPECIFICATION PROVIDENCE :: ARIA</title>
+  
+
+  <link rel="icon" type="image/png" sizes="32x32" href="_static/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="_static/img/favicon-16x16.png">
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+
+  <link rel="stylesheet" href="_static/css/insegel.css"/>
+
+  <script type="text/javascript">
+    var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:'',
+        VERSION:'',
+        LANGUAGE:'None',
+        COLLAPSE_INDEX:false,
+        FILE_SUFFIX:'.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+    };
+  </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+
+  <script src="https://email.tl.fortawesome.com/c/eJxNjUEOgyAQAF8jR7Kw6wIHDh7sP1Cw2mgxgmn6-3JsMqc5zEQfE8dkxOY1KKMUOI3ACFKRJpSW2AAp7ontYIaxI6i7XPJVwyeVfCQ550Os3jLrGSNOLgbdAy6s0PBk2TFNjEbsfq31LB0OnX407pJa5v2faRadwSW63mn5KuLyR9j2tgx3zecanl-55R_-jjPs"></script>
+
+</head>
+
+<body>
+  <div id="insegel-container">
+    <header>
+      <div id="logo-container">
+          
+          <a href="index.html"><img src="_static/img/logo.svg"></a>
+          
+
+      </div>
+      <div id="project-container">
+        <h1>SPECIFICATION PROVIDENCE Documentation</h1>
+      </div>
+    </header>
+
+    <div id="content-container">
+
+      <div id="main-content-container">
+        <div id="main-content-header">
+          <h1>ARIA</h1>
+        </div>
+        <div id="main-content">
+          
+  <div class="section" id="aria">
+<h1>ARIA<a class="headerlink" href="#aria" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="revision-1-0-april-19th-2021">
+<h2>Revision 1.0, April 19th, 2021<a class="headerlink" href="#revision-1-0-april-19th-2021" title="Permalink to this headline">¶</a></h2>
+<p>Request-oriented API language used by BRIAH-layer nodes.</p>
+<p><a class="reference internal" href="index.html"><span class="doc std std-doc">Back to Index</span></a></p>
+</div>
+<div class="section" id="motivation">
+<h2>1.0, Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
+<p>BRIAH-layer applications, such as ARBITER and KINETIC, do not have a standard for communication.
+Current protocols are nebulous and have no organized record.
+Additionally, they become problematic as new BRIAH applications are put into production,
+as they are not designed beyond the scope of their individual projects.</p>
+</div>
+<div class="section" id="abstract">
+<h2>1.1, Abstract<a class="headerlink" href="#abstract" title="Permalink to this headline">¶</a></h2>
+<p>ARIA is designed specifically for BRIAH-layer and applicable ASIYAH-layer applications.</p>
+<p>It contains basic essentials of the ARIA protocol, and the API language for information exchange,
+with flexibility for specialized commands and arguments.</p>
+</div>
+<div class="section" id="protocol">
+<h2>2.0, Protocol<a class="headerlink" href="#protocol" title="Permalink to this headline">¶</a></h2>
+<p>ARIA is modeled after a server and client relationship.
+Unlike a traditional server/client paradigm, the event structure is oriented where the server usually
+dispatches API commands to the client.
+This is reverse for ASIYAH-layer services that have their own specification (that is yet to be written).</p>
+<p>For all exchanges, when the server sends a command, the client replies with either “OK” or “KEYERROR”
+where the first is sent upon a successful request, and the second when the command is unrecognized.
+“KEYERROR” is not raised if the command was recognized, but was not able to be executed.</p>
+<p>Upon a client connecting to a server, the server sends the “REQUEST TYPE” command.
+The client replies with the name of its application. The server checks if the client is a
+servicable application, and if not, promptly disconnects, ending the client manager’s life-cycle.
+If the server is servicable however, the connection is preserved and the client manager continues execution.</p>
+</div>
+<div class="section" id="extended-protocol">
+<h2>2.1, Extended Protocol<a class="headerlink" href="#extended-protocol" title="Permalink to this headline">¶</a></h2>
+<p>ARIA has an extended protocol for certain use cases and requirements for additional provisions.</p>
+<p>When applicable, servers may also dispatch a “REQUEST UUID” command after “REQUEST TYPE” is exchanged.
+This is intended for servers identifying BRIAH applications with a UUID, usually resources,
+such as nodes linked to KINETIC agents, or fabrication equipment (namely 3D printers and other CNC machines).</p>
+<p>Servers may dispatch a HELP command after “REQUEST TYPE” and “REQUEST UUID” to index valid commands ahead of time.
+Commands before being sent may be reviewed, to see if they exist within the list of valid commands.</p>
+</div>
+<div class="section" id="api-reference">
+<h2>2.2, API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h2>
+<p>As long as the client supports it, commands are extendable. Custom commands defined
+in the client’s command lookup dictionary can be interpreted without issue,
+when received from the server.</p>
+<p>Any NAVSCRIPT (see specification NAVSCRIPT) commands that are either local or not executed should not be used (i.e
+GOTO and -#-).</p>
+<div class="section" id="request">
+<h3>REQUEST<a class="headerlink" href="#request" title="Permalink to this headline">¶</a></h3>
+<p>Has children,</p>
+<ul class="simple">
+<li><p>TYPE (Returns name of client application)</p></li>
+<li><p>UUID (Returns client UUID, if applicable)</p></li>
+</ul>
+<p>Use in format,
+REQUEST (CHILD ARGUMENT)</p>
+</div>
+<div class="section" id="os">
+<h3>OS<a class="headerlink" href="#os" title="Permalink to this headline">¶</a></h3>
+<p>Has children,</p>
+<ul class="simple">
+<li><p>STOP (Stops client application)</p></li>
+<li><p>SHUTDOWN (Shuts down client operating system)</p></li>
+<li><p>REBOOT (Reboots client operating system)</p></li>
+<li><p>UPDATE (Updates client operating system</p></li>
+</ul>
+<p>Use in format,
+OS (CHILD ARGUMENT)</p>
+</div>
+<div class="section" id="abort">
+<h3>ABORT<a class="headerlink" href="#abort" title="Permalink to this headline">¶</a></h3>
+<p>Aborts connection, server client manager disconnects and the client is left to sit idle or retry a server connection.</p>
+<p>It’s recommended to delay retries by an exponentially growing integer, per each retry attempt, to prevent spam and
+resulting resource drainage.</p>
+</div>
+<div class="section" id="help">
+<h3>HELP<a class="headerlink" href="#help" title="Permalink to this headline">¶</a></h3>
+<p>Reserved by client applications. Sends ALL valid commands in the lookup dictionary.</p>
+<p>Excerpt from KINETIC source code,</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>If dictionary key &quot;HELP&quot; does not exist in lookup, command is set to send all valid commands as individual TXs.
+The transmission is initiated with the length of the command list (counting from 1).
+For the controller to receive the command list, it should first receive the &quot;OK&quot; acknowledgement, and then the
+second TX containing length, and start a for loop lasting the length of command list.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+        </div>
+      </div>
+
+      <div id="side-menu-container">
+
+        <div id="search" role="search">
+        <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+            <input type="text" name="q" placeholder="Search..." />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+        </form>
+</div>
+
+        <div id="side-menu" role="navigation">
+
+          
+  
+    
+  
+  
+    <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ARIA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NAVSCRIPT.html">NAVSCRIPT</a></li>
+</ul>
+
+  
+
+
+        </div>
+
+        
+
+      </div>
+
+    </div>
+
+<footer>
+    <div id="footer-info">
+        <ul id="build-details">
+            
+                <li class="footer-element">
+                    
+                        <a href="_sources/ARIA.md.txt" rel="nofollow"> source</a>
+                    
+                </li>
+            
+
+            
+
+            
+        </ul>
+        <div id="credit">
+            created with <a href="http://sphinx-doc.org/">Sphinx</a> and <a href="https://github.com/Autophagy/insegel">Insegel</a>
+
+        </div>
+    </div>
+
+    <a id="menu-toggle" class="fa fa-bars" aria-hidden="true"></a>
+
+    <script type="text/javascript">
+      $("#menu-toggle").click(function() {
+        $("#menu-toggle").toggleClass("toggled");
+        $("#side-menu-container").slideToggle(300);
+      });
+    </script>
+
+</footer> 
+
+</div>
+
+</body>
+</html>

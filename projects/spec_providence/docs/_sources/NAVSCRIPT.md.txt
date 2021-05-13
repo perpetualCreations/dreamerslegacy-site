@@ -1,0 +1,48 @@
+# NAVSCRIPT
+## Revision 1.1, April 19th, 2021
+ARBITER/KINETIC scripting language, inheriting design from the original Raspbot RCA semantics.
+
+[Back to Index](index.rst)
+
+## 1.0, Motivation
+ARBITER directives include a SCRIPT type, allowing end users to define a set of instructions 
+to be executed autonomously. 
+
+## 1.1, Abstract
+This standard describes the syntax and commands available, that will be interpreted upon execution.
+
+Scripts are executed remotely, where an ARBITER server parses through a script, and then when 
+applicable, forwards commands to the KINETIC agent through socket communications.
+
+## 2.0, Structure
+The original Raspbot RCA and current implementation of NAVSCRIPT is similar to GCODE, 
+where each line is an instruction, and had a parameter spaced after the initial command if
+applicable.
+
+Below is an example with commands F, S, and A, with F and S specifying a parameter, 10 and 3.
+```text
+F 10
+S 3
+A
+```
+
+Command parameters (right of space character) are transmitted after the initial command 
+(left of space character), when the KINETIC agent is listening.
+This behavior is only present in pre-defined commands, under API reference. In Rev. 1.1 there
+are none. 
+
+## 2.1, API Reference
+NAVSCRIPT inherits components from the ARIA specification, and the same property of extendibility.
+
+### -#-
+Comment. Line is not executed, when present as the first three characters of the line.
+### GOTO
+Jumps parser to a script line, specified with an integer parameter.
+Script lines are indexed from 0 instead of 1. When specifying the first line of a script, use 0, and 
+subsequent lines from this root.
+If the script line is out of index, a min/max function is applied, to get either 0 or the last line
+in the script.
+Not a valid command for a KINETIC agent to receive.
+
+Use in format,
+GOTO (LINE NUMBER)

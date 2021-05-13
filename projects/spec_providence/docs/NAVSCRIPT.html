@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2D2D2D" />
+  
+  <title>SPECIFICATION PROVIDENCE :: NAVSCRIPT</title>
+  
+
+  <link rel="icon" type="image/png" sizes="32x32" href="_static/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="_static/img/favicon-16x16.png">
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+
+  <link rel="stylesheet" href="_static/css/insegel.css"/>
+
+  <script type="text/javascript">
+    var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:'',
+        VERSION:'',
+        LANGUAGE:'None',
+        COLLAPSE_INDEX:false,
+        FILE_SUFFIX:'.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+    };
+  </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+
+  <script src="https://email.tl.fortawesome.com/c/eJxNjUEOgyAQAF8jR7Kw6wIHDh7sP1Cw2mgxgmn6-3JsMqc5zEQfE8dkxOY1KKMUOI3ACFKRJpSW2AAp7ontYIaxI6i7XPJVwyeVfCQ550Os3jLrGSNOLgbdAy6s0PBk2TFNjEbsfq31LB0OnX407pJa5v2faRadwSW63mn5KuLyR9j2tgx3zecanl-55R_-jjPs"></script>
+
+</head>
+
+<body>
+  <div id="insegel-container">
+    <header>
+      <div id="logo-container">
+          
+          <a href="index.html"><img src="_static/img/logo.svg"></a>
+          
+
+      </div>
+      <div id="project-container">
+        <h1>SPECIFICATION PROVIDENCE Documentation</h1>
+      </div>
+    </header>
+
+    <div id="content-container">
+
+      <div id="main-content-container">
+        <div id="main-content-header">
+          <h1>NAVSCRIPT</h1>
+        </div>
+        <div id="main-content">
+          
+  <div class="section" id="navscript">
+<h1>NAVSCRIPT<a class="headerlink" href="#navscript" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="revision-1-1-april-19th-2021">
+<h2>Revision 1.1, April 19th, 2021<a class="headerlink" href="#revision-1-1-april-19th-2021" title="Permalink to this headline">¶</a></h2>
+<p>ARBITER/KINETIC scripting language, inheriting design from the original Raspbot RCA semantics.</p>
+<p><a class="reference internal" href="index.html"><span class="doc std std-doc">Back to Index</span></a></p>
+</div>
+<div class="section" id="motivation">
+<h2>1.0, Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
+<p>ARBITER directives include a SCRIPT type, allowing end users to define a set of instructions
+to be executed autonomously.</p>
+</div>
+<div class="section" id="abstract">
+<h2>1.1, Abstract<a class="headerlink" href="#abstract" title="Permalink to this headline">¶</a></h2>
+<p>This standard describes the syntax and commands available, that will be interpreted upon execution.</p>
+<p>Scripts are executed remotely, where an ARBITER server parses through a script, and then when
+applicable, forwards commands to the KINETIC agent through socket communications.</p>
+</div>
+<div class="section" id="structure">
+<h2>2.0, Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h2>
+<p>The original Raspbot RCA and current implementation of NAVSCRIPT is similar to GCODE,
+where each line is an instruction, and had a parameter spaced after the initial command if
+applicable.</p>
+<p>Below is an example with commands F, S, and A, with F and S specifying a parameter, 10 and 3.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>F 10
+S 3
+A
+</pre></div>
+</div>
+<p>Command parameters (right of space character) are transmitted after the initial command
+(left of space character), when the KINETIC agent is listening.
+This behavior is only present in pre-defined commands, under API reference. In Rev. 1.1 there
+are none.</p>
+</div>
+<div class="section" id="api-reference">
+<h2>2.1, API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h2>
+<p>NAVSCRIPT inherits components from the ARIA specification, and the same property of extendibility.</p>
+<div class="section" id="id1">
+<h3>-#-<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Comment. Line is not executed, when present as the first three characters of the line.</p>
+</div>
+<div class="section" id="goto">
+<h3>GOTO<a class="headerlink" href="#goto" title="Permalink to this headline">¶</a></h3>
+<p>Jumps parser to a script line, specified with an integer parameter.
+Script lines are indexed from 0 instead of 1. When specifying the first line of a script, use 0, and
+subsequent lines from this root.
+If the script line is out of index, a min/max function is applied, to get either 0 or the last line
+in the script.
+Not a valid command for a KINETIC agent to receive.</p>
+<p>Use in format,
+GOTO (LINE NUMBER)</p>
+</div>
+</div>
+</div>
+
+
+        </div>
+      </div>
+
+      <div id="side-menu-container">
+
+        <div id="search" role="search">
+        <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+            <input type="text" name="q" placeholder="Search..." />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+        </form>
+</div>
+
+        <div id="side-menu" role="navigation">
+
+          
+  
+    
+  
+  
+    <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ARIA.html">ARIA</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">NAVSCRIPT</a></li>
+</ul>
+
+  
+
+
+        </div>
+
+        
+
+      </div>
+
+    </div>
+
+<footer>
+    <div id="footer-info">
+        <ul id="build-details">
+            
+                <li class="footer-element">
+                    
+                        <a href="_sources/NAVSCRIPT.md.txt" rel="nofollow"> source</a>
+                    
+                </li>
+            
+
+            
+
+            
+        </ul>
+        <div id="credit">
+            created with <a href="http://sphinx-doc.org/">Sphinx</a> and <a href="https://github.com/Autophagy/insegel">Insegel</a>
+
+        </div>
+    </div>
+
+    <a id="menu-toggle" class="fa fa-bars" aria-hidden="true"></a>
+
+    <script type="text/javascript">
+      $("#menu-toggle").click(function() {
+        $("#menu-toggle").toggleClass("toggled");
+        $("#side-menu-container").slideToggle(300);
+      });
+    </script>
+
+</footer> 
+
+</div>
+
+</body>
+</html>

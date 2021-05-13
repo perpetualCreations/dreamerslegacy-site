@@ -1,0 +1,32 @@
+SPECIFICATION PROVIDENCE
+========================
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+   :glob:
+
+   *
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+* `Back to Projects </index.html##projects>`_
+
+INTRO
+-----
+Spec. Providence is,
+
+* An umbrella of standards for the PROVIDENCE network, the homelab LAN `dreamerslegacy.xyz </index.html>`_ is hosted on.
+* Integration with other projects, describing how their network-layer protocols operate.
+* A perpetuation of the problem described in `this XKCD comic <https://xkcd.com/927/>`_.
+
+Spec. Providence is not,
+
+* LARPing gone geek (there's no costumes involved, unfortunately).
+
+Please see index documents above to view subsequent documentation.

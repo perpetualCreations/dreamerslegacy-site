@@ -18,7 +18,7 @@
   <script type="text/javascript">
     var DOCUMENTATION_OPTIONS = {
         URL_ROOT:'',
-        VERSION:'1.0.1',
+        VERSION:'1.0.3',
         LANGUAGE:'None',
         COLLAPSE_INDEX:false,
         FILE_SUFFIX:'.html',
@@ -59,7 +59,7 @@
   <div class="section" id="modular-robotic-control-application-for-python-3">
 <h1>Modular Robotic Control Application for Python 3<a class="headerlink" href="#modular-robotic-control-application-for-python-3" title="Permalink to this headline">¶</a></h1>
 <dl class="field-list simple">
-<dt class="field-odd">Latest Version - 1.0.1</dt>
+<dt class="field-odd">Latest Version - 1.0.3</dt>
 <dd class="field-odd"><p></p></dd>
 </dl>
 <div class="toctree-wrapper compound">
@@ -79,8 +79,8 @@
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install project-kinetic
 </pre></div>
 </div>
-<pre class="literal-block">wget <a class="reference external" href="https://github.com/perpetualCreations/kinetic/releases/download/">https://github.com/perpetualCreations/kinetic/releases/download/</a>1.0.1/project_kinetic-1.0.1-py3-none-any.whl
-pip install /path/to/wheel/file/project_kinetic-1.0.1-py3-none-any.whl</pre>
+<pre class="literal-block">wget <a class="reference external" href="https://github.com/perpetualCreations/kinetic/releases/download/">https://github.com/perpetualCreations/kinetic/releases/download/</a>1.0.3/project_kinetic-1.0.3-py3-none-any.whl
+pip install /path/to/wheel/file/project_kinetic-1.0.3-py3-none-any.whl</pre>
 </div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
@@ -89,26 +89,27 @@ Base class include components and component controllers, that serve as software 
 <p>The usage of bases is modular, allowing for the creation of custom agents.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">kinetic</span>
 
-<span class="k">class</span> <span class="nc">TestBot</span><span class="p">(</span><span class="n">kinetic</span><span class="o">.</span><span class="n">Agent</span><span class="p">):</span> <span class="c1"># main agent class</span>
+
+<span class="k">class</span> <span class="nc">TestBot</span><span class="p">(</span><span class="n">kinetic</span><span class="o">.</span><span class="n">Agent</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Test Bot: Generic as ever, comes in green and emerald colors.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uuid</span><span class="p">,</span> <span class="n">uuid_is_path</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">uuid</span><span class="p">,</span> <span class="n">uuid_is_path</span><span class="p">)</span> <span class="c1"># initialize kinetic.Agent base class</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">serial</span> <span class="o">=</span> <span class="n">kinetic</span><span class="o">.</span><span class="n">Controllers</span><span class="o">.</span><span class="n">Serial</span><span class="p">()</span> <span class="c1"># initialize serial controller</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">motor_left</span> <span class="o">=</span> <span class="n">TestBot</span><span class="o">.</span><span class="n">MotorLeft</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="c1"># initialize motor classes</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">motor_right</span> <span class="o">=</span> <span class="n">TestBot</span><span class="o">.</span><span class="n">MotorRight</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">motor_bind</span> <span class="o">=</span> <span class="n">TestBot</span><span class="o">.</span><span class="n">MotorBind</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="c1"># initialize dual motor actiongroup class</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="mi">255</span> <span class="c1"># speed that is fed into FORWARD, BACKWARD, CLOCKWISE, COUNTERCLOCKWISE commands</span>
-        <span class="n">TestBot</span><span class="o">.</span><span class="n">network_init</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="c1"># initialize self.network and seek connection</span>
-        <span class="n">TestBot</span><span class="o">.</span><span class="n">client_listen</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;SETSPEED&quot;</span><span class="p">:</span><span class="n">TestBot</span><span class="o">.</span><span class="n">set_speed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">receive</span><span class="p">())),</span>
-                                     <span class="s2">&quot;FORWARD&quot;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">motor_bind</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">speed</span><span class="p">),</span>
-                                     <span class="s2">&quot;BACKWARD&quot;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">motor_bind</span><span class="o">.</span><span class="n">backward</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">speed</span><span class="p">),</span>
-                                     <span class="s2">&quot;CLOCKWISE&quot;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">motor_bind</span><span class="o">.</span><span class="n">clockwise</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">speed</span><span class="p">),</span>
-                                     <span class="s2">&quot;COUNTERCLOCKWISE&quot;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">motor_bind</span><span class="o">.</span><span class="n">counterclockwise</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">speed</span><span class="p">)},</span>
-                              <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span> <span class="c1"># start listening for commands sent by operating controller</span>
 
-    <span class="k">def</span> <span class="nf">set_speed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">speed</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span> <span class="c1"># command to set speed</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uuid</span><span class="p">,</span> <span class="n">uuid_is_path</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">uuid</span><span class="p">,</span> <span class="n">uuid_is_path</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">serial</span> <span class="o">=</span> <span class="n">kinetic</span><span class="o">.</span><span class="n">Controllers</span><span class="o">.</span><span class="n">Serial</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">motor_left</span> <span class="o">=</span> <span class="n">TestBot</span><span class="o">.</span><span class="n">MotorLeft</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">motor_right</span> <span class="o">=</span> <span class="n">TestBot</span><span class="o">.</span><span class="n">MotorRight</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">motor_bind</span> <span class="o">=</span> <span class="n">TestBot</span><span class="o">.</span><span class="n">MotorBind</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="mi">255</span>
+        <span class="n">TestBot</span><span class="o">.</span><span class="n">network_init</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">TestBot</span><span class="o">.</span><span class="n">client_listen</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;SETSPEED&quot;</span><span class="p">:</span> <span class="n">TestBot</span><span class="o">.</span><span class="n">set_speed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">receive</span><span class="p">())),</span>
+                                     <span class="s2">&quot;FORWARD&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">motor_bind</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">speed</span><span class="p">),</span>
+                                     <span class="s2">&quot;BACKWARD&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">motor_bind</span><span class="o">.</span><span class="n">backward</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">speed</span><span class="p">),</span>
+                                     <span class="s2">&quot;CLOCKWISE&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">motor_bind</span><span class="o">.</span><span class="n">clockwise</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">speed</span><span class="p">),</span>
+                                     <span class="s2">&quot;COUNTERCLOCKWISE&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">motor_bind</span><span class="o">.</span><span class="n">counterclockwise</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">speed</span><span class="p">)},</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">set_speed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">speed</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Assigns parameter input to self.speed.</span>
 
@@ -117,13 +118,14 @@ Base class include components and component controllers, that serve as software 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">speed</span><span class="p">)</span>
 
-    <span class="k">class</span> <span class="nc">MotorLeft</span><span class="p">(</span><span class="n">kinetic</span><span class="o">.</span><span class="n">Components</span><span class="o">.</span><span class="n">Kinetics</span><span class="o">.</span><span class="n">Motor</span><span class="p">):</span> <span class="c1"># example of a motor class using a kinetic component base</span>
+    <span class="k">class</span> <span class="nc">MotorLeft</span><span class="p">(</span><span class="n">kinetic</span><span class="o">.</span><span class="n">Components</span><span class="o">.</span><span class="n">Kinetics</span><span class="o">.</span><span class="n">Motor</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Left-side motor.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">pwm</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="n">direction</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outer_self</span><span class="p">:</span> <span class="nb">object</span><span class="p">):</span> <span class="c1"># initialize base class, keymap path is an example</span>
+
+        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outer_self</span><span class="p">:</span> <span class="nb">object</span><span class="p">):</span>
             <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">outer_self</span><span class="o">.</span><span class="n">serial</span><span class="p">,</span>
                              <span class="n">kinetic</span><span class="o">.</span><span class="n">Controllers</span><span class="o">.</span><span class="n">load_keymap</span><span class="p">(</span><span class="s2">&quot;F://KINETIC//tests//motor_MotorLeft_keymap.json&quot;</span><span class="p">))</span>
             <span class="n">TestBot</span><span class="o">.</span><span class="n">MotorLeft</span><span class="o">.</span><span class="n">pwm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_pwm_enabled</span>
@@ -135,8 +137,10 @@ Base class include components and component controllers, that serve as software 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">pwm</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="n">direction</span> <span class="o">=</span> <span class="kc">True</span>
+
         <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outer_self</span><span class="p">:</span> <span class="nb">object</span><span class="p">):</span>
-            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">outer_self</span><span class="o">.</span><span class="n">serial</span><span class="p">,</span> <span class="n">kinetic</span><span class="o">.</span><span class="n">Controllers</span><span class="o">.</span><span class="n">load_keymap</span><span class="p">(</span><span class="s2">&quot;F://KINETIC//tests//motor_MotorRight_keymap.json&quot;</span><span class="p">))</span>
+            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">outer_self</span><span class="o">.</span><span class="n">serial</span><span class="p">,</span>
+                             <span class="n">kinetic</span><span class="o">.</span><span class="n">Controllers</span><span class="o">.</span><span class="n">load_keymap</span><span class="p">(</span><span class="s2">&quot;F://KINETIC//tests//motor_MotorRight_keymap.json&quot;</span><span class="p">))</span>
             <span class="n">TestBot</span><span class="o">.</span><span class="n">MotorLeft</span><span class="o">.</span><span class="n">pwm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_pwm_enabled</span>
             <span class="n">TestBot</span><span class="o">.</span><span class="n">MotorLeft</span><span class="o">.</span><span class="n">direction</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_direction_enabled</span>
 
@@ -144,10 +148,12 @@ Base class include components and component controllers, that serve as software 
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Dual motor action group.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outer_self</span><span class="p">:</span> <span class="nb">object</span><span class="p">):</span>
             <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">outer_self</span><span class="o">.</span><span class="n">motor_left</span><span class="p">,</span> <span class="n">outer_self</span><span class="o">.</span><span class="n">motor_right</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span> <span class="c1"># run example bot, with a placeholder UUID</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">bot</span> <span class="o">=</span> <span class="n">TestBot</span><span class="p">(</span><span class="s2">&quot;6ae2f3bd-2b55-468a-88a3-af0eeae03896&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -291,9 +297,12 @@ kinetic.generate is intended to be used as a script! See section above, Generati
 <dd class="field-even"><ul class="simple">
 <li><p><strong>self.uuid</strong> – str, dump of parameter uuid or uuid collected from path to file</p></li>
 <li><p><strong>self.network</strong> – object, swbs instance, initially None overwritten by Agent.network_init</p></li>
-<li><p><strong>self.lookup</strong> – dict, keys being commands that translate to function calls, defaulted to if Agent.client_listen parameter lookup is None,
-can be directly overwritten, see unionize parameter for Agent.client_listen to use both self.lookup and parameter lookup,
-default lookup dictionary is {“STOP”:Agent.stop(self, 0), “UPDATE”:Agent.update(), “SHUTDOWN”:Agent.shutdown(self), “REBOOT”:Agent.shutdown(self)}</p></li>
+<li><p><strong>self.lookup</strong> – dict, keys being commands that translate to function calls, defaulted to if
+Agent.client_listen parameter lookup is None, can be directly overwritten, see unionize parameter for
+Agent.client_listen to use both self.lookup and parameter lookup, default lookup dictionary is
+{“STOP”:Agent.stop(self, 0), “UPDATE”:Agent.update(), “SHUTDOWN”:Agent.shutdown(self),
+“REBOOT”:Agent.shutdown(self), “REQUEST TYPE”: self.network.send(“KINETIC”),
+“REQUEST UUID”: self.network.send(self.uuid)}</p></li>
 </ul>
 </dd>
 </dl>
@@ -302,18 +311,25 @@ default lookup dictionary is {“STOP”:Agent.stop(self, 0), “UPDATE”:Agent
 <dl class="py method">
 <dt id="kinetic.Agent.client_listen">
 <code class="sig-name descname"><span class="pre">client_listen</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lookup</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">no_encrypt</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unionize</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#kinetic.Agent.client_listen" title="Permalink to this definition">¶</a></dt>
-<dd><p>Blocking function that listens for controller input over self.network, looks up input as key with lookup dictionary, executing associated function with input command.
-If command exists, replies with “OK” and if command does not exist in dictionary lookup, replies with “KEYERROR”.</p>
-<p>If dictionary key “HELP” does not exist in lookup, command is set to sends all valid commands as individual TXs, initiated with the length of the command list (counting from 1).
-For the controller to receive the command list, it should first receive the “OK” acknowledgement, and then the second TX containing length, and start a for loop lasting the length of command list.</p>
+<dd><p>Blocking function that listens for controller input over self.network, looks up input as key with lookup
+dictionary, executing associated function with input command.
+If command exists, replies with “OK” and if command does not exist in dictionary lookup, replies with
+“KEYERROR”.</p>
+<p>If dictionary key “HELP” does not exist in lookup, command is set to send all valid commands as individual TXs,
+initiated with the length of the command list (counting from 1).
+For the controller to receive the command list, it should first receive the “OK” acknowledgement, and then the
+second TX containing length, and start a for loop lasting the length of command list.</p>
 <p>If self.network is not swbs.Client, raises Exceptions.AgentError.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>lookup</strong> – Union[dict, None], dictionary containing commands and associated function calls to be executed with command (i.e {“DO THIS”:lambda: somewhere.something.do()}),
-if None defaults to self.lookup, if all is None, raise Exceptions.AgentError, default None</p></li>
-<li><p><strong>no_encrypt</strong> – bool, passed to network I/O functions send()/receive(), if True disables AES for network I/O operations in this function, otherwise if False AES encryption is enabled, default False</p></li>
-<li><p><strong>unionize</strong> – bool, merge self.lookup and parameter lookup for usage as command dictionary if True, default False</p></li>
+<li><p><strong>lookup</strong> – Union[dict, None], dictionary containing commands and associated function calls to be executed
+with command (i.e {“DO THIS”:lambda: somewhere.something.do()}), if None defaults to self.lookup, if all is
+None, raise Exceptions.AgentError, default None</p></li>
+<li><p><strong>no_encrypt</strong> – bool, passed to network I/O functions send()/receive(), if True disables AES for network I/O
+operations in this function, otherwise if False AES encryption is enabled, default False</p></li>
+<li><p><strong>unionize</strong> – bool, merge self.lookup and parameter lookup for usage as command dictionary if True, default
+False</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -325,16 +341,22 @@ if None defaults to self.lookup, if all is None, raise Exceptions.AgentError, de
 <dl class="py method">
 <dt id="kinetic.Agent.network_init">
 <code class="sig-name descname"><span class="pre">network_init</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'arbiter.local'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">999</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_is_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#kinetic.Agent.network_init" title="Permalink to this definition">¶</a></dt>
-<dd><p>Built-in network initialization, when invoked, tries to connect as a client to specified host controller. If one is not specified, tries arbiter.local as hostname.
-If connection fails, initializes self temporarily into a Host instance, waiting for a controller or a plain client pointing the agent to a controller.
-Client/controller should send b”CONTROLLER” or b”POINT &lt;HOSTNAME HERE&gt;” respectively. If agent receives neither, restarts socket. If signaled to be controller, re-initializes as client to controller with specified or default port. If signaled to another host, connects to supplied host with specified or default port.
-Operations are done on port 999 (connecting to and listening on) unless specified otherwise in parameters. AES is disabled by default, unless the key value is specified otherwise. Is blocking if entering Host state.</p>
+<dd><p>Built-in network initialization, when invoked, tries to connect as a client to specified host controller.
+If one is not specified, tries arbiter.local as hostname.
+If connection fails, initializes self temporarily into a Host instance, waiting for a controller or a plain
+client pointing the agent to a controller.
+Client/controller should send b”CONTROLLER” or b”POINT &lt;HOSTNAME HERE&gt;” respectively. If agent receives neither,
+restarts socket. If signaled to be controller, re-initializes as client to controller with specified or default
+port. If signaled to another host, connects to supplied host with specified or default port.
+Operations are done on port 999 (connecting to and listening on) unless specified otherwise in parameters. AES
+is disabled by default, unless the key value is specified otherwise. Is blocking if entering Host state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>host</strong> – str, expected controller hostname, default arbiter.local</p></li>
 <li><p><strong>port</strong> – int, port connecting to in client mode, and listening on in host</p></li>
-<li><p><strong>key</strong> – Union[str, bytes, None], if key_is_path is False, key string, otherwise path to key file, default False disabling AES</p></li>
+<li><p><strong>key</strong> – Union[str, bytes, None], if key_is_path is False, key string, otherwise path to key file, default
+False disabling AES</p></li>
 <li><p><strong>key_is_path</strong> – bool, if True, key parameter is treated as path to key file for reading from, default False</p></li>
 </ul>
 </dd>
@@ -346,7 +368,7 @@ Operations are done on port 999 (connecting to and listening on) unless specifie
 
 <dl class="py method">
 <dt id="kinetic.Agent.reboot">
-<code class="sig-name descname"><span class="pre">reboot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extended_callbacks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sudo</span> <span class="pre">reboot</span> <span class="pre">now'</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#kinetic.Agent.reboot" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">reboot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extended_callbacks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'sudo</span> <span class="pre">reboot</span> <span class="pre">now'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback_params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">tuple</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#kinetic.Agent.reboot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Runs OS-level reboot command, default for Linux.
 In addition, runs Agent.stop and shares status and extended_callbacks parameters, which are both optional.
 Default exit code 0.</p>
@@ -355,6 +377,7 @@ Default exit code 0.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>status</strong> – see Agent.stop for parameter documentation</p></li>
 <li><p><strong>extended_callbacks</strong> – see Agent.stop for parameter documentation</p></li>
+<li><p><strong>callback_params</strong> – tuple, see Agent.stop for parameter documentation</p></li>
 <li><p><strong>command</strong> – str, reboot command called through shell, default for Linux</p></li>
 </ul>
 </dd>
@@ -366,7 +389,7 @@ Default exit code 0.</p>
 
 <dl class="py method">
 <dt id="kinetic.Agent.shutdown">
-<code class="sig-name descname"><span class="pre">shutdown</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extended_callbacks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sudo</span> <span class="pre">shutdown</span> <span class="pre">now'</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#kinetic.Agent.shutdown" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">shutdown</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extended_callbacks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback_params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">tuple</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'sudo</span> <span class="pre">shutdown</span> <span class="pre">now'</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#kinetic.Agent.shutdown" title="Permalink to this definition">¶</a></dt>
 <dd><p>Runs OS-level shutdown command, default for Linux.
 In addition, runs Agent.stop and shares status and extended_callbacks parameters, which are both optional.
 Default exit code 0.</p>
@@ -375,6 +398,7 @@ Default exit code 0.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>status</strong> – see Agent.stop for parameter documentation</p></li>
 <li><p><strong>extended_callbacks</strong> – see Agent.stop for parameter documentation</p></li>
+<li><p><strong>callback_params</strong> – tuple, see Agent.stop for parameter documentation</p></li>
 <li><p><strong>command</strong> – str, shutdown command called through shell, default for Linux</p></li>
 </ul>
 </dd>
@@ -386,13 +410,15 @@ Default exit code 0.</p>
 
 <dl class="py method">
 <dt id="kinetic.Agent.stop">
-<code class="sig-name descname"><span class="pre">stop</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extended_callbacks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#kinetic.Agent.stop" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">stop</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extended_callbacks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback_params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">tuple</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#kinetic.Agent.stop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Exits agent application. Executes optional supplied function parameter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>status</strong> – int, exit status</p></li>
-<li><p><strong>extended_callbacks</strong> – function, called before exiting, specify a function here to be invoked</p></li>
+<li><p><strong>extended_callbacks</strong> – function, called before exiting, specify a function here to be invoked, if parameter
+is None or not callable, callbacks is ignored, default None</p></li>
+<li><p><strong>callback_params</strong> – tuple, parameters for extended_callbacks, default empty tuple</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -403,7 +429,7 @@ Default exit code 0.</p>
 
 <dl class="py method">
 <dt id="kinetic.Agent.update">
-<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">update</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sudo</span> <span class="pre">apt</span> <span class="pre">update</span> <span class="pre">&amp;&amp;</span> <span class="pre">apt</span> <span class="pre">upgrade</span> <span class="pre">-y'</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#kinetic.Agent.update" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">update</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'sudo</span> <span class="pre">apt</span> <span class="pre">update</span> <span class="pre">&amp;&amp;</span> <span class="pre">apt</span> <span class="pre">upgrade</span> <span class="pre">-y'</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#kinetic.Agent.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Runs OS-level update command, default for Linux distributions using APT.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -429,7 +455,8 @@ Default exit code 0.</p>
 <em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Generic</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">controller</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keymap</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#kinetic.Components.Generic" title="Permalink to this definition">¶</a></dt>
 <dd><p>Perfectly Generic Object, colored a perfectly generic green.</p>
 <p>Generic component class, with no special attributes. Exists as a placeholder.</p>
-<p>When creating a component class that does not have an existing subclass to derive from in Components, use this class for kinetic.generate to properly recognize the class as a component for serial endpoint generation.</p>
+<p>When creating a component class that does not have an existing subclass to derive from in Components, use this
+class for kinetic.generate to properly recognize the class as a component for serial endpoint generation.</p>
 <dl class="py method">
 <dt id="kinetic.Components.Generic.__init__">
 <code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">controller</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keymap</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#kinetic.Components.Generic.__init__" title="Permalink to this definition">¶</a></dt>
@@ -464,7 +491,8 @@ Default exit code 0.</p>
 <dt id="kinetic.Components.Interfaces.SenseHAT.__init__">
 <code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sense</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#kinetic.Controllers.SenseHAT" title="kinetic.Controllers.SenseHAT"><span class="pre">kinetic.Controllers.SenseHAT</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#kinetic.Components.Interfaces.SenseHAT.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class initialization, creating class variables.
-Accepts SenseHAT controller. Requires SenseHAT and Raspbian host with the SenseHAT APT package installed.</p>
+Accepts SenseHAT controller. Requires SenseHAT and Raspbian host with the SenseHAT APT package
+installed.</p>
 <p>See <a class="reference external" href="https://pythonhosted.org/sense-hat/">https://pythonhosted.org/sense-hat/</a> for more information.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Variables</dt>
@@ -496,9 +524,9 @@ Supports Controllers.Serial instance(s) as a controller.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Variables</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>self.control</strong> – int, limited to -1 to 1, abstracts motor direction where 1 is forwards, -1 is backwards,
-and 0 is full-stop, gradients between 1 to 0 and 0 to -1 control speed (if PWM is available),
-not to be overwritten directly, use Motor.set_control.</p></li>
+<li><p><strong>self.control</strong> – int, limited to -1 to 1, abstracts motor direction where 1 is forwards, -1 is
+backwards, and 0 is full-stop, gradients between 1 to 0 and 0 to -1 control speed (if PWM is
+available), not to be overwritten directly, use Motor.set_control.</p></li>
 <li><p><strong>self.is_pwm_enabled</strong> – bool, dump of parameter enable_pwm</p></li>
 <li><p><strong>self.is_direction_enabled</strong> – bool, dump of parameter enable_direction</p></li>
 <li><p><strong>self.keymap</strong> – dict, dump of parameter keymap</p></li>
@@ -508,7 +536,8 @@ not to be overwritten directly, use Motor.set_control.</p></li>
 <dt class="field-even">Parameters</dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>controller</strong> – class instance of Controllers, controller to use for interfacing with component</p></li>
-<li><p><strong>keymap</strong> – dict, should contain keys FORWARDS, BACKWARDS, SPEED, BRAKE, RELEASE, for their respective serial commands</p></li>
+<li><p><strong>keymap</strong> – dict, should contain keys FORWARDS, BACKWARDS, SPEED, BRAKE, RELEASE, for their
+respective serial commands</p></li>
 <li><p><strong>enable_pwm</strong> – bool, whether Motor instance supports PWM speed control, default True</p></li>
 <li><p><strong>enable_direction</strong> – bool, whether Motor instance supports direction control, default True</p></li>
 </ul>
@@ -520,11 +549,12 @@ not to be overwritten directly, use Motor.set_control.</p></li>
 <dt id="kinetic.Components.Kinetics.Motor.backward">
 <code class="sig-name descname"><span class="pre">backward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">speed</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#kinetic.Components.Kinetics.Motor.backward" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wrapper for Motor.set_control to move backward.
-Safe to use regardless if direction is disabled, however if direction is disabled, is effectively the same as calling Motor.forward.</p>
+Safe to use regardless if direction is disabled, however if direction is disabled, is effectively the
+same as calling Motor.forward.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>speed</strong> – int, absolute, 0 &lt; x =&lt; 1 indicating motor speed, return None if 0, x &gt; 1 will result in x becoming 1,
-if PWM is disabled speed is safely ignored, default 1</p>
+<dd class="field-odd"><p><strong>speed</strong> – int, absolute, 0 &lt; x =&lt; 1 indicating motor speed, return None if 0, x &gt; 1 will result in x
+becoming 1, if PWM is disabled speed is safely ignored, default 1</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>None</p>
@@ -539,8 +569,8 @@ if PWM is disabled speed is safely ignored, default 1</p>
 Safe to use regardless if direction is disabled.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>speed</strong> – int, absolute, 0 &lt; x =&lt; 1 indicating motor speed, return None if 0, x &gt; 1 will result in x becoming 1,
-if PWM is disabled speed is safely ignored, default 1</p>
+<dd class="field-odd"><p><strong>speed</strong> – int, absolute, 0 &lt; x =&lt; 1 indicating motor speed, return None if 0, x &gt; 1 will result in x
+becoming 1, if PWM is disabled speed is safely ignored, default 1</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>None</p>
@@ -692,7 +722,8 @@ Supports Controllers.Serial instance(s) as a controller.</p>
 <dt id="kinetic.Components.Sensors.SenseHAT.__init__">
 <code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sense</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#kinetic.Controllers.SenseHAT" title="kinetic.Controllers.SenseHAT"><span class="pre">kinetic.Controllers.SenseHAT</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#kinetic.Components.Sensors.SenseHAT.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class initialization, creating class variables.
-Accepts SenseHAT controller. Requires SenseHAT and Raspbian host with the SenseHAT APT package installed.</p>
+Accepts SenseHAT controller. Requires SenseHAT and Raspbian host with the SenseHAT APT package
+installed.</p>
 <p>See <a class="reference external" href="https://pythonhosted.org/sense-hat/">https://pythonhosted.org/sense-hat/</a> for more information.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Variables</dt>
@@ -781,7 +812,8 @@ Accepts SenseHAT controller. Requires SenseHAT and Raspbian host with the SenseH
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>offset_cpu</strong> – bool, if True accounts for CPU temperature leeching into SenseHAT temperature readings, default True</p></li>
+<li><p><strong>offset_cpu</strong> – bool, if True accounts for CPU temperature leeching into SenseHAT temperature
+readings, default True</p></li>
 <li><p><strong>round_to</strong> – Union[int, None], decimal to round to, None to return raw, default None</p></li>
 </ul>
 </dd>
@@ -816,10 +848,13 @@ Accepts no controller.</p>
 <dt class="field-even">Parameters</dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>source</strong> – int, source index piped into VideoStream src parameter, default 0</p></li>
-<li><p><strong>use_pi_camera</strong> – bool, whether to use a Raspberry Pi camera (if installed) piped into VideoStream usePiCamera parameter, default False</p></li>
-<li><p><strong>resolution</strong> – tuple, video stream resolution formatted (WIDTH, HEIGHT) and piped into VideoStream resolution parameter, default (1920, 1080))</p></li>
+<li><p><strong>use_pi_camera</strong> – bool, whether to use a Raspberry Pi camera (if installed) piped into VideoStream
+usePiCamera parameter, default False</p></li>
+<li><p><strong>resolution</strong> – tuple, video stream resolution formatted (WIDTH, HEIGHT) and piped into VideoStream
+resolution parameter, default (1920, 1080))</p></li>
 <li><p><strong>frame_rate</strong> – int, video stream frame rate piped into VideoStream framerate parameter, default 60</p></li>
-<li><p><strong>quality</strong> – int, image quality to compress to, 0-100, higher quality costs more bandwidth to transmit, the opposite is true for lower quality, default 80</p></li>
+<li><p><strong>quality</strong> – int, image quality to compress to, 0-100, higher quality costs more bandwidth to
+transmit, the opposite is true for lower quality, default 80</p></li>
 </ul>
 </dd>
 </dl>
@@ -828,22 +863,28 @@ Accepts no controller.</p>
 <dl class="py method">
 <dt id="kinetic.Components.Sensors.USBCamera.broadcast_stream">
 <code class="sig-name descname"><span class="pre">broadcast_stream</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_is_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">restart_delay</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#kinetic.Components.Sensors.USBCamera.broadcast_stream" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates swbs.Client instance, with host, port, and key parameters pointing to a swbs.Host or swbs.Server instance, or other compatible swbs.Instance derivative.
+<dd><p>Creates swbs.Client instance, with host, port, and key parameters pointing to a swbs.Host or swbs.Server
+instance, or other compatible swbs.Instance derivative.
 Is a blocking function.</p>
 <p>See USBCamera.encode_as_bytes_stream docstring for how to decode received bytestrings.
 When using SWBS to receive bytes from TX, set parameter return_bytes to True.
-The image is further encoded as a JPEG, decode again to use, with objects.cv2.imdecode(DECODED_IMAGE_HERE, 1).</p>
+Decode the image on the receiving end with,</p>
+<p>cv2.imdecode(numpy.frombuffer(IMAGE_BYTES_RECEIVED, numpy.uint8), cv2.IMREAD_COLOR)</p>
 <p>If self.stream is None, returns None before execution starts.
-If Exceptions.ComponentError is raised when collecting VideoStream image, restarts camera and then waits 1 second, unless specified otherwise, before resuming.</p>
+If Exceptions.ComponentError is raised when collecting VideoStream image, restarts camera and then waits
+1 second, unless specified otherwise, before resuming.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>host</strong> – str, hostname of host to connect to</p></li>
 <li><p><strong>port</strong> – int, port that host is listening on</p></li>
 <li><p><strong>key</strong> – Union[str, bytes, None], AES encryption key, if None, AES is disabled</p></li>
-<li><p><strong>key_is_path</strong> – bool, if True key parameter is treated as path to file containing encryption key, default False</p></li>
-<li><p><strong>restart_delay</strong> – Union[int, None], delay in seconds after a video stream restart due to an exception being raised, if None delay is disabled, default 1</p></li>
-<li><p><strong>debug</strong> – bool, print MD5 hash of image frame to stdout if True, also show raw image with cv2.imshow, default False</p></li>
+<li><p><strong>key_is_path</strong> – bool, if True key parameter is treated as path to file containing encryption key,
+default False</p></li>
+<li><p><strong>restart_delay</strong> – Union[int, None], delay in seconds after a video stream restart due to an
+exception being raised, if None delay is disabled, default 1</p></li>
+<li><p><strong>debug</strong> – bool, print MD5 hash of image frame to stdout if True, also show raw image with
+cv2.imshow, default False</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1000,11 +1041,13 @@ See kinetic.generate for producing endpoint C code.</p>
 </dd>
 <dt class="field-even">Variables</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>self.serial_instance</strong> – object, pyserial object, can be safely accessed while respecting self.serial_lock,
-including raw I/O without wrapper, do not operate while self.serial_lock is True, set self.serial_lock to True
-for the duration of raw I/O and back to False upon completing the operation</p></li>
-<li><p><strong>self.serial_lock</strong> – bool, lock boolean, to prevent multiple multiple calls to serial, a primitive version of a thread resource lock</p></li>
-<li><p><strong>self.serial_lock_relay</strong> – bool, allows for function calls to send/receive while self.serial_lock is True, intended for chain calls, do not assign directly</p></li>
+<li><p><strong>self.serial_instance</strong> – object, pyserial object, can be safely accessed while respecting
+self.serial_lock, including raw I/O without wrapper, do not operate while self.serial_lock is True, set
+self.serial_lock to True for the duration of raw I/O and back to False upon completing the operation</p></li>
+<li><p><strong>self.serial_lock</strong> – bool, lock boolean, to prevent multiple multiple calls to serial, a primitive
+version of a thread resource lock</p></li>
+<li><p><strong>self.serial_lock_relay</strong> – bool, allows for function calls to send/receive while self.serial_lock is
+True, intended for chain calls, do not assign directly</p></li>
 </ul>
 </dd>
 </dl>
@@ -1017,9 +1060,12 @@ for the duration of raw I/O and back to False upon completing the operation</p><
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>chain_call</strong> – Union[str, None], string specifying whether to “SEND” or “RECEIVE”, None to disable, ignored if chain_call_parameters is empty, default None</p></li>
-<li><p><strong>chain_call_parameters</strong> – Union[tuple, dict, None], parameters for send or receive function call, ignored if chain_call is empty, default None</p></li>
-<li><p><strong>in_recursion</strong> – bool, if True function call ignores self.serial_lock, should not be True unless triggered by chain call, default False</p></li>
+<li><p><strong>chain_call</strong> – Union[str, None], string specifying whether to “SEND” or “RECEIVE”, None to disable,
+ignored if chain_call_parameters is empty, default None</p></li>
+<li><p><strong>chain_call_parameters</strong> – Union[tuple, dict, None], parameters for send or receive function call,
+ignored if chain_call is empty, default None</p></li>
+<li><p><strong>in_recursion</strong> – bool, if True function call ignores self.serial_lock, should not be True unless
+triggered by chain call, default False</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1036,9 +1082,12 @@ for the duration of raw I/O and back to False upon completing the operation</p><
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>message</strong> – Union[str, bytes], data to be sent</p></li>
-<li><p><strong>chain_call</strong> – Union[str, None], string specifying whether to “SEND” or “RECEIVE”, None to disable, ignored if chain_call_parameters is empty, default None</p></li>
-<li><p><strong>chain_call_parameters</strong> – Union[tuple, dict, None], parameters for send or receive function call, ignored if chain_call is empty, default None</p></li>
-<li><p><strong>in_recursion</strong> – bool, if True function call ignores self.serial_lock, should not be True unless triggered by chain call, default False</p></li>
+<li><p><strong>chain_call</strong> – Union[str, None], string specifying whether to “SEND” or “RECEIVE”, None to disable,
+ignored if chain_call_parameters is empty, default None</p></li>
+<li><p><strong>chain_call_parameters</strong> – Union[tuple, dict, None], parameters for send or receive function call,
+ignored if chain_call is empty, default None</p></li>
+<li><p><strong>in_recursion</strong> – bool, if True function call ignores self.serial_lock, should not be True unless
+triggered by chain call, default False</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1101,11 +1150,12 @@ Takes two Components.Kinetics.Motor instances.</p>
 <dt id="kinetic.ActionGroups.DualMotor.backward">
 <code class="sig-name descname"><span class="pre">backward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">speed</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#kinetic.ActionGroups.DualMotor.backward" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wrapper for bi-motor control to move backward.
-Safe to use regardless if direction is disabled, however if direction is disabled, is effectively the same as calling DualMotor.forward.</p>
+Safe to use regardless if direction is disabled, however if direction is disabled, is effectively the same
+as calling DualMotor.forward.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>speed</strong> – int, absolute, 0 &lt; x =&lt; 1 indicating motor speed, return None if 0, x &gt; 1 will result in x becoming 1,
-if PWM is disabled speed is safely ignored</p>
+<dd class="field-odd"><p><strong>speed</strong> – int, absolute, 0 &lt; x =&lt; 1 indicating motor speed, return None if 0, x &gt; 1 will result in x
+becoming 1, if PWM is disabled speed is safely ignored</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>None</p>
@@ -1120,8 +1170,8 @@ if PWM is disabled speed is safely ignored</p>
 Requires at least direction control, otherwise is effectively the same as calling DualMotor.forward.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>speed</strong> – int, absolute, 0 &lt; x =&lt; 1 indicating motor speed, return None if 0, x &gt; 1 will result in x becoming 1,
-if PWM is disabled speed is safely ignored</p>
+<dd class="field-odd"><p><strong>speed</strong> – int, absolute, 0 &lt; x =&lt; 1 indicating motor speed, return None if 0, x &gt; 1 will result in x
+becoming 1, if PWM is disabled speed is safely ignored</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>None</p>
@@ -1136,8 +1186,8 @@ if PWM is disabled speed is safely ignored</p>
 Requires at least direction control, otherwise is effectively the same as calling DualMotor.forward.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>speed</strong> – int, absolute, 0 &lt; x =&lt; 1 indicating motor speed, return None if 0, x &gt; 1 will result in x becoming 1,
-if PWM is disabled speed is safely ignored</p>
+<dd class="field-odd"><p><strong>speed</strong> – int, absolute, 0 &lt; x =&lt; 1 indicating motor speed, return None if 0, x &gt; 1 will result in x
+becoming 1, if PWM is disabled speed is safely ignored</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>None</p>
@@ -1152,8 +1202,8 @@ if PWM is disabled speed is safely ignored</p>
 Safe to use regardless if direction is disabled.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>speed</strong> – int, absolute, 0 &lt; x =&lt; 1 indicating motor speed, return None if 0, x &gt; 1 will result in x becoming 1,
-if PWM is disabled speed is safely ignored</p>
+<dd class="field-odd"><p><strong>speed</strong> – int, absolute, 0 &lt; x =&lt; 1 indicating motor speed, return None if 0, x &gt; 1 will result in x
+becoming 1, if PWM is disabled speed is safely ignored</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>None</p>

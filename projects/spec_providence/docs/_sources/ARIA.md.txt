@@ -1,0 +1,83 @@
+# ARIA
+## Revision 1.0, April 19th, 2021
+Request-oriented API language used by BRIAH-layer nodes.
+
+[Back to Index](index.rst)
+
+## 1.0, Motivation
+BRIAH-layer applications, such as ARBITER and KINETIC, do not have a standard for communication.
+Current protocols are nebulous and have no organized record. 
+Additionally, they become problematic as new BRIAH applications are put into production, 
+as they are not designed beyond the scope of their individual projects.
+
+## 1.1, Abstract
+ARIA is designed specifically for BRIAH-layer and applicable ASIYAH-layer applications. 
+
+It contains basic essentials of the ARIA protocol, and the API language for information exchange, 
+with flexibility for specialized commands and arguments.
+
+## 2.0, Protocol
+ARIA is modeled after a server and client relationship.
+Unlike a traditional server/client paradigm, the event structure is oriented where the server usually 
+dispatches API commands to the client.
+This is reverse for ASIYAH-layer services that have their own specification (that is yet to be written).
+
+For all exchanges, when the server sends a command, the client replies with either "OK" or "KEYERROR"
+where the first is sent upon a successful request, and the second when the command is unrecognized.
+"KEYERROR" is not raised if the command was recognized, but was not able to be executed.
+
+Upon a client connecting to a server, the server sends the "REQUEST TYPE" command. 
+The client replies with the name of its application. The server checks if the client is a 
+servicable application, and if not, promptly disconnects, ending the client manager's life-cycle.
+If the server is servicable however, the connection is preserved and the client manager continues execution.
+
+## 2.1, Extended Protocol
+ARIA has an extended protocol for certain use cases and requirements for additional provisions. 
+
+When applicable, servers may also dispatch a "REQUEST UUID" command after "REQUEST TYPE" is exchanged.
+This is intended for servers identifying BRIAH applications with a UUID, usually resources, 
+such as nodes linked to KINETIC agents, or fabrication equipment (namely 3D printers and other CNC machines).
+
+Servers may dispatch a HELP command after "REQUEST TYPE" and "REQUEST UUID" to index valid commands ahead of time.
+Commands before being sent may be reviewed, to see if they exist within the list of valid commands.
+
+## 2.2, API Reference
+As long as the client supports it, commands are extendable. Custom commands defined
+in the client's command lookup dictionary can be interpreted without issue,
+when received from the server. 
+
+Any NAVSCRIPT (see specification NAVSCRIPT) commands that are either local or not executed should not be used (i.e
+GOTO and -#-).
+
+### REQUEST
+Has children,
+- TYPE (Returns name of client application)
+- UUID (Returns client UUID, if applicable)
+
+Use in format,
+REQUEST (CHILD ARGUMENT)
+### OS
+Has children,
+- STOP (Stops client application)
+- SHUTDOWN (Shuts down client operating system)
+- REBOOT (Reboots client operating system)
+- UPDATE (Updates client operating system
+
+Use in format,
+OS (CHILD ARGUMENT)
+
+### ABORT
+Aborts connection, server client manager disconnects and the client is left to sit idle or retry a server connection.
+
+It's recommended to delay retries by an exponentially growing integer, per each retry attempt, to prevent spam and
+resulting resource drainage.
+### HELP
+Reserved by client applications. Sends ALL valid commands in the lookup dictionary.
+
+Excerpt from KINETIC source code,
+```text
+If dictionary key "HELP" does not exist in lookup, command is set to send all valid commands as individual TXs.
+The transmission is initiated with the length of the command list (counting from 1).
+For the controller to receive the command list, it should first receive the "OK" acknowledgement, and then the
+second TX containing length, and start a for loop lasting the length of command list.
+```

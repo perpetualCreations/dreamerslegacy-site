@@ -18,7 +18,7 @@
   <script type="text/javascript">
     var DOCUMENTATION_OPTIONS = {
         URL_ROOT:'',
-        VERSION:'1.0',
+        VERSION:'1.1',
         LANGUAGE:'None',
         COLLAPSE_INDEX:false,
         FILE_SUFFIX:'.html',
@@ -59,7 +59,7 @@
   <div class="section" id="update-patching-for-python-3">
 <h1>Update Patching for Python 3<a class="headerlink" href="#update-patching-for-python-3" title="Permalink to this headline">¶</a></h1>
 <dl class="field-list simple">
-<dt class="field-odd">Latest Version - 1.0</dt>
+<dt class="field-odd">Latest Version - 1.1</dt>
 <dd class="field-odd"><p></p></dd>
 </dl>
 <div class="toctree-wrapper compound">
@@ -79,8 +79,8 @@
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install bandage
 </pre></div>
 </div>
-<pre class="literal-block">wget <a class="reference external" href="https://github.com/perpetualCreations/bandage/releases/download/">https://github.com/perpetualCreations/bandage/releases/download/</a>1.0/bandage-1.0-py3-none-any.whl
-pip install /path/to/wheel/file/bandage-1.0-py3-none-any.whl</pre>
+<pre class="literal-block">wget <a class="reference external" href="https://github.com/perpetualCreations/bandage/releases/download/">https://github.com/perpetualCreations/bandage/releases/download/</a>1.1/bandage-1.1-py3-none-any.whl
+pip install /path/to/wheel/file/bandage-1.1-py3-none-any.whl</pre>
 <p>As listed in the requirements MANIFEST, it depends on urllib3. If this dependency has not already been installed, use PIP again.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install urllib3
 </pre></div>
@@ -167,7 +167,8 @@ This applies to patch names as well, if the patch name is not another URL.</p>
 <dl class="py method">
 <dt id="bandage.Patcher.__init__">
 <code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">patch</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suppress_version_check</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suppress_name_check</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_keep_check</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bandage.Patcher.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Takes patch file and target application directory, and applies changes after checking VERSION and NAME. Inorganic and for robots.</p>
+<dd><p>Takes patch file and target application directory, and applies changes after checking VERSION and NAME.
+Inorganic and for robots.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -176,7 +177,6 @@ This applies to patch names as well, if the patch name is not another URL.</p>
 <li><p><strong>suppress_version_check</strong> – bool, if True VERSION/VERSIONS check is ignored, unsafe, default is False</p></li>
 <li><p><strong>suppress_name_check</strong> – bool, if True NAME check is ignored, unsafe, default is False</p></li>
 <li><p><strong>skip_keep_check</strong> – bool, if True Patcher does not check if files listed under Keep exist, default is False</p></li>
-<li><p><strong>skip_pre_patch_backup_generation</strong> – bool, if True Patcher does not</p></li>
 </ul>
 </dd>
 </dl>
@@ -191,15 +191,18 @@ This applies to patch names as well, if the patch name is not another URL.</p>
 <dl class="py method">
 <dt id="bandage.Weave.__init__">
 <code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">release_old</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">release_new</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suppress_missing_versions</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bandage.Weave.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Takes two release files, and compares them for differences, then generates patch file to given output path. Inorganic and for robots.</p>
+<dd><p>Takes two release files, and compares them for differences, then generates patch file to given output path.
+Inorganic and for robots.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>release_old</strong> – str, web address or path to old release file</p></li>
 <li><p><strong>release_new</strong> – str, web address or path to new release file</p></li>
-<li><p><strong>output_path</strong> – str, path to output archive, if archive already exists, deletes archive and “overwrites” it with the new archive file</p></li>
+<li><p><strong>output_path</strong> – str, path to output archive, if archive already exists, deletes archive and “overwrites” it
+with the new archive file</p></li>
 <li><p><strong>set_name</strong> – Union[str, None], new patch NAME file, if not None, NAME check is ignored, default None</p></li>
-<li><p><strong>suppress_missing_versions</strong> – bool, if True missing versions error is ignored, Supply class cannot detect the release automatically, Patcher must be directed to the patch archive manually, default False</p></li>
+<li><p><strong>suppress_missing_versions</strong> – bool, if True missing versions error is ignored, Supply class cannot detect
+the release automatically, Patcher must be directed to the patch archive manually, default False</p></li>
 </ul>
 </dd>
 </dl>
@@ -215,14 +218,20 @@ This applies to patch names as well, if the patch name is not another URL.</p>
 <dt id="bandage.Supply.__init__">
 <code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">remote</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version_file</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bandage.Supply.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks a remote HTTP endpoint for new patches. Inorganic and for robots.
-If no exception is thrown, dumps status and patch download URL to self.result and self.patch_web_source respectively, which can be retrieved as a list through method bandage.Supply.realize.</p>
-<p>The remote parameter should be an HTTPS/HTTP address pointing to a web server, or a Github release tagged BANDAGE.
+If no exception is thrown, dumps status and patch download URL to self.result and self.patch_web_source
+respectively, which can be retrieved as a list through method bandage.Supply.realize.</p>
+<p>The remote parameter should be an HTTPS/HTTP address pointing to a web server, or a Github release tagged
+BANDAGE.
 For pointing to a Github repository’s contents, use raw.githubusercontent.com.</p>
-<p>If bandage.Supply succeeded in finding headers and looking up lineage series, however finds the current version to be the latest, self.result is 0.
-If bandage.Supply succeeded in finding headers and looking up lineage series, and finds a patch to be applied for updating, self.result is -1 with self.patch_web_source as web address to patch file.
-If bandage.Supply succeeded in finding headers and looking up lineage series, however finds no patch available to upgrade with, self.result is 1.
+<p>If bandage.Supply succeeded in finding headers and looking up lineage series, however finds the current version
+to be the latest, self.result is 0.
+If bandage.Supply succeeded in finding headers and looking up lineage series, and finds a patch to be applied
+for updating, self.result is -1 with self.patch_web_source as web address to patch file.
+If bandage.Supply succeeded in finding headers and looking up lineage series, however finds no patch available
+to upgrade with, self.result is 1.
 If bandage.Supply raised an exception, self.result and self.patch_web_source are None.</p>
-<p>Preliminary information if obtained is dumped into self.pre_collect. Contains version list and patches available, as list object. Retrieved through bandage.Supply.pre_collect_dump.</p>
+<p>Preliminary information if obtained is dumped into self.pre_collect. Contains version list and patches
+available, as list object. Retrieved through bandage.Supply.pre_collect_dump.</p>
 <p>See documentation for more information.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -315,7 +324,8 @@ It will produce segmented directories, i.e:
 <dl class="py method">
 <dt id="bandage.Backend.fetch">
 <em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">fetch</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">object</span><a class="headerlink" href="#bandage.Backend.fetch" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fetches HTTP and HTTPS requests through URLLIB3, returns request object, raises exception if status is not in 2XX or 301, 302.</p>
+<dd><p>Fetches HTTP and HTTPS requests through URLLIB3, returns request object, raises exception if status is not in
+2XX or 301, 302.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>target</strong> – str, HTTPS/HTTP address</p>
