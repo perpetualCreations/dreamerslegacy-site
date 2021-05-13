@@ -6,11 +6,9 @@
         <meta name="description" content="Documentation for ABL Project.">
         <meta name="author" content="perpetualCreations">
         <title>ABL Documentation</title>
-        <link rel="preload" href="/css/newline.min.css" as="style">
         <link rel="preload" href="/css/schema.min.css" as="style">
         <link rel="preload" href="/projects/abl/icon-upscaled.png" as="image">
         <link rel="icon" href="/resources/favicon.ico">
-        <link rel="stylesheet" type="text/css" href="/css/newline.min.css">
         <link rel="stylesheet" type="text/css" href="/css/schema.min.css">
         <style>
 			img {
@@ -18,25 +16,25 @@
 				}
         </style>
     </head>
-    <body> 
+    <body class="fade-in"> 
         <!-- Maybe you should read the actual page instead of looking at HTML and wrongly expanding your ego. -->
-        <div class = "topnav">
-            <a href = "/index.html##projects">Back To Portfolio</a>
+        <div class="topnav">
+            <a href="/index.html##projects">Back To Portfolio</a>
         </div>
-        <div class = "schema">
-            <img src="/projects/abl/icon-upscaled.png" class = "project-icons" alt = "ABL Project Icon"><h1>ABL Documentation</h1>
-            <p style = "margin-left: 5px;">Original <a href = "https://github.com/perpetualCreations/AnalyticalBlackLight/blob/master/readme.md" target = "_blank">documentation available here</a>.</p>
-            <div class = "badges-container">
-                <div class = "badges">
-                    <a href = "https://forthebadge.com" target = "_blank"><img src = "https://forthebadge.com/images/badges/made-with-python.svg" alt = "ForTheBadge Made With Python Badge"></a>
+        <div class="schema">
+            <img src="/projects/abl/icon-upscaled.png" class="project-icons" alt="ABL Project Icon"><h1>ABL Documentation</h1>
+            <p style="margin-left: 5px;">Original <a href="https://github.com/perpetualCreations/AnalyticalBlackLight/blob/master/readme.md" target="_blank">documentation available here</a>.</p>
+            <div class="badges-container">
+                <div class="badges">
+                    <a href="https://forthebadge.com" target="_blank"><img src="https://forthebadge.com/images/badges/made-with-python.svg" alt="ForTheBadge Made With Python Badge"></a>
                 </div>
-                <div class = "badges">
-                    <a href = "https://forthebadge.com" target = "_blank"><img src = "https://forthebadge.com/images/badges/you-didnt-ask-for-this.svg" alt = "ForTheBadge You Didn't Ask For This Badge"></a>
+                <div class="badges">
+                    <a href="https://forthebadge.com" target="_blank"><img src="https://forthebadge.com/images/badges/you-didnt-ask-for-this.svg" alt="ForTheBadge You Didn't Ask For This Badge"></a>
                 </div>
             </div>
             <div id="content">
   
-                <p style = "margin-top: 50px;">ABL uses pytrends to access Google search interest, and compile data into a CSV spreadsheet, or a graph of interest over time.</p>
+                <p style="margin-top: 50px;">ABL uses pytrends to access Google search interest, and compile data into a CSV spreadsheet, or a graph of interest over time.</p>
 
                 <h4>Why?</h4>
                 <p>
@@ -52,8 +50,8 @@
                     You can edit the keywords the list. Replace it with anything you want, so long the number of keywords is a multiple of five, some ideas including trending subjects, or the spread of major news.
                 </p>
                 <h4>How do I use this?</h4>
-                <button class = "collapsible" style = "text-align: center;">Click Here for Instructions</button>
-                <div class = "content">
+                <button class="collapsible" style="text-align: center;">Click Here for Instructions</button>
+                <div class="content">
                     <h4>Download and Extract</h4>
                     <p>
                         Download the latest release on the repository page, and extract contents
@@ -72,20 +70,20 @@
                         ABL can be used as a command-line tool. It takes in 5 positional parameters in time and space, 1 input parameter, and 3 output parameters.
                     </p>
                     <p>
-                        The three output parameters are <span class = "code-quote">--csv</span>, <span class = "code-quote">--showgraph</span>, and <span class = "code-quote">--graph</span> which you need to add a 0 or 1 after the parameter to toggle. 
-                        As their names suggest, they signal whether ABL should export a CSV file or a graph. Or both. <span class = "code-quote">--graph</span> exports the graph to a .PNG file, while <span class = "code-quote">--showgraph</span> uses the built-in viewer.
+                        The three output parameters are <span class="code-quote">--csv</span>, <span class="code-quote">--showgraph</span>, and <span class="code-quote">--graph</span> which you need to add a 0 or 1 after the parameter to toggle. 
+                        As their names suggest, they signal whether ABL should export a CSV file or a graph. Or both. <span class="code-quote">--graph</span> exports the graph to a .PNG file, while <span class="code-quote">--showgraph</span> uses the built-in viewer.
                     </p>
                     <p>
-                        If you wish to forgo writing positional parameters, you can toggle <span class = "code-quote">-c</span> with a 1 or 0 to read from targets.cfg instead.
+                        If you wish to forgo writing positional parameters, you can toggle <span class="code-quote">-c</span> with a 1 or 0 to read from targets.cfg instead.
                     </p>
                     <p>
-                        The two start and end dates, being <span class = "code-quote">-s</span> and <span class = "code-quote">-e</span> are the range which data is collected from. Please have a reasonable cutoff, I doubt you'll find activity for keywords such as "COVID-19" or "2020 election" in 2015 through 2016.
+                        The two start and end dates, being <span class="code-quote">-s</span> and <span class="code-quote">-e</span> are the range which data is collected from. Please have a reasonable cutoff, I doubt you'll find activity for keywords such as "COVID-19" or "2020 election" in 2015 through 2016.
                         If you think carefully, you might even be able to shave a few seconds out of processing time.
                         Format these parameters as YYYY-MM-DD.
                     </p>
                     <p>
-                        The three remaining parameters are country, state, and county. In command-line, while not using targets.cfg, the parameters are <span class = "class-quote">-n -p -x</span>, in the same order.
-                        The county parameter, <span class = "code-quote">-x</span> is a bit of a... weird... parameter. Google has integer codes for counties, in Google Trends at least. For example, NYC is 501. Houston in Texas is 618. You'll need to do a bit of digging.
+                        The three remaining parameters are country, state, and county. In command-line, while not using targets.cfg, the parameters are <span class="class-quote">-n -p -x</span>, in the same order.
+                        The county parameter, <span class="code-quote">-x</span> is a bit of a... weird... parameter. Google has integer codes for counties, in Google Trends at least. For example, NYC is 501. Houston in Texas is 618. You'll need to do a bit of digging.
                     </p>
                     <h4>GUI</h4>
                     <p>
@@ -114,8 +112,8 @@
                 <p>If you any inquiries, please contact the project maintainer(s).</p>
             </div>
         </div>
-        <p class = "footer-text" id = "year-footer-text"></p>
-        <script src = "/js/auto-fill-year.min.js"></script>
-        <script src = "/js/collapse.min.js"></script>
+        <p class="footer-text" id="year-footer-text"></p>
+        <script src="/js/auto-fill-year.min.js"></script>
+        <script src="/js/collapse.min.js"></script>
     </body>
 </html>

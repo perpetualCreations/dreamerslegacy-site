@@ -4,19 +4,19 @@ Calendar Dark CSS Document
 For patching Github Calendar's stylesheet to render well in a dark theme.
 Loaded after Github Calendar's default stylesheet.
 */
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
 .calendar {
-    color: white;
-    background-color: rgb(48, 48, 48);
+    color: var(--paragraph-color);
+    border: 1px solid var(--outline-color);
+    background-color: var(--schema-background-color);
     font-family: Inconsolata, monospace;
 }
 .contrib-number{
-    color: white;
+    color: var(--paragraph-color);
 }
 :root {
-  --color-calendar-graph-day-bg: #808080;
+  --color-calendar-graph-day-bg: #a89984;
   --color-calendar-graph-day-L1-bg: #ffcc66;
   --color-calendar-graph-day-L2-bg: #ffbb33;
   --color-calendar-graph-day-L3-bg: #ffaa00;
-  --color-calendar-graph-day-L4-bg: #e69900;
+  --color-calendar-graph-day-L4-bg: #fe8019;
 }
