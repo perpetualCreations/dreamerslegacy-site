@@ -10,10 +10,11 @@
         <link rel="preload" href="/css/calendar-dark.min.css" as="style">
         <link rel="preload" href="/js/about-random.min.js" as="script">
         <link rel="preload" href="/js/auto-fill-year-func.min.js" as="script">
+        <link rel="preload" href="/js/calendar.js" as="script">
         <link rel="preload" href="/resources/logo%20orange.svg" as="image">
         <link rel="icon" href="/resources/favicon.ico">
         <link rel="stylesheet" type="text/css" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css" referrerpolicy="noreferrer">
-        <link rel="stylesheet" type="text/css" href="/css/schema.css">
+        <link rel="stylesheet" type="text/css" href="/css/schema.min.css">
         <link rel="stylesheet" type="text/css" href="/css/calendar-dark.min.css">
     </head>
     <script src="/js/about-random.min.js"></script>
@@ -31,6 +32,14 @@
                     <a id="#top" href="index.html#top"></a><!-- this is an anchor for jumping to and from headers, it doesn't actually link to another page. -->
                 </div>
             </div>
+            <noscript>
+                <div class="card message-box-container">
+                    <div class="message-box">
+                        <p><b>This site depends on JavaScript.</b></p>
+                        <p class="hint">Unless enabled, expect certain elements to fail to load.</p>
+                    </div>
+                </div>
+            </noscript>
             <div class="row">
                 <div class="column">
                     <div class="card">
@@ -38,10 +47,10 @@
                         <hr>
                     </div>
                     <div class="card row">
-                        <div class="column" style="flex: 1%;">
-                            <div class="deco_vertical" style="border-color: #fabd2f;"></div>
+                        <div class="column deco-vertical-flex">
+                            <div class="deco-vertical deco-yellow"></div>
                         </div>
-                        <div class="column" style="flex: 95%;">
+                        <div class="column column-majority">
                             <p>Portfolio site featuring technical projects and a sketchbook.</p>
                             <hr>
                             <p>Current runtime; about 2 years (development started December 1st, 2018), through multiple design iterations.</p>
@@ -52,10 +61,9 @@
                     <div class="card">
                         <img src="/resources/avatars/pc.webp" class="avatar" alt="Avatar Image for perpetualCreations">
                         <h3>T. Chen</h3>
-                        <p style="font-size: 10px; color: white; margin: -1em 0em 3.5em;"><i>I despise physical activity and sleep is for the weak.</i></p>
                         <hr>
                         <p>I maintain and contribute to this site. My handlename is perpetualCreations.</p>
-                        <p>An engineering student who probably should've studied humanities instead, <a href="/sketchbook/index.html">amassing a sketchbook</a> while off work.</p>
+                        <p>An engineering student who probably should've studied humanities instead, <a href="/sketchbook/index.html">amassing a sketchbook (more appropriately journal)</a> while off work.</p>
                         <p id="opinion-text"></p>
                         <h4>Contacts:</h4>
                         <p>Email 1: tchen0584@gmail.com</p>
@@ -64,10 +72,10 @@
                         <hr>
                     </div>
                     <div class="card row">
-                        <div class="column" style="flex: 1%;">
-                            <div class="deco_vertical" style="border-color: #fb4934;"></div>
+                        <div class="column deco-vertical-flex">
+                            <div class="deco-vertical deco-red"></div>
                         </div>
-                        <div class="column" style="flex: 95%;">
+                        <div class="column column-majority">
                             <h3>Hosting</h3>
                             <hr>
                             <p>Formerly on cloud hosting, now on a dedicated local server.</p>
@@ -89,17 +97,15 @@
                         <div class="calendar">
                             <p>Loading... please wait warmly.</p>
                         </div>
-                        <script>
-                            GitHubCalendar(".calendar", "perpetualCreations", { responsive: true });
-                        </script>
+                        <script src="/js/calendar.js"></script>
                         <p style="font-size: 0.8em;">Down? Github probably changed how the calendar is rendered, again. It'll be a bit until the scraper is updated to handle the new changes.</p>
                         <hr>
                     </div>
                     <div class="card row">
-                        <div class="column" style="flex: 1%;">
-                            <div class="deco_vertical" style="border-color: #fe8019;"></div>
+                        <div class="column deco-vertical-flex">
+                            <div class="deco-vertical deco-orange"></div>
                         </div>
-                        <div class="column" style="flex: 95%;">
+                        <div class="column column-majority">
                             <h2>Updates</h2>
                             <hr>
                             <a class="button" href="/html/updates.html">View Updates</a>
@@ -114,17 +120,17 @@
                         <p>Part of this portfolio site hosts the Personal Package Archive (PPA) for the distribution of my Debian packages. You can add it to your APT sources list to install its offerings.</p>
                         <p>From testing, I can inform you this will likely work on most Debian and Debian-based operating systems, including Raspbian, however expect broken dependencies for certain packages.</p>
                         <p>To add the archive repository, run:</p>
-                        <div class="code-block">
-                            <p><span class="command">sudo curl</span> -s --compressed "https://dreamerslegacy.xyz/ppa/ubuntu/KEY.gpg" | sudo apt-key add -</p>
-                            <p><span class="command">sudo curl</span> -s --compressed -o /etc/apt/sources.list.d/dreamerslegacy_ppa.list "https://dreamerslegacy.xyz/ppa/ubuntu/dreamerslegacy_ppa.list"</p>
-                            <p><span class="command">sudo apt update</span></p>
-                        </div>
+                        <pre>
+sudo curl -s --compressed "https://dreamerslegacy.xyz/ppa/ubuntu/KEY.gpg" | sudo apt-key add -
+sudo curl -s --compressed -o /etc/apt/sources.list.d/dreamerslegacy_ppa.list "https://dreamerslegacy.xyz/ppa/ubuntu/dreamerslegacy_ppa.list"
+sudo apt update
+                        </pre>
                         <p>To remove the archive repository, run:</p>
-                        <div class="code-block command">
-                            <p><span class="command">sudo apt-key del</span> 9BBEC5D61BBD56C2CCC437D2A4891A46DC4C3713</p>
-                            <p><span class="command">sudo rm</span> /etc/apt/sources.list.d/dreamerslegacy_ppa.list</p>
-                            <p><span class="command">sudo apt update</span></p>
-                        </div>
+                        <pre>
+sudo apt-key del 9BBEC5D61BBD56C2CCC437D2A4891A46DC4C3713
+sudo rm /etc/apt/sources.list.d/dreamerslegacy_ppa.list
+sudo apt update
+                        </pre>
                         <p>This method adds/removes a sources file under <span class="code-quote">/etc/apt/sources.list.d/</span> and the repository public GPG key for package signing.</p>
                         <p>If typing out these commands is burdensome, see <a href="https://github.com/perpetualCreations/ppa/releases/tag/s1.0">this Github release for two shell scripts</a> that perform the above commands (perhaps a bit pointless, considering the trouble you need to go through, compared to copy-and-pasting commands).</p>
                         <hr>

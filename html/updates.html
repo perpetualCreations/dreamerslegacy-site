@@ -48,11 +48,27 @@
                     -->
                     <div class="card row">
                         <div class="column" style="flex: 1%;">
-                            <div class="deco_vertical" style="border-color: #fe8019;"></div>
+                            <div class="deco-vertical" style="border-color: #fe8019;"></div>
                         </div>
                         <div class="column" style="flex: 95%;">
                             <h2>Feed</h2>
                         </div>
+                    </div>
+                    <div class="card">
+                        <h2>Update 1.15a</h2>
+                        <p>Project Update + Site Update, May 13th, 2021</p>
+                        <h3>Sketchbook</h3>
+                        <ul>
+                            <li>Implemented Markdown to HTML conversion with <a href="https://github.com/markedjs/marked" target="_blank" referrerpolicy="noreferrer">Marked</a> and <a href="https://github.com/mozilla/nunjucks" target="_blank" referrerpolicy="noreferrer">Nunjucks</a>.</li>
+                            <li>Added sketchbook content.</li>
+                        </ul>
+                        <h3>Site Updates</h3>
+                        <ul>
+                            <li>Changed code quotes and blocks styling, deprecated code blocks in favor of &lt;pre&gt; tags, extended support to &lt;code&gt; tags.</li>
+                            <li>Implemented custom scrollbar.</li>
+                            <li>Deprecated usage of JetBrains Mono font.</li>
+                            <li>Minor stylesheet changes.</li>
+                        </ul>
                     </div>
                     <div class="card">
                         <h2>Update 1.15</h2>
@@ -173,7 +189,7 @@
                         <p>Currently debugging, validating, and fixing features. The to-do list is now 8 items long, the shortest it has ever been since the start.</p>
                         <p>OpenCV properly built now, after upping memory swap size.</p>
                         <h3>Site Updates</h3>
-                        <p>Fixed Javascript for about page, two separate functions were bound to the onload function, one overwriting the other. Now they're called together.</p>
+                        <p>Fixed JavaScript for about page, two separate functions were bound to the onload function, one overwriting the other. Now they're called together.</p>
                         <p>Changed background images to a lower resolution and formatted as WebP files, to save on loading times.</p>
                         <p>Changed color usage in navbar to have better contrast for accessibility.</p>
                         <p>Updated fonts for SCHEMA documentation, to be less of an eye-sore. More display changes to come, drawing inspiration from the fictional datasheets of the game Shenzhen I/O.</p>

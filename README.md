@@ -1,9 +1,10 @@
 # dreamerslegacy-site
-This is a remote mirror of my local repo for my portfolio site, so I can access it across devices.  
+Remote of my local repo for my portfolio site, so I can access it across devices.  
 
-Feel free to use my source in your own project, it's licensed under the standard MIT License. Certain assets (i.e images and project content) may be licensed differently, send an inquiry if you want to check if a resource is up for grabs.
+Project is licensed under MIT, some assets may be licensed differently (namely resources redistributed from elsewhere).
+Please send an inquiry if you are unsure if a source file is permitted for your usecase. 
 
-Portions of the site's stylesheets were based off of https://www.w3schools.com/. SCHEMA.css is my child however.
+Portions of the site's stylesheets were based off of https://www.w3schools.com/.
 
 ## PPA
 Part of this portfolio site hosts the Personal Package Archive (PPA) for the distribution of my Debian packages. Add to APT to install its offerings.

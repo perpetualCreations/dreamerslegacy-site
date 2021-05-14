@@ -46,13 +46,13 @@
                     <h4>Install</h4>
                     <p>Install the host application through APT, either from the dreamerslegacy.xyz PPA, or from a Debian package file if available under releases.</p>
                     <p>Instructions for adding the package archive can be found <a href = "/index.html###ppa">on the main page</a>. For installing through the package archive, after adding it to your sources list, </p>
-                    <div class = "code-block">
-                        <p><span class = "command">sudo</span> apt update &amp;&amp; apt install raspbotrca-host</p>
-                    </div>
+                    <pre>
+sudo apt update &amp;&amp; apt install raspbotrca-host
+                    </pre>
                     <p>For installing from a Debian package file, </p>
-                    <div class = "code-block">
-                        <p><span class = "command">sudo</span> apt install /path/to/package/file/raspbotrca-host_VERSIONHERE_all.deb</p>
-                    </div>
+                    <pre>
+sudo apt install /path/to/package/file/raspbotrca-host_VERSIONHERE_all.deb
+                    </pre>
                     <p>The host application package is dependent on Python 3 (3.7.3 and above is accepted), and Python dependencies which are automatically installed with the installation of the main package.</p>
                     <h4>Configure</h4>
                     <p>The configuration files mentioned here can be found under the <span class = "code-quote">/etc/raspbotrca-host/</span> directory.</p>
@@ -195,15 +195,15 @@
                     <li>C, counterclockwise rotation</li>
                 </ul>
                 <p>Below is an example of a valid navigation script.</p>
-                <div class = "code-block">
-                    <p>F 60</p>
-                    <p>W 5</p>
-                    <p>F 60</p>
-                    <p>X 5</p>
-                    <p>B 5</p>
-                    <p>S 30</p>
-                    <p>F 60</p>
-                </div>
+                <pre>
+F 60
+W 5
+F 60
+X 5
+B 5
+S 30
+F 60
+                </pre>
                 <h3>1.3: Hardware Specs</h3>
                 <button class = "collapsible" style = "text-align: center;">Click to Expand Specifications</button>
                 <div class = "content">
