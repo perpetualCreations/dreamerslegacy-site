@@ -18,7 +18,7 @@ function render(status) {
   }
   else if (statusType == "4") {
     if (status == 404) {
-      document.getElementById("message").textContent = "Requested resource not found";
+      document.getElementById("message").textContent = "Requested resource not found.";
     }
     else if (status == 403) {
       document.getElementById("message").textContent = "Requested resource exists, however is forbidden to be accessed by the client."
