@@ -70,6 +70,13 @@
                         <p>Email 2: skynetserver.god@protonmail.com</p>
                         <p>Github: <a rel="noreferrer" href="https://github.com/perpetualCreations" target="_blank">perpetualCreations</a></p>
                         <hr>
+                        <!--
+                        <div class="deco-horizontal" style="border-color: var(--blue); border-width: 0.5em;">
+                            <div class="deco-horizontal" style="border-color: var(--purple); border-width: 0.5em;">
+                                <div class="deco-horizontal" style="border-color: var(--fg0);"></div>
+                            </div>
+                        </div>
+                        -->
                     </div>
                     <div class="card row">
                         <div class="column deco-vertical-flex">
@@ -142,230 +149,315 @@ sudo apt update
             <h2>Projects</h2>
             <a id="#projects" href="index.html##projects"></a> <!-- anchor for jumping between headers, does not link to another page -->
             <div class="row">
-                <div class="card column">
-                    <img src="/projects/raspbot/project-icon-white.svg" alt="Raspbot Icon" style="max-width: 50%;">
-                    <h3>Raspbot</h3>
-                    <p>Robotic vehicle controlled by a Raspberry Pi and Arduino, with carrying capacity for expansion and modification.</p>
-                    <hr>
-                    <button class="collapsible">Project Status</button>
-                    <div class="content">
-                        <p>Completed first software and hardware revision one year ago.</p>
-                        <p>Project hardware and control software are still in progress for second revision.</p>
-                        <p>Released CAD assets are outdated, revision 2 will be released later once fully tested.</p>
-                        <p>Currently in integration testing and completing final TODOs.</p>
+                <div class="column">
+                    <div class="card">
+                        <div class="svg-project-icon-container">
+                            <img src="/projects/raspbot/project-icon-white.svg" alt="Raspbot Icon">
+                        </div>
+                        <h3>Raspbot</h3>
+                        <p>Robotic vehicle controlled by a Raspberry Pi and Arduino, with carrying capacity for expansion and modification.</p>
+                        <hr>
+                        <button class="collapsible">Project Status</button>
+                        <div class="content">
+                            <p>Completed first software and hardware revision one year ago.</p>
+                            <p>Project hardware and control software are still in progress for second revision.</p>
+                            <p>Released CAD assets are outdated, revision 2 will be released later once fully tested.</p>
+                            <p>Currently in integration testing and completing final TODOs.</p>
+                        </div>
+                        <hr>
+                        <button class="collapsible">Project Contents</button>
+                        <div class="content">
+                            <p>Project software is available on Github, please see documentation for further hardware specification and additional details. Access these pages below.</p>
+                            <div class="button-container">
+                                <a class="button" href="/projects/raspbot/raspbot-cad-parts.zip" download>CAD Assets</a>
+                                <a rel="noreferrer" class="button" href="https://github.com/perpetualCreations/raspbot-rca" target="_blank">Github</a>
+                                <a class="button" href="/projects/raspbot/docs.html">Documentation</a>
+                                <a class="button" href="projects/raspbot/gallery.html">Gallery</a>
+                                <a rel="noreferrer" class="button" href="https://github.com/perpetualCreations/raspbot-rca/releases/" target="_blank">Software Download</a>
+                            </div>
+                        </div>
+                        <hr>
                     </div>
-                    <hr>
-                    <button class="collapsible">Project Contents</button>
-                    <div class="content">
-                        <p>Project software is available on Github, please see documentation for further hardware specification and additional details. Access these pages below.</p>
-                        <a class="button" href="/projects/raspbot/raspbot-cad-parts.zip" download>CAD Assets</a>
-                        <a rel="noreferrer" class="button" href="https://github.com/perpetualCreations/raspbot-rca" target="_blank" style="margin-top: 10px">Github</a>
-                        <a class="button" href="/projects/raspbot/docs.html" style="margin-top:10px">Documentation</a>
-                        <a class="button" href="projects/raspbot/gallery.html" style="margin-top:10px; margin-bottom: 10px;">Gallery</a>
+                    <div class="card">
+                        <h3>TWCS</h3>
+                        <h4>Temporary Web Captive Service</h4>
+                        <p>Flask server application for temporarily hosting browser clients that have been redirected from a web application, before a restart or crash.</p>
+                        <p>Returns clients back to their referrer or original application, when they are detected to be online again.</p>
+                        <p>Configurable for custom templates and scanning options.</p>
+                        <hr>
+                        <button class="collapsible">Project Status</button>
+                        <div class="content">
+                            <p>Project was completed and released.</p> 
+                            <p>See Project Contents for documentation and product.</p>
+                        </div>
+                        <hr>
+                        <button class="collapsible">Project Contents</button>
+                        <div class="content">
+                            <p>Project software is available on Github, please see documentation for further hardware specification and additional details. Access these pages below.</p>
+                            <div class="button-container">
+                                <a rel="noreferrer" class="button" href="https://github.com/perpetualCreations/TWCS" target="_blank">Github</a>
+                                <a rel="noreferrer" class="button" href="https://github.com/perpetualCreations/TWCS/releases/" target="_blank">Software Download</a>
+                            </div>
+                        </div>
+                        <hr>
                     </div>
-                    <hr>
+                    <div class="card">
+                        <h3>ARBITER</h3>
+                        <p>Debian service for managing KINETIC agents through user-written directives or manual control.</p>
+                        <p>Comes with terminal or web user interfaces.</p>
+                        <hr>
+                        <button class="collapsible">Project Status</button>
+                        <div class="content">
+                            <p>Project is in development.</p> 
+                            <p>Currently finishing Flask web application.</p>
+                        </div>
+                        <hr>
+                        <button class="collapsible">Project Contents</button>
+                        <div class="content">
+                            <p>Project software is available on Github, please see documentation for further hardware specification and additional details. Access these pages below.</p>
+                            <div class="button-container">
+                                <a rel="noreferrer" class="button" href="https://github.com/perpetualCreations/ARBITER" target="_blank">Github</a>
+                                <a rel="noreferrer" class="button" href="https://github.com/perpetualCreations/ARBITER/releases/" target="_blank">Software Download</a>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="card">
+                        <h3>FORESIGHT</h3>
+                        <p>Flexible Flask application for deploying simple front-end interfaces, defined in JSON.</p>
+                        <hr>
+                        <button class="collapsible">Project Status</button>
+                        <div class="content">
+                            <p>Project was completed and released.</p> 
+                            <p>See Project Contents for documentation and product.</p>
+                        </div>
+                        <hr>
+                        <button class="collapsible">Project Contents</button>
+                        <div class="content">
+                            <p>Project software is available on Github, please see documentation for further hardware specification and additional details. Access these pages below.</p>
+                            <div class="button-container">
+                                <a rel="noreferrer" class="button" href="https://github.com/perpetualCreations/FORESIGHT" target="_blank">Github</a>
+                                <a rel="noreferrer" class="button" href="https://github.com/perpetualCreations/FORESIGHT/releases/" target="_blank">Software Download</a>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
                 </div>
-                <div class="card column">
-                    <h2>Python Packages</h2>
-                    <hr>
-                    <img src="/projects/swbs/project-icon-white.svg" alt="SWBS Icon" style="max-width: 50%;">
-                    <h3>SWBS</h3>
-                    <h4>Socket Wrapper for Byte Strings</h4>
-                    <p>Python3 package serving as a wrapper for the socket library, with multi-client complexity or single-client simplicity when needed, and expandability for other developers.</p>
-                    <hr>
-                    <button class="collapsible">Project Status</button>
-                    <div class="content">
-                        <p>Project was completed and released.</p> 
-                        <p>See Project Contents for documentation and product.</p>
-                        <p>Updated March 23rd for new semantics and multi-client.</p>
+                <div class="column">
+                    <div class="card">
+                        <h2>Python Packages</h2>
+                        <hr>
+                        <div class="svg-project-icon-container">
+                            <img src="/projects/swbs/project-icon-white.svg" alt="SWBS Icon">
+                        </div>
+                        <h3>SWBS</h3>
+                        <h4>Socket Wrapper for Byte Strings</h4>
+                        <p>Python3 package serving as a wrapper for the socket library, with multi-client complexity or single-client simplicity when needed, and expandability for other developers.</p>
+                        <hr>
+                        <button class="collapsible">Project Status</button>
+                        <div class="content">
+                            <p>Project was completed and released.</p> 
+                            <p>See Project Contents for documentation and product.</p>
+                        </div>
+                        <hr>
+                        <button class="collapsible">Project Notes</button>
+                        <div class="content">
+                            <p>Reduces overhead from repeating code and prerequisites.</p>
+                            <p>Originally derived from the Raspbot RCA's comms module, with modifcations, now completely rewritten.</p>
+                        </div>
+                        <hr>
+                        <button class="collapsible">Project Contents</button>
+                        <div class="content">
+                            <p>Project software is available on Github or PyPI, please see documentation for more details on usage. Access these pages below.</p>
+                            <div class="button-container">
+                                <a rel="noreferrer" class="button" href="https://github.com/perpetualCreations/SWBS/" target="_blank">Github</a>
+                                <a rel="noreferrer" class="button" href="https://pypi.org/project/swbs/" target="_blank">PyPI</a>
+                                <a class="button" href="/projects/swbs/docs/index.html">Documentation</a>
+                                <a rel="noreferrer" class="button" href="https://github.com/perpetualCreations/swbs/releases/" target="_blank">Software Download</a>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="svg-project-icon-container">
+                            <img src="/projects/bandage/project-icon-white.svg" alt="Bandage Icon" style="transform: rotate(45deg);">
+                        </div>
+                        <h3>Bandage</h3>
+                        <p>Python3 package for patching software deployments, in scenarios where updating through a package manager is unavailable.</p>
+                        <hr>
+                        <button class="collapsible">Project Status</button>
+                        <div class="content">
+                            <p>Project was completed and released.</p> 
+                            <p>See Project Contents for documentation and product.</p>
+                        </div>
+                        <hr>
+                        <button class="collapsible">Project Notes</button>
+                        <div class="content">
+                            <p>Initially made for the Raspbot RCA client.</p>
+                            <p>First project to no longer use legacy pixel art icons.</p>
+                        </div>
+                        <hr>
+                        <button class="collapsible">Project Contents</button>
+                        <div class="content">
+                            <p>Project software is available on Github or PyPI, please see documentation for more details on usage. Access these pages below.</p>
+                            <div class="button-container">
+                                <a rel="noreferrer" class="button" href="https://github.com/perpetualCreations/bandage/" target="_blank">Github</a>
+                                <a rel="noreferrer" class="button" href="https://pypi.org/project/bandage/" target="_blank">PyPI</a>
+                                <a class="button" href="/projects/bandage/docs/index.html">Documentation</a>
+                                <a rel="noreferrer" class="button" href="https://github.com/perpetualCreations/bandage/releases/" target="_blank">Software Download</a>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="svg-project-icon-container">
+                            <img src="/projects/kinetic/project-icon-white.svg" alt="KINETIC Icon">
+                        </div>
+                        <h3>Project KINETIC</h3>
+                        <p>Python3 package for controlling modular and configurable robotic agents over the network. </p>
+                        <hr>
+                        <button class="collapsible">Project Status</button>
+                        <div class="content">
+                            <p>Project was completed and released.</p> 
+                            <p>See Project Contents for documentation and product.</p>
+                        </div>
+                        <hr>
+                        <button class="collapsible">Project Notes</button>
+                        <div class="content">
+                            <p>Initially made to replace the Raspbot RCA host application.</p>
+                            <p>Flexible for usage in other robotics projects.</p>
+                        </div>
+                        <hr>
+                        <button class="collapsible">Project Contents</button>
+                        <div class="content">
+                            <p>Project software is available on Github or PyPI, please see documentation for more details on usage. Access these pages below.</p>
+                            <div class="button-container">
+                                <a rel="noreferrer" class="button" href="https://github.com/perpetualCreations/kinetic/" target="_blank">Github</a>
+                                <a rel="noreferrer" class="button" href="https://pypi.org/project/project-kinetic/" target="_blank">PyPI</a>
+                                <a class="button" href="/projects/kinetic/docs/index.html">Documentation</a>
+                                <a rel="noreferrer" class="button" href="https://github.com/perpetualCreations/project-kinetic/releases/" target="_blank">Software Download</a>
+                            </div>
+                        </div>
+                        <hr>
                     </div>
-                    <hr>
-                    <button class="collapsible">Project Notes</button>
-                    <div class="content">
-                        <p>Reduces overhead from repeating code and prerequisites.</p>
-                        <p>Originally derived from the Raspbot RCA's comms module, with modifcations, now completely rewritten.</p>
-                    </div>
-                    <hr>
-                    <button class="collapsible">Project Contents</button>
-                    <div class="content">
-                        <p>Project software is available on Github or PyPI, please see documentation for more details on usage. Access these pages below.</p>
-                        <a rel="noreferrer" class="button" href="https://github.com/perpetualCreations/SWBS/" target="_blank" style="margin-top: 10px">Github</a>
-                        <a rel="noreferrer" class="button" href="https://pypi.org/project/swbs/" target="_blank" style="margin-top: 10px">PyPI</a>
-                        <a class="button" href="/projects/swbs/docs/index.html" style="margin-top: 10px; margin-bottom: 10px;">Documentation</a>
-                    </div>
-                    <hr>
-                    <img src="/projects/bandage/project-icon-white.svg" alt="Bandage Icon" style="max-width: 50%; transform: rotate(45deg);">
-                    <h3>Bandage</h3>
-                    <p>Python3 package for patching software deployments, in scenarios where updating through a package manager is unavailable.</p>
-                    <hr>
-                    <button class="collapsible">Project Status</button>
-                    <div class="content">
-                        <p>Project was completed and released.</p> 
-                        <p>See Project Contents for documentation and product.</p>
-                    </div>
-                    <hr>
-                    <button class="collapsible">Project Notes</button>
-                    <div class="content">
-                        <p>Initially made for the Raspbot RCA client.</p>
-                        <p>First project to no longer use legacy pixel art icons.</p>
-                    </div>
-                    <hr>
-                    <button class="collapsible">Project Contents</button>
-                    <div class="content">
-                        <p>Project software is available on Github or PyPI, please see documentation for more details on usage. Access these pages below.</p>
-                        <a rel="noreferrer" class="button" href="https://github.com/perpetualCreations/bandage/" target="_blank" style="margin-top: 10px">Github</a>
-                        <a rel="noreferrer" class="button" href="https://pypi.org/project/bandage/" target="_blank" style="margin-top: 10px">PyPI</a>
-                        <a class="button" href="/projects/bandage/docs/index.html" style="margin-top: 10px; margin-bottom: 10px;">Documentation</a>
-                    </div>
-                    <hr>
-                    <img src="/projects/kinetic/project-icon-white.svg" style="max-width: 100%; padding: 10%;" alt="KINETIC Icon">
-                    <h3>Project KINETIC</h3>
-                    <p>Python3 package for controlling modular and configurable robotic agents over the network. </p>
-                    <hr>
-                    <button class="collapsible">Project Status</button>
-                    <div class="content">
-                        <p>Project was completed and released.</p> 
-                        <p>See Project Contents for documentation and product.</p>
-                    </div>
-                    <hr>
-                    <button class="collapsible">Project Notes</button>
-                    <div class="content">
-                        <p>Initially made to replace the Raspbot RCA host application.</p>
-                        <p>Flexible for usage in other robotics projects.</p>
-                    </div>
-                    <hr>
-                    <button class="collapsible">Project Contents</button>
-                    <div class="content">
-                        <p>Project software is available on Github or PyPI, please see documentation for more details on usage. Access these pages below.</p>
-                        <a rel="noreferrer" class="button" href="https://github.com/perpetualCreations/kinetic/" target="_blank" style="margin-top: 10px">Github</a>
-                        <a rel="noreferrer" class="button" href="https://pypi.org/project/project-kinetic/" target="_blank" style="margin-top: 10px">PyPI</a>
-                        <a class="button" href="/projects/kinetic/docs/index.html" style="margin-top: 10px; margin-bottom: 10px;">Documentation</a>
-                    </div>
-                    <hr>
-                </div>
-            </div>
-            <div class="row">
-                <div class="card column">
-                    <img src="/projects/abl/icon-upscaled.png" alt="ABL Icon" class="project-icons">
-                    <h3>ABL</h3>
-                    <h4>AnalyticalBlackLight</h4>
-                    <p>Collects Google search interest on defined keywords using pytrends, and exports either a CSV or graph image file.</p>
-                    <hr>
-                    <button class="collapsible">Project Status</button>
-                    <div class="content">
-                        <p>Project was completed and released.</p> 
-                        <p>See Project Contents for documentation and product.</p>
-                    </div>
-                    <hr>
-                    <button class="collapsible">Project Notes</button>
-                    <div class="content">
-                        <p>This was originally made humourously to try to track students looking up test answers during virtual testing, with questionable results.</p>
-                    </div>
-                    <hr>
-                    <button class="collapsible">Project Contents</button>
-                    <div class="content">
-                        <p>Run using command line or through the GUI wrapper. Project software is available on Github, please see documentation for more details on usage.</p>
-                        <a rel="noreferrer" class="button" href="https://github.com/perpetualCreations/AnalyticalBlackLight/" target="_blank" style="margin-top: 10px">Github</a>
-                        <a class="button" href="/projects/abl/docs.html" style="margin-top:10px">Documentation</a>
-                        <a rel="noreferrer" class="button" href="https://github.com/perpetualCreations/AnalyticalBlackLight/releases/tag/1.0" target="_blank" style="margin-top: 10px; margin-bottom: 10px;">Software Download</a>
-                    </div>
-                    <hr>
-                </div>
-
-                <div class="card column">
-                    <img src="/projects/lexiconcognito/icon-upscaled.png" alt="Lexicon Cognito Icon" class="project-icons">
-                    <h3>Lexicon Cognito</h3>
-                    <p>Web application built with Python Flask, for creating personal electronic libraries.</p>
-                    <hr>
-                    <button class="collapsible">Project Status</button>
-                    <div class="content">
-                        <p>Project is still in software development.</p>
-                        <p>Currently working on page integration, building entry pages, document viewer, and SQLite module for managing the document database.</p>
-                    </div>
-                    <hr>
-                    <button class="collapsible">Project Contents</button>
-                    <div class="content">
-                        <p>Project software is available on GIthub, please see documentation for more details on usage.</p>
-                        <a rel="noreferrer" class="button" href="https://github.com/perpetualCreations/LexiconCognito" target="_blank" style="margin-top:10px; margin-bottom: 10px;">Github</a>
-                    </div>
-                    <hr>
-                </div>
-            </div>
-            <div class="row">
-                <div class="card column">
-                    <h3>SCHEMA</h3>
-                    <p>Development ceased.</p>
-                    <p>Tool for automated conversion of Markdown documentation into minimalist HTML making use of the SCHEMA stylesheet.</p>
-                    <hr>
-                    <button class="collapsible">Project Status</button>
-                    <div class="content">
-                        <p>Project is no longer being developed, in favor of Sphinx documentation generation.</p>
-                        <p>Basic text parsing is functional, more conversions are to be tested and integrated.</p>
-                    </div>
-                    <hr>
-                    <button class="collapsible">Project Notes</button>
-                    <div class="content">
-                        <p>Code quotes available, with color-coding for Python and terminal commands. Additionally comes with (extremely loose) support for ForTheBadge and Shield.io badges. See documentation for additional  options.</p>
-                    </div>
-                    <hr>
-                    <button class="collapsible">Project Contents</button>
-                    <div class="content">
-                        <p>Project software is available on Github, please see documentation for more details on usage. Access these pages below.</p>
-                        <a rel="noreferrer" class="button" href="https://github.com/perpetualCreations/SCHEMA" target="_blank" style="margin-top:10px; margin-bottom: 10px;">Github</a>
-                    </div>
-                    <hr>
-                </div>
-                <div class="card column">
-                    <h3>deargodpleaseno</h3>
-                    <p>CLI tool for automatically deleting temporary files on an Apache server.</p>
-                    <hr>
-                    <button class="collapsible">Project Status</button>
-                    <div class="content">
-                        <p>Project was compeleted and released.</p>
-                        <p>See Project Contents for documentation and product.</p>
-                    </div>
-                    <hr>
-                    <button class="collapsible">Project Contents</button>
-                    <div class="content">
-                        <p>Project software is available on Github, please see documentation for more details on usage and installation. Access these pages below.</p>
-                        <a rel="noreferrer" class="button" href="https://github.com/perpetualCreations/deargodpleaseno" target="_blank" style="margin-top:10px">Github</a>
-                        <a class="button" href="/projects/dgpn/docs/index.html" style="margin-top: 10px; margin-bottom: 10px;">Documentation</a>
-                    </div>
-                    <hr>
                 </div>
             </div>
             <div class="row">
-                <div class="card column">
-                    <img src="/projects/op3dt/op3dt-icon.png" alt="OP3DT Icon" class="project-icons">
-                    <h3>OP3DT</h3>
-                    <h4>Offline Python 3 Documentation Tool</h4>
-                    <p>Automatically downloads and updates offline documentation for Python 3 via Requests.</p>
-                    <hr>
-                    <button class="collapsible">Project Status</button>
-                    <div class="content">
-                        <p>Project was completed and released. </p>
-                        <p>See Project Contents for documentation and product.</p>
+                <div class="column">
+                    <div class="card">
+                        <h3>gruvbox-sphinx</h3>
+                        <p>HTML theme for Sphinx documentation generation, modeled after the Gruvbox Vim theme.</p>
+                        <hr>
+                        <button class="collapsible">Project Status</button>
+                        <div class="content">
+                            <p>Project was completed and released.</p>
+                            <p>See Project Contents for documentation and product.</p>
+                        </div>
+                        <hr>
+                        <button class="collapsible">Project Notes</button>
+                        <div class="content">
+                            <p>Sample image, with custom syntax highlighting and derived layout in view.</p>
+                            <img src="/projects/gruvbox-sphinx/sample.png" alt="Sample image." style="width: 100%;">
+                        </div>
+                        <hr>
+                        <button class="collapsible">Project Contents</button>
+                        <div class="content">
+                            <p>Project software is available on Github, please see documentation for more details on usage. Access these pages below.</p>
+                            <div class="button-container">
+                                <a rel="noreferrer" class="button" href="https://github.com/perpetualCreations/gruvbox-sphinx" target="_blank" style="margin-top:10px; margin-bottom: 10px;">Github</a>
+                                <a rel="noreferrer" class="button" href="https://pypi.org/project/gruvboxsphinx" target="_blank">PyPI</a>
+                                <a rel="noreferrer" class="button" href="https://github.com/perpetualCreations/gruvbox-sphinx/releases/" target="_blank">Software Download</a>
+                            </div>
+                        </div>
+                        <hr>
                     </div>
-                    <hr>
-                    <button class="collapsible">Project Notes</button>
-                    <div class="content">
-                        <p>This was written in the 2 hours I had nothing to do before an online conference. I have no plans to support this project, and I have no idea why anyone would use it.</p>
-                        <p>That said, feel free to mess around with it anyways.</p>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <h3>deargodpleaseno</h3>
+                        <p>CLI tool for automatically deleting temporary files on an Apache server.</p>
+                        <hr>
+                        <button class="collapsible">Project Status</button>
+                        <div class="content">
+                            <p>Project was completed and released.</p>
+                            <p>See Project Contents for documentation and product.</p>
+                        </div>
+                        <hr>
+                        <button class="collapsible">Project Contents</button>
+                        <div class="content">
+                            <p>Project software is available on Github, please see documentation for more details on usage and installation. Access these pages below.</p>
+                            <div class="button-container">
+                                <a rel="noreferrer" class="button" href="https://github.com/perpetualCreations/deargodpleaseno" target="_blank">Github</a>
+                                <a class="button" href="/projects/dgpn/docs/index.html">Documentation</a>
+                                <a rel="noreferrer" class="button" href="https://github.com/perpetualCreations/deargodpleaseno/releases/" target="_blank">Software Download</a>
+                            </div>
+                        </div>
+                        <hr>
                     </div>
-                    <hr>
-                    <button class="collapsible">Project Contents</button>
-                    <div class="content">
-                        <p>Project software is available on Github. Access the repository and release below.</p>
-                        <a rel="noreferrer" class="button" href="https://github.com/perpetualCreations/OP3DT" target="_blank" style="margin-top:10px">Github</a>
-                        <a rel="noreferrer" class="button" href="https://github.com/perpetualCreations/OP3DT/releases/tag/v1.0" target="_blank" style="margin-top:10px; margin-bottom: 10px;">Software Download</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <div class="card">
+                        <img src="/projects/abl/icon-upscaled.png" alt="ABL Icon" class="project-icons">
+                        <h3>ABL</h3>
+                        <h4>AnalyticalBlackLight</h4>
+                        <p>Collects Google search interest on defined keywords using pytrends, and exports either a CSV or graph image file.</p>
+                        <hr>
+                        <button class="collapsible">Project Status</button>
+                        <div class="content">
+                            <p>Project was completed and released.</p> 
+                            <p>See Project Contents for documentation and product.</p>
+                        </div>
+                        <hr>
+                        <button class="collapsible">Project Notes</button>
+                        <div class="content">
+                            <p>This was originally made humourously to try to track students looking up test answers during virtual testing, with questionable results.</p>
+                        </div>
+                        <hr>
+                        <button class="collapsible">Project Contents</button>
+                        <div class="content">
+                            <p>Run using command line or through the GUI wrapper. Project software is available on Github, please see documentation for more details on usage.</p>
+                            <div class="button-container">
+                                <a rel="noreferrer" class="button" href="https://github.com/perpetualCreations/AnalyticalBlackLight/" target="_blank" referrerpolicy="noreferrer">Github</a>
+                                <a class="button" href="/projects/abl/docs.html">Documentation</a>
+                                <a rel="noreferrer" class="button" href="https://github.com/perpetualCreations/AnalyticalBlackLight/releases/" target="_blank" referrerpolicy="noreferrer">Software Download</a>
+                            </div>
+                        </div>
+                        <hr>
                     </div>
-                    <hr>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <img src="/projects/op3dt/op3dt-icon.png" alt="OP3DT Icon" class="project-icons">
+                        <h3>OP3DT</h3>
+                        <h4>Offline Python 3 Documentation Tool</h4>
+                        <p>Automatically downloads and updates offline documentation for Python 3 via Requests.</p>
+                        <hr>
+                        <button class="collapsible">Project Status</button>
+                        <div class="content">
+                            <p>Project was completed and released. </p>
+                            <p>See Project Contents for documentation and product.</p>
+                        </div>
+                        <hr>
+                        <button class="collapsible">Project Notes</button>
+                        <div class="content">
+                            <p>This was written in the 2 hours I had nothing to do before an online conference. I have no plans to support this project, and I have no idea why anyone would use it.</p>
+                            <p>That said, feel free to mess around with it anyways.</p>
+                        </div>
+                        <hr>
+                        <button class="collapsible">Project Contents</button>
+                        <div class="content">
+                            <p>Project software is available on Github. Access the repository and release below.</p>
+                            <div class="button-container">
+                                <a rel="noreferrer" class="button" href="https://github.com/perpetualCreations/OP3DT" target="_blank" referrerpolicy="noreferrer">Github</a>
+                                <a rel="noreferrer" class="button" href="https://github.com/perpetualCreations/OP3DT/releases/" target="_blank" referrerpolicy="noreferrer">Software Download</a>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
                 </div>
             </div>
         </div>
         <!-- Hey tired, depressed web dev! (future me), if you're looking for a bunch of commented out markup, it was removed. Look through Git VCS before commit dce8be5, on the old repo. Best of luck! -->
         <p class="footer-text" id="year-footer-text"></p>
-        <p class="footer-text">3 abandoned projects hidden</p>
+        <p class="footer-text">5 abandoned projects hidden</p>
         <script src="/js/collapse.min.js"></script>
     </body>
 </html>

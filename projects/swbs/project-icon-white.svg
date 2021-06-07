@@ -5,9 +5,9 @@
     xmlns:xlink="http://www.w3.org/1999/xlink"
     xmlns:krita="http://krita.org/namespaces/svg/krita"
     xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-    width="245.76pt"
-    height="245.76pt"
-    viewBox="0 0 245.76 245.76">
+    width="164.88pt"
+    height="52.32pt"
+    viewBox="0 0 164.88 52.32">
 <defs/>
-<path id="shape0" transform="translate(41.0999987180242, 126.493462508066)" fill="none" stroke="#ffffff" stroke-width="1.2" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 0L144.034 0"/><rect id="shape1" transform="translate(185.460001281976, 116.893462508066)" fill="none" stroke="#ffffff" stroke-width="1.2" stroke-linecap="square" stroke-linejoin="bevel" width="19.2" height="19.2"/><path id="shape2" transform="translate(41.0999987180242, 97.3440276008205)" fill="none" stroke="#ffffff" stroke-width="1.2" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 29.1494C42.7319 -66.2453 97.2357 110.079 142.392 29.1494"/>
+<path id="shape0" transform="matrix(0.999999992737399 0 0 1.00000002818461 0.721768528835865 29.7260119222917)" fill="none" stroke="#ebdbb2" stroke-width="1.2" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 0L144.034 0"/><rect id="shape1" transform="matrix(0.999999992737399 0 0 1.00000002818461 145.081770044359 20.1260116517194)" fill="none" stroke="#ebdbb2" stroke-width="1.2" stroke-linecap="square" stroke-linejoin="bevel" width="19.2" height="19.2"/><path id="shape2" transform="matrix(0.999999992737399 0 0 1.00000002818461 0.840000013889143 0.388293484099169)" fill="none" stroke="#ebdbb2" stroke-width="1.2" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M0 29.0867C42.7319 -66.308 97.4368 110.505 142.593 29.5754"/>
 </svg>

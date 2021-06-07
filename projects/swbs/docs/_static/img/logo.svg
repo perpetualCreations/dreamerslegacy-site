@@ -1,6 +1,4 @@
 <svg width="121" height="121" viewBox="0 0 121 121" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<title>Vector</title>
-<desc>Created using Figma</desc>
 <g id="Canvas" transform="translate(210 4317)">
 <g id="Vector">
 <mask id="mask0_outline_ins">
@@ -9,7 +7,7 @@
 <use xlink:href="#path2_fill" fill="white" transform="translate(-209.549 -4316.67)"/>
 </mask>
 <g mask="url(#mask0_outline_ins)">
-<use xlink:href="#path3_stroke_2x" transform="translate(-209.549 -4316.67)" fill="#2D2D2D"/>
+<use xlink:href="#path3_stroke_2x" transform="translate(-209.549 -4316.67)" fill="#ebdbb2"/>
 </g>
 </g>
 </g>

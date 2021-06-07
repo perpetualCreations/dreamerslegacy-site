@@ -7,7 +7,6 @@ A merger of the original SCHEMA and NEWLINE stylesheets.
 /* @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&display=swap');
 /* main */
 :root { 
     --body-background-color: #282828;
@@ -20,11 +19,20 @@ A merger of the original SCHEMA and NEWLINE stylesheets.
     --paragraph-color: #d5c4a1;
     --outline-color: var(--header-color);
     --code-background-color: var(--element-color);
+    --bg0_h: #1d2021;
+    --fg0: #fbf1c7;
+    --fg4: #a89984;
+    --red: #fb4934;
+    --orange: #fe8019;
+    --yellow: #fabd2f;
+    --aqua: #8ec07c;
+    --blue: #83a598;
+    --purple: #d3869b;
 }
 html {
     scroll-behavior: smooth !important;
     scrollbar-width: thin;
-    scrollbar-color: var(--element-highlight-color) #1d2021;
+    scrollbar-color: var(--element-highlight-color) var(--bg0_h);
 }
 body {
     font-family: 'Inconsolata', monospace;
@@ -32,7 +40,7 @@ body {
     overflow-y: scroll;
 }
 ::-webkit-scrollbar {
-    background-color: #1d2021;
+    background-color: var(--bg0_h);
     max-width: 0.75em;
     max-height: 0.75em;
 }
@@ -46,7 +54,7 @@ body {
     background-color: var(--element-hover-color);
 }
 .schema {
-    padding: 40px;
+    padding: 2.5%;
     margin-left: 2%;
     margin-right: 2%;
     margin-top: 1%;
@@ -76,29 +84,27 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Open Sans', sans-serif;
     color: var(--header-color);
 }
-h1 {
-    text-align: left;
-    margin-left: 5px;
-}
-h3 {
-    margin-top: 40px;
-}
 p, a, li, i, b {
     color: var(--paragraph-color);
 }
+input, textarea {
+    color: var(--paragraph-color);
+    background-color: var(--element-color);
+    font-family: 'Inconsolata', monospace;
+    border: 0.05em solid var(--outline-color);
+}
 .hint {
-    font-size: 0.7rem;
-    color: #a89984;
+    font-size: 0.7em;
+    color: var(--fg4);
 }
 .button, button {
     border: none;
     color: var(--paragraph-color);
     background-color: var(--element-color);
-    padding: 15px 36px;
+    padding: 1em 1.5em;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 15px;
     width: auto;
     height: auto;
     font-family: 'Inconsolata', monospace;
@@ -154,20 +160,34 @@ for my personal wellbeing, please never remove it
 */
 /* decorators */
 .deco-vertical {
-    border-left: 5px solid;
+    border-left: 0.5em solid;
     height: 100%;
 }
 .deco-vertical-flex {
     flex: 1%;
 }
 .deco-red {
-    border-color: #fb4934;
+    border-color: var(--red);
 }
 .deco-orange {
-    border-color: #fe8019;
+    border-color: var(--orange);
 }
 .deco-yellow {
-    border-color: #fabd2f;
+    border-color: var(--yellow);
+}
+.deco-white {
+    border-color: var(--fg0);
+}
+.deco-purple {
+    border-color: var(--purple);
+}
+.deco-blue {
+    border-color: var(--blue);
+}
+.deco-horizontal {
+    border-top: 0.25em solid;
+    border-bottom: 0.25em solid;
+    width: 100%;
 }
 /* topnav */
 .topnav {
@@ -175,21 +195,20 @@ for my personal wellbeing, please never remove it
     margin-right: 2%;
     background-color: var(--element-color);
     overflow: hidden;
-    padding-left: 50px;
+    padding-left: 1.5em;
 }
 .topnav a {
     float: left;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
 }
 .topnav a:hover {
-    background-color: #8ec07c;
-    color: #3c3836;
+    background-color: var(--aqua);
+    color: var(--background-element-color);
 }
 .topnav a:active {
-    background-color: #83a598;
+    background-color: var(--blue);
 }
 /* collapsibles */
 .collapsible {
@@ -224,7 +243,7 @@ for my personal wellbeing, please never remove it
 }
 /* graphical formats */
 .card {
-    padding: 30px;
+    padding: 1.75em;
     margin-top: 1.5%;
     background-color: var(--background-element-color);
 }
@@ -248,6 +267,7 @@ for my personal wellbeing, please never remove it
 }
 .message-box {
     border: 0.1rem solid var(--outline-color);
+    background-color: var(--background-element-color);
     padding-left: 30%;
     padding-right: 30%;
     padding-top: 1%;
@@ -260,10 +280,24 @@ for my personal wellbeing, please never remove it
     padding-top: 5%;
     padding-bottom: 5%;
 }
+.button-container a {
+    margin-bottom: 1em;
+}
 /* icons */
 .project-icons {
     width: 64px;
     height: 64px;
+}
+.svg-project-icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+.svg-project-icon-container img {
+    width: 50%;
 }
 .avatar {
     width: 100px;
@@ -289,33 +323,27 @@ for my personal wellbeing, please never remove it
 pre, code, .code-quote {
     background-color: var(--code-background-color);
     color: var(--paragraph-color);
-    padding-left: 5px;
-    padding-right: 5px;
-}
-code, .code-quote {
-    padding-bottom: 1px;
-    border-radius: 4px;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
 }
 pre {
     background-color: var(--code-background-color);
     white-space: pre;
     overflow: auto;
-    padding-top: 10px;
-    padding-bottom: 5px;
-    border-radius: 5px;
+    padding: 1em;
+    padding-top: 2em;
     min-width: 0;
 }
-
 /* alerts */
 .alert {
     padding: 20px;
-    background-color: #536d8a; 
+    background-color: var(--blue);
     color: var(--outline-color);
     margin-bottom: 15px;
 }
 .closebtn {
     margin-left: 15px;
-    color: white;
+    color: var(--outline-color);
     font-weight: bold;
     float: right;
     font-size: 22px;
