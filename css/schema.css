@@ -115,6 +115,7 @@ input, textarea {
 .disabled {
     opacity: 0.6;
     cursor: not-allowed;
+    pointer-events: none;
 }
 /* 
 positioning formats 
@@ -280,7 +281,7 @@ for my personal wellbeing, please never remove it
     padding-top: 5%;
     padding-bottom: 5%;
 }
-.button-container a {
+.button-container a button {
     margin-bottom: 1em;
 }
 /* icons */
