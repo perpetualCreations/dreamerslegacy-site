@@ -5,7 +5,7 @@ function parseMarkdown(data, contentSource) {
     markdownParsed = "Failed to load Markdown document.";
   }
   else {
-    markdownParsed = data;
+    markdownParsed = marked(data);
   }
 
   let htmlTemplate = `
