@@ -1,5 +1,5 @@
 # ARIA
-## Revision 1.0, April 19th, 2021
+## Revision 1.2, May 23rd, 2021
 Request-oriented API language used by BRIAH-layer nodes.
 
 [Back to Index](index.rst)
@@ -13,14 +13,12 @@ as they are not designed beyond the scope of their individual projects.
 ## 1.1, Abstract
 ARIA is designed specifically for BRIAH-layer and applicable ASIYAH-layer applications. 
 
-It contains basic essentials of the ARIA protocol, and the API language for information exchange, 
+This document contains basic essentials of the ARIA protocol, and the API language for information exchange, 
 with flexibility for specialized commands and arguments.
 
 ## 2.0, Protocol
-ARIA is modeled after a server and client relationship.
-Unlike a traditional server/client paradigm, the event structure is oriented where the server usually 
-dispatches API commands to the client.
-This is reverse for ASIYAH-layer services that have their own specification (that is yet to be written).
+ARIA is modeled after a server and client relationship, with one host serving as a server and another as a client.
+Unlike a traditional server/client paradigm, the event structure is oriented where the server usually dispatches API commands to the client.
 
 For all exchanges, when the server sends a command, the client replies with either "OK" or "KEYERROR"
 where the first is sent upon a successful request, and the second when the command is unrecognized.
@@ -42,7 +40,10 @@ Not all clients will respond to "REQUEST UUID" and some will fail completely.
 Servers may dispatch a HELP command after "REQUEST TYPE" and "REQUEST UUID" to index valid commands ahead of time.
 Commands before being sent may be reviewed, to see if they exist within the list of valid commands.
 
-## 2.2, API Reference
+## 2.2, Modified Protocol
+Implementations are not required to make use of all protocol components, with the exception of the "REQUEST TYPE" command, which is standard and required for all hosts.
+
+## 2.3, API Reference
 As long as the client supports it, commands are extendable. Custom commands defined
 in the client's command lookup dictionary can be interpreted without issue,
 when received from the server. 
@@ -58,12 +59,12 @@ Has children,
 Use in format,
 REQUEST (CHILD ARGUMENT)
 ### OS
-Optional, not supported by all clients.
+Optional, not supported by all hosts.
 Has children,
-- STOP (Stops client application)
-- SHUTDOWN (Shuts down client operating system)
-- REBOOT (Reboots client operating system)
-- UPDATE (Updates client operating system
+- STOP (Stops host application)
+- SHUTDOWN (Shuts down host operating system)
+- REBOOT (Reboots host operating system)
+- UPDATE (Updates host operating system
 
 Use in format,
 OS (CHILD ARGUMENT)
@@ -74,6 +75,7 @@ Aborts connection, server client manager disconnects and the client is left to s
 It's recommended to delay retries by an exponentially growing integer, per each retry attempt, to prevent spam and
 resulting resource drainage.
 ### HELP
+Optional, not supported by all hosts.
 Reserved by client applications. Sends ALL valid commands in the lookup dictionary.
 
 Excerpt from KINETIC source code,
@@ -83,3 +85,8 @@ The transmission is initiated with the length of the command list (counting from
 For the controller to receive the command list, it should first receive the "OK" acknowledgement, and then the
 second TX containing length, and start a for loop lasting the length of command list.
 ```
+### UPDATE
+Optional, not supported by all hosts.
+Signals to change from normal request/response to request-less event-based one-way transmission.
+
+Both hosts must be pre-programmed to have a contingency for UPDATE command support.

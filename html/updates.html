@@ -9,16 +9,18 @@
         <link rel="preload" href="/css/schema.min.css" as="style">
         <link rel="preload" href="/js/auto-fill-year-func.min.js" as="script">
         <link rel="preload" href="/resources/logo%20orange.svg" as="image">
+        <link rel="preload" href="/resources/bgs/river.webp" as="image">
         <link rel="icon" href="/resources/favicon.ico">
         <link rel="stylesheet" type="text/css" href="/css/schema.min.css">
     </head>
     <script src="/js/auto-fill-year-func.min.js"></script>
     <body onload="autoFillYear();" class="fade-in">
+        <div class="background" style="background-image: url('/resources/bgs/river.webp')"></div>
         <!-- Mr. Rival, surely you know russian roulette is safe 5 out of 6 times? -->
         <div class="topnav">
             <a href="/index.html#top">Back To Portfolio</a>
         </div>
-        <div class="schema">
+        <div class="schema schema-semi-transparent">
             <div class="row" style="align-items: center;">
                 <div class="column" style="flex: 10%;">
                     <img src="/resources/logo%20orange.svg" alt="dreamerslegacy.xyz logo" style="width: auto; height: auto;">
@@ -54,7 +56,53 @@
                             <h2>Feed</h2>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card card-semi-transparent">
+                        <h2>Update 1.16a</h2>
+                        <p>Project Update + Site Update, July 1st, 2021</p>
+                        <h3>ORWELLIAN</h3>
+                        <ul>
+                            <li>Added to project listing.</li>
+                            <li>Started development June 23rd, 2021.</li>
+                        </ul>
+                        <h3>ARBITER</h3>
+                        <p>(Since update 1.16...)</p>
+                        <ul>
+                            <li>Commit 634cdaa, partial front-end implementation.</li>
+                            <li>Commit b86c441, more web front-end implementation.</li>
+                            <li>Commit d6308ed, formatting, fixes, README change.</li>
+                            <li>Commit 8801514, changes to support directives table.</li>
+                            <li>Commit d798f56, removed unused documentation build scripts, fixed directives edit.</li>
+                            <li>Commit 913fc91, implemeneted database edit mod checks, deleted CLI.</li>
+                            <li>Commit cc48c95, re-implemeneted CLI, Python depedency and PIP changes.</li>
+                            <li>Commit 38b9bb9, UI and assorted back-end changes.</li>
+                        </ul>
+                        <h3>Raspbot</h3>
+                        <p>(Since update 1.16...)</p>
+                        <ul>
+                            <li>Transcoded MKV video demos to MP4. Demos now will play on Firefox, and should load slightly faster.</li>
+                        </ul>
+                        <h3>Sketchbook</h3>
+                        <p>Added sketchbook content (<i>Teleporter</i>, <i>Red</i>, <i>River</i>).</p>
+                        <h3>Site Updates</h3>
+                        <ul>
+                            <li>Silent fixes to error and sketchbook page JavaScript.</li>
+                            <li>Merged gallery.css with SCHEMA.css.</li>
+                            <li>Added and implemented all colors from Gruvbox's color scheme to SCHEMA.css.</li>
+                            <li>Added privacy policy/terms and conditions page, linked to index.</li>
+                            <li>CSS class <code>.disabled</code> will now longer register click events.</li>
+                            <li>CSS class <code>.button-container</code> will also affect button tags.</li>
+                            <li>Updated gallery CSS, now uses proper color scheme.</li>
+                            <li>Updated calendar-dark.css patching for Github Calendar, to render months in proper font color, and no longer display rounded edges.</li>
+                            <li>Fixed <code>.button-container</code> to work properly inside collapsibles.</li>
+                            <li>Implemented CSS for tables in SCHEMA.css.</li>
+                            <li>CSS class <code>.fade-in</code> has been extended to last 1.5 seconds, instead of 1 second. <span class="hint">(Hides flickering of elements more effectively when loading)</span></li>
+                            <li>Implemented tuple root variables to SCHEMA.css for certain background colors, intended for use in RGBA colors.</li>
+                            <li>Implemented CSS classes <code>.schema-semi-transparent</code> and <code>.card-semi-transparent</code>.</li>
+                            <li>Revised CSS class <code>.background</code>.</li>
+                            <li>Implemented background and semi-transparency to updates page.</li>
+                        </ul>
+                    </div>
+                    <div class="card card-semi-transparent">
                         <h2>Update 1.16</h2>
                         <p>Project Update + Site Update, June 7th, 2021</p>
                         <h3>All (*) Projects</h3>
@@ -109,7 +157,7 @@
                             <li>Changed documentation theme and build script, now using custom gruvbox-sphinx HTML theme.</li>
                         </ul>
                         <h3>Sketchbook</h3>
-                        <p>Added sketchbook content.</p>
+                        <p>Added sketchbook content (<i>Nun</i>).</p>
                         <h3>Site Updates</h3>
                         <ul>
                             <li>Moved to using a single error page, with JavaScript to get status code and to display error information.</li>
@@ -123,13 +171,13 @@
                             <li>Removed two dead and abandoned projects.</li>
                         </ul>
                     </div>
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Update 1.15a</h2>
                         <p>Project Update + Site Update, May 13th, 2021</p>
                         <h3>Sketchbook</h3>
                         <ul>
                             <li>Implemented Markdown to HTML conversion with <a href="https://github.com/markedjs/marked" target="_blank" referrerpolicy="noreferrer">Marked</a> and <a href="https://github.com/mozilla/nunjucks" target="_blank" referrerpolicy="noreferrer">Nunjucks</a>.</li>
-                            <li>Added sketchbook content.</li>
+                            <li>Added sketchbook content (<i>Just Numbers</i>, <i>Competitive Shenanigans</i>, <i>Tower</i>).</li>
                         </ul>
                         <h3>Site Updates</h3>
                         <ul>
@@ -139,7 +187,7 @@
                             <li>Minor stylesheet changes.</li>
                         </ul>
                     </div>
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Update 1.15</h2>
                         <p>Project Update + Site Update, May 12th, 2021</p>
                         <h3>All (*) Projects</h3>
@@ -159,7 +207,7 @@
                         </ul>
                         <p>Future updates will be list format when sections are multi-item.</p>
                     </div>
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Update 1.14f</h2>
                         <p>Project Update + Site Update, April 16th, 2021</p>
                         <h3>SWBS</h3>
@@ -173,7 +221,7 @@
                         <p>The "random flavortext" JS script has been updated with more excerpts.</p>
                         <p>Added sketchbook page.</p>
                     </div>
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Update 1.14e</h2>
                         <p>Project Update + Site Update, April 13th, 2021</p>
                         <h3>SWBS</h3>
@@ -185,7 +233,7 @@
                         <p>Left a TODO notice in stylesheets to standardize values into variables, to ease maintainance.</p>
                         <p>Main page now has a fade-in animation (with support for ease-up, but I can already hear the purists scream something about a bloated web overloaded with transitions).</p>
                     </div>
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Update 1.14d</h2>
                         <p>Project Update, March 21st, 2021</p>
                         <h3>SWBS</h3>
@@ -193,7 +241,7 @@
                         <h3>Bandage</h3>
                         <p>Fixed issue with documentation.</p>
                     </div>
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Update 1.14c</h2>
                         <p>Project Update, March 21st, 2021</p>
                         <h3>Raspbot</h3>
@@ -204,7 +252,7 @@
                         <h3>Site Updates</h3>
                         <p>General project documentation updates, for typos and minor revisions. Revised icons for several projects.</p>
                     </div>
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Update 1.14b</h2>
                         <p>Project Update, March 8th, 2021</p>
                         <h3>Raspbot</h3>
@@ -214,7 +262,7 @@
                         <h3>Site Updates</h3>
                         <p>Added details regarding the site personal package archive (PPA).</p>
                     </div>
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Update 1.14a</h2>
                         <p>Project Update, March 7th, 2021</p>
                         <h3>Raspbot</h3>
@@ -224,7 +272,7 @@
                         <h3>Site Updates</h3>
                         <p>Removed one orphan project with no links, removed unused avatars.</p>
                     </div>
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Update 1.14</h2>
                         <p>Project Update + Site Update, March 1st, 2021</p>
                         <h3>Raspbot</h3>
@@ -240,7 +288,7 @@
                         <p>Obviously, with this merger, the page length has been drastically increased by the updates page being integrated into the main document. Hopefully lazy loading with a jQuery library will minimize request sizes.</p>
                         <p>Site has also received a new insignia. After 1.14 will come more performance improvements, updating the Raspbot gallery page, and cleaning up unused assets.</p>
                     </div>
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Update 1.13</h2>
                         <p>Project Update + Site Update, February 5th, 2021</p>
                         <h3>Raspbot</h3>
@@ -251,7 +299,7 @@
                         <p><a rel="noreferrer" href="https://github.com/Bloggify/github-calendar/issues/133" target="_blank">Github Calendar is unable to load commit history</a> due to yet another UI update that broke a parser upstream. Sources for stylesheets and JS have been changed back to unpkg.com.</p>
                         <p>Changed about page, updated documentation for accessibility, updated Raspbot gallery and cleaned up broken and unused preloads.</p>
                     </div>
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Update 1.12</h2>
                         <p>Project Update + Site Update, January 21st, 2021</p>
                         <h3>Raspbot</h3>
@@ -264,7 +312,7 @@
                         <p>Updated fonts for SCHEMA documentation, to be less of an eye-sore. More display changes to come, drawing inspiration from the fictional datasheets of the game Shenzhen I/O.</p>
                         <p>This update also included other misc. minor changes.</p>
                     </div>
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Update 1.11h</h2>
                         <p>Project Update, January 11th, 2021</p>
                         <h3>Raspbot</h3>
@@ -274,7 +322,7 @@
                         <h3>Lexicon Cognito</h3>
                         <p>Divided upload process across multiple pages, for users to select authors, publishers, tags, and distributors. Writing pages and logic for endpoints.</p>
                     </div>
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Update 1.11g</h2>
                         <p>Project Update, January 5th, 2021</p>
                         <h3>Raspbot</h3>
@@ -284,7 +332,7 @@
                         <h3>Lexicon Cognito</h3>
                         <p>Currently implementing uploads, tweaked search results page slightly.</p>
                     </div>
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Update 1.11f</h2>
                         <p>Project Update, January 4th, 2021</p>
                         <h3>Raspbot</h3>
@@ -292,7 +340,7 @@
                         <p>Currently writing a test script for motor control.</p>
                         <p>Project gallery has been updated, visit homepage, under Raspbot see Project Contents and below Gallery.</p>
                     </div>
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Update 1.11e</h2>
                         <p>Project Update, January 4th, 2021</p>
                         <h3>Raspbot</h3>
@@ -301,7 +349,7 @@
                         <h3>Lexicon Cognito</h3>
                         <p>Reworked search engine, search page now renders with fields automatically filled in, ranked in relevance.</p>
                     </div>
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Update 1.11d</h2>
                         <p>Project Update, January 3rd, 2021</p>
                         <p>Happy New Year, X.</p>
@@ -310,7 +358,7 @@
                         <h3>Lexicon Cognito</h3>
                         <p>Planned content viewer, building search template and completed URL building for search pages.</p>
                     </div>
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Update 1.11c</h2>
                         <p>Project Update, December 30th, 2020</p>
                         <h3>Raspbot</h3>
@@ -320,7 +368,7 @@
                         <h3>Lexicon Cognito</h3>
                         <p>Writing search UI elements, implemented database management.</p>
                     </div>
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Update 1.11b</h2>
                         <p>Project Update + Site Update, December 29th, 2020</p>
                         <h3>Raspbot</h3>
@@ -331,7 +379,7 @@
                         <p>Wrote JavaScript to automatically change years for footer text, integrated into most HTML pages.</p>
                         <p>Removed preloads for unused resources that no longer exist (yikes, forgot about that).</p>
                     </div>
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Update 1.11a</h2>
                         <p>Project Update + Site Update, December 28th, 2020</p>
                         <h3>Raspbot</h3>
@@ -344,7 +392,7 @@
                         <p>Instead of using free-floating blobs of text, project listings now make use of collapsibles for project status, project notes, and project contents. This organizes information and makes it less intimidating and laborous to read. </p>
                         <p>Am procrastinating on integrating error pages with web server configurations. No ETC available.</p>
                     </div>
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Update 1.11</h2>
                         <p>Project Update + Site Update, December 21st, 2020</p>
                         <h3>Raspbot</h3>
@@ -358,7 +406,7 @@
                         <p>Implementation with server configurations will follow soon.</p>
                         <p>For the distribution of Debian packages from project releases, the site has a personal package archive (PPA) added, allowing users to install, update, and remove releases with apt.</p>
                     </div>
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Update 1.10b</h2>
                         <p>Project Update + Site Update, December 14th, 2020</p>
                         <h3>Raspbot</h3>
@@ -373,7 +421,7 @@
                         <h3>Site Updates</h3>
                         <p>Updated about page.</p>
                     </div>
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Update 1.10a</h2>
                         <p>Project Update + Site Update, December 3rd, 2020</p>
                         <h3>Raspbot</h3>
@@ -382,7 +430,7 @@
                         <p>Site meta tags across 20 pages have been changed. Documentation and other pages have been reviewed and revised, including a few typo fixes.</p>
                         <p>The Github source repository is going public again soon, the original repository is now designated perpetualCreations/dreamerslegacy-site-sensitive. This brings an end to the several-year-old repository, surprisingly with only 60 or so commits. The new source repository no longer contains any sensitive commits.</p>
                     </div>
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Update 1.10</h2>
                         <p>Project Update + Site Update, November 22nd, 2020</p>
                         <h3>Raspbot</h3>
@@ -409,7 +457,7 @@
                         <p>Inbetween Update 1.9 to Update 1.10, the SCHEMA project has been added to the projects list.</p>
                         <p>The Content Security Policy has been fixed to work correctly.</p>
                     </div>
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Update 1.9</h2>
                         <p>Project Update + Site Update, November 4th, 2020</p>
                         <h3>Raspbot</h3>
@@ -422,7 +470,7 @@
                         <p>The Github contributions calendar works again, the issue according to more knowledgable maintainers was Github updating how colors are rendered, and also API parsing.</p>
                         <p>Stylesheets have received updates, for supporting code quotes and badges. These features often used in project documentation, written in Markdown, and now can properly be transferred. Font changes have been introduced to SCHEMA.</p>
                     </div>        
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Update 1.8a</h2>
                         <p>Project Update + Site Update, November 1st, 2020</p>
                         <h3>Raspbot</h3>
@@ -433,7 +481,7 @@
                         <p>Semi-major rework. The main and SCHEMA (the minimal, monochrome style used for project docs) stylesheets now support project icons and badges globally. ABL and SWBS have received project icons, and ABL has its own documentation now. Raspbot received updates to its documentation and gallery, with more media coming.</p>
                         <p>Old content has been disallowed from being indexed, and page content that was originally commented out, removed.</p>
                     </div>
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Update 1.8</h2>
                         <p>Project Update + Site Update, October 29th, 2020</p>
                         <h3>Raspbot</h3>
@@ -458,7 +506,7 @@
                         <p>The widget used for showing my Github contribution statistics as detailed <a rel="noreferrer" href="https://github.com/Bloggify/github-calendar/issues/120" target="_blank">in this Github issue</a> is in need of a fix. For now, it will remain a grid of black boxes. It seems the front-end has some issues displaying colors, the back-end works just fine.</p>
                         <p>Updtes also will now have a header title detailing each section, and paragraph text being the main content.</p>
                     </div>
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Update 1.7b</h2>
                         <p>Project Update + Site Update, October 11th, 2020</p>
                         <p>Raspbot components finished printing, currently being assembled, quadrants 1 and 4 have already been assembled to the base, with the Arduino Uno mounted.</p>
@@ -471,34 +519,34 @@
                         <h3>Addendum 2:</h3>
                         <p>Added exceptions to header rules, font and styling are no longer blocked. Site is rendering properly again.</p>
                     </div>
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Update 1.7a</h2>
                         <p>Project Update + Site Update, October 6th, 2020</p>
                         <p>Repeated BLTouch failures, Raspbot chassis still in production.</p>
                         <p>Site now has a new icon, it will also show up in various projects, in schematics and documentation.</p>
                         <img src="/resources/thegridlogo.webp" alt="Icon image for dreamerslegacy.xyz" style="height: 10%; width: 10%;">
                     </div>
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Update 1.7</h2>
                         <p>Project Update + Site Update, October 4th, 2020</p>
                         <p>Raspbot chassis quadrants 1 and 4 are being reprinted due to structural failure. Quadrant 1 has already finished printing.</p>
                         <p>Raspbot documentation has been updated, with a new custom CSS theme, Schema. Graphics and transitions will be applied soon. Elsewhere, improvements to site CSS have been made as well, removing repeating statements, adding preloading and other optimizations, and condensing everything into the main stylesheet. This should improve the rate of upkeep and a slight performance boost.</p>
                         <p>I think it's noteworthy that it's almost been a year since Raspbot has been started, yet it's still only 3/4ths of the way done. That says a lot about my ability to develop things, right? Let's hope the next project goes as fast as possible.</p>
                     </div>
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Update 1.6c</h2>
                         <p>Project Update + Site Update, September 28th, 2020</p>
                         <p>All parts printed, and cleaned, for Raspbot. Assembly in progress!</p>
                         <p>Depthseeker is past half-way done, and added AnalyticalBlackLight, a new, finished project has been added as well, that was worked on while I waited for new filament to arrive. Both projects are now visible on the project listings.</p>
                     </div>
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Update 1.6b</h2>
                         <p>Project Update + Site Update, September 10th, 2020</p>
                         <p>Raspbot has 3 remaining components to print. Software development for Raspbot has been halted, until hardware assembly is complete.</p>
                         <p>InternetOfS*** is waiting for sample data, to test its new modularized CSV handling.</p>
                         <p>Two projects have been hidden, one renamed to Depthseeker, with any reference to the old name replaced.</p>
                     </div>
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Update 1.6a</h2>
                         <p>Project Update + Site Update, September 7th, 2020</p>
                         <p>The last patchwork for the comms module marked the end of cleanup for Raspbot RCA, socket communications now work correctly as intended. With this, new modules are now being added, with the recent introduction of the camera feed using <a rel="noreferrer" href="https://github.com/jeffbase/imagezmq" target='_blank'>ImageZMQ.</a></p>
@@ -506,14 +554,14 @@
                         <p>InternetOfS*** and Depthseeker will enter development soon, InternetOfS*** has a commit in progress currently, and will receive another soon for modularization.</p>
                         <p>Meanwhile, the site is receiving updates to project documentation, which will also roll out soon.</p>
                     </div>
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Update 1.6</h2>
                         <p>Project Update + Site Update, August 24th, 2020</p>
                         <p>Raspbot RCA modularization has been complete, re-integrated, and bugfixes applied. </p>
                         <p>BLTouch module arrived, it took two for the module to get here, and another week for the Pin 27 display adapter to arrive. It has been installed, and today should be the end of calibration, and soon it'll start printing components for Raspbot.</p>
                         <p>Meanwhile, Raspbot RCA's GUI and camera view will be in-progress, and since I have been able to safely go outdoors, I'll be continuing the InternetOfS*** project.</p>
                     </div>
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Update 1.5a</h2>
                         <p>Project Update, August 2nd, 2020</p>
                         <p>Update 1.4 was wrong, Raspbot RCA modularization (breaking up the main.py file into smaller modules) was never started, and was queued instead. Currently working on it.</p>
@@ -521,18 +569,18 @@
                         <p>Please note that parts have become rather complex, and the main chassis is now printed in 4 pieces (to fit in the print volume of the Ender 3X). The top pieces, quadrants 2 and 3, need to be printed vertically to even fit on the bed.</p>
                         <p>Depthseeker is on queue.</p>
                     </div>
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Update 1.5</h2>
                         <p>Project Update + Site Update, July 28th, 2020</p>
                         <p>OP3DT completed, added new project Depthseeker, a set of scripts for the analysis of Apache web server access logs, with the intention of determining activity that appear to be malicious or concerning in any way.</p>
                     </div>
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Update 1.4a</h2>
                         <p>Project Update + Site Update, June 27th, 2020</p>
                         <p>InternetOfSh*t has received a project slot, along with OP3DT. Currently testing CSV analysis and producing sample data for InternetOfSh*t.</p>
                         <p>Raspbot received a new case design, and is being rebuilt with a viable PDU system.</p>
                     </div>    
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Update 1.4</h2>
                         <p>Project Update + Site Update, May 31st, 2020</p>
                         <p>Site has been updated and clutter removed, organizing the main.css file and removing duplicate/unused statements. More work is needed to clear out the rest of the pages, however it's a good start.</p>
@@ -540,14 +588,14 @@
                         <p>On the side while I worked on finding parts for Raspbot (I found the new motors I'll be using already), I've been making one of those "data modeling" tools, except instead of some serious name, and instead of invading people's privacy, it's named InternetOfS*** and it measures WiFi latency in relation with the number of WiFi network broadcasts, using WiGLE wardriving data and a small Python application that pings a device on a WiFi hotspot. I'll get a small release ready soon.</p>
                         <p>Raspbot's RCA is being reorganized, and dynamically configured. It's rather long to explain in a short update, there will be more details later. Watch the Github repository for future commits.</p>
                     </div>    
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Update 1.3</h2>
                         <p>Project Update + Site Update, May 10th, 2020</p>
                         <p>PIAI and Forester are suspended, and will not be worked on for a while. I have contacted academic instructors, and my assessment is that AquaSilva has no need to continue, and has officially concluded, hardware is currently being moved to long-term storage, and software work cleaned up. Future re-integration may follow, however with the current global situation and more important projects, it might come back further in the year, or possibly next year. Possibly never.</p>
                         <p>There are some things being salvaged out of AquaSilva however, the Raspbot RAK is being worked on, currently a working prototype has been assembled, and the control software for it is in development. Raspbot is going forward, with cleanups to its messy documentation and control application, and a full re-design. Multiple planned upgrades are cancelled, in favor of re-creating the entire bot from the ground up. Upgrade #1 is officially merging with the new base design. However some 3D printed pieces will be migrated and kept in their original state (side mounts and camera mount).</p>
                         <p>These will take time to come into effect, please standby.</p>
                     </div>
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Scramble Panic Disorientation, Everything is on Fire</h2>
                         <p>Project Update + Site Update, March 29th, 2020</p>
                         <p>Since the COVID-19 outbreak (huh it seems everyone is talking about it, gee wonder why) essentially every piece of organizing I did, every piece of scheduling, and every piece of planning I did with academics, were assimilated into nothingness by the outbreak. This makes me sad. Seriously though, that description isn't all that inaccurate, and I'm still in the process of figuring out what to do with myself with all of these sudden drastic changes.</p>
@@ -557,14 +605,14 @@
                         <p>CAD releases are halted for both projects until they are semi-final.</p>
                         <p>I'll end off this update by saying I have fixed a few typos and small issues (the last update was dated to January of 2019, oh how silly).</p>
                     </div>  
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Post-start Depression has Cleared!</h2>
                         <p>Project Update + Site Update, January 8th, 2020</p>
                         <p>After several months the site has received many changes, however most notably the start of multiple new projects, that this time have presented some results! As you may know, I am referencing to Raspbot and AquaSilva, the former scheduled for public release very soon, and Raspbot currently being updated, as it is integrated into AquaSilva.</p>
                         <p>Besides these updates there has been a shift to a new version control system. I've moved some things to GitHub, not just for easy rollbacks in case something gets messed up and I need to load a backup, or if I need to see an older version of a document, but also so there is an active record of development activity. This is especially helpful to show ongoing progress on projects, that can't have nightly builds every week (which is literally every project, no I'm not building an early-release every minor change).</p>
                         <p>RemotePotentia has been suspended for the moment as AquaSilva and Raspbot holds a higher importance, being academic projects I need to get done fairly soon. Forester may see a come back post-January. In preperation of course, for being the host of academic work I've been updating tags so this site shows up better on search engines.</p>
                     </div>   
-                    <div class="card">
+                    <div class="card card-semi-transparent">
                         <h2>Back to Square One.</h2>
                         <p>Projet Update + Site Update, November 14th, 2019</p>
                         <p>Site is now under a proper domain name, the old subdomain redirects to the current new site. Projects and the homepage have been merged, and instead of adding filtering to posts, the new focus will be changing the visuals to be less of a 1900s internet reference. (TL;DR let's make this website look decently modern). The old site is available at dreamerslegacy.xyz/old-archive/index.html with all the original files and content intact, although I see little reason to go back.</p>

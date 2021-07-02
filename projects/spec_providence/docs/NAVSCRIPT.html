@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#2D2D2D" />
   
   <title>SPECIFICATION PROVIDENCE :: NAVSCRIPT</title>
   
@@ -14,24 +14,23 @@
               href="genindex.html"/>
 
   <link rel="stylesheet" href="_static/css/insegel.css"/>
+  <link rel="stylesheet" href="_static/css/gruvbox.css" type="text/css" />
 
   <script type="text/javascript">
     var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:'',
-        VERSION:'',
-        LANGUAGE:'None',
-        COLLAPSE_INDEX:false,
-        FILE_SUFFIX:'.html',
-        HAS_SOURCE:  true,
+        URL_ROOT: '',
+        VERSION: '',
+        LANGUAGE: 'None',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE: true,
         SOURCELINK_SUFFIX: '.txt'
     };
   </script>
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-
-  <script src="https://email.tl.fortawesome.com/c/eJxNjUEOgyAQAF8jR7Kw6wIHDh7sP1Cw2mgxgmn6-3JsMqc5zEQfE8dkxOY1KKMUOI3ACFKRJpSW2AAp7ontYIaxI6i7XPJVwyeVfCQ550Os3jLrGSNOLgbdAy6s0PBk2TFNjEbsfq31LB0OnX407pJa5v2faRadwSW63mn5KuLyR9j2tgx3zecanl-55R_-jjPs"></script>
-
 </head>
 
 <body>
@@ -56,27 +55,27 @@
         </div>
         <div id="main-content">
           
-  <div class="section" id="navscript">
+  <section class="tex2jax_ignore mathjax_ignore" id="navscript">
 <h1>NAVSCRIPT<a class="headerlink" href="#navscript" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="revision-1-1-april-19th-2021">
+<section id="revision-1-1-april-19th-2021">
 <h2>Revision 1.1, April 19th, 2021<a class="headerlink" href="#revision-1-1-april-19th-2021" title="Permalink to this headline">¶</a></h2>
 <p>ARBITER/KINETIC scripting language, inheriting design from the original Raspbot RCA semantics.</p>
 <p><a class="reference internal" href="index.html"><span class="doc std std-doc">Back to Index</span></a></p>
-</div>
-<div class="section" id="motivation">
+</section>
+<section id="motivation">
 <h2>1.0, Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
 <p>ARBITER directives include a SCRIPT type, allowing end users to define a set of instructions
 to be executed autonomously.</p>
-</div>
-<div class="section" id="abstract">
+</section>
+<section id="abstract">
 <h2>1.1, Abstract<a class="headerlink" href="#abstract" title="Permalink to this headline">¶</a></h2>
 <p>This standard describes the syntax and commands available, that will be interpreted upon execution.</p>
 <p>Scripts are executed remotely, where an ARBITER server parses through a script, and then when
 applicable, forwards commands to the KINETIC agent through socket communications.</p>
 <p>NAVSCRIPT does not handle receiving data from the agent. Please use an application directive
 instead of a script to handle bi-directional communication for sensors, and other components.</p>
-</div>
-<div class="section" id="structure">
+</section>
+<section id="structure">
 <h2>2.0, Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h2>
 <p>The original Raspbot RCA and current implementation of NAVSCRIPT is similar to GCODE,
 where each line is an instruction, and had a parameter spaced after the initial command if
@@ -91,15 +90,15 @@ A
 (left of space character), when the KINETIC agent is listening.
 This behavior is only present in pre-defined commands, under API reference. In Rev. 1.1 there
 are none.</p>
-</div>
-<div class="section" id="api-reference">
+</section>
+<section id="api-reference">
 <h2>2.1, API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h2>
 <p>NAVSCRIPT inherits components from the ARIA specification, and the same property of extendibility.</p>
-<div class="section" id="id1">
+<section id="id1">
 <h3>-#-<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>Comment. Line is not executed, when present as the first three characters of the line.</p>
-</div>
-<div class="section" id="goto">
+</section>
+<section id="goto">
 <h3>GOTO<a class="headerlink" href="#goto" title="Permalink to this headline">¶</a></h3>
 <p>Jumps parser to a script line, specified with an integer parameter.
 Script lines are indexed from 0 instead of 1. When specifying the first line of a script, use 0, and
@@ -109,9 +108,9 @@ in the script.
 Not a valid command for a KINETIC agent to receive.</p>
 <p>Use in format,
 GOTO (LINE NUMBER)</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
         </div>
@@ -137,7 +136,6 @@ GOTO (LINE NUMBER)</p>
     <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="ARIA.html">ARIA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ARIA_FORESIGHT.html">ARIA - FORESIGHT MOD.</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">NAVSCRIPT</a></li>
 </ul>
 
@@ -145,8 +143,6 @@ GOTO (LINE NUMBER)</p>
 
 
         </div>
-
-        
 
       </div>
 
@@ -167,10 +163,12 @@ GOTO (LINE NUMBER)</p>
 
             
         </ul>
-        <div id="credit">
-            created with <a href="http://sphinx-doc.org/">Sphinx</a> and <a href="https://github.com/Autophagy/insegel">Insegel</a>
 
-        </div>
+        
+            <div id="copyright">
+                <p>&copy; 2021, perpetualCreations</p>
+            </div>
+        
     </div>
 
     <a id="menu-toggle" class="fa fa-bars" aria-hidden="true"></a>
